@@ -1,12 +1,13 @@
 const express = require('express')
 const cors = require('cors')
+require('dotenv').config()
 const router = require('./src/routes/routes.js')
 
 const app = express()
 
 app.use(cors())
 
-const PORT = 4321
+const PORT = process.env.PORT || 4321
 
 const server = app.listen(PORT, (err) => {
   if (err) {

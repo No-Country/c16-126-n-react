@@ -1,11 +1,20 @@
-import './App.css'
+import Footer from "./components/Footer/Footer"
+import LandingPage from "./components/LandingPage/LandingPage"
+import NavBar from "./components/NavBar/NavBar"
+import AppRouter from "./routers/AppRouter"
 
 function App() {
  
 
   return (
-    <section className='flex justify-center'>
-    <h1 className="text-yellow-200">Este es nuestro proyecto</h1>
+    <section>
+    <NavBar/>
+    <AppRouter>
+
+    <LandingPage/>
+
+    </AppRouter>
+    <Footer/>    
     </section>
   )
 }

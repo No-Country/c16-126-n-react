@@ -7,7 +7,7 @@ function App() {
  
 
   return (
-    <section>
+    <section className="flex flex-col min-h-screen">  
     <NavBar/>
     <AppRouter>
 

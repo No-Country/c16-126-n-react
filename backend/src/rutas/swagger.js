@@ -9,7 +9,7 @@ const opciones = {
       version: '1.0.0',
     },
   },
-  apis: ['./src/rutas/rutas.js', '.src/base/conexionDB.js'],
+  apis: ['./src/rutas/rutas.js', './src/base/conexionDB.js'],
 }
 
 const swaggerSpec = swaggerJSDoc(opciones)

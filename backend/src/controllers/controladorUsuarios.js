@@ -9,8 +9,6 @@ const registrarUsuarioFB = async (email, password) => {
     const credencialesDeUsuario = await crearUsuarioEnFirebase(auth, email, password)
     return credencialesDeUsuario
   } catch (error) {
-    console.log(error.message);
-    console.log(error.code);
     if (error.code === 'auth/email-already-in-use') {
       return res.status(400).json({ error: 'El correo ingresado ya existe' });
     } else if (error.code === 'auth/invalid-email') {
@@ -26,10 +24,11 @@ const registrarUsuarioFB = async (email, password) => {
 function postRegistroUsuario(req, res) {
   const { nombre, apellido, email, ciudad, provincia, codigo_postal, password } = req.body
 
-  registrarUsuarioFB(email, password)
+  const credencialesDeUsuario = registrarUsuarioFB(email, password)
 
+  if (!credencialesDeUsuario) return
 
-  const sql = `INSERT INTO Usuarios (nombre, apellido, email, codigo_postal, ciudad, provincia, password) VALUES (?, ?, ?, ?, ?, ?, ?)`;
+  const sql = `INSERT INTO Usuarios (nombre, apellido, email, codigo_postal, ciudad, provincia) VALUES (?, ?, ?, ?, ?, ?)`;
   const newClient = [
     nombre,
     apellido,
@@ -37,7 +36,6 @@ function postRegistroUsuario(req, res) {
     codigo_postal,
     ciudad,
     provincia,
-    password
   ];
   baseDeDatos.run(sql, newClient, (err) => {
     if (err) {

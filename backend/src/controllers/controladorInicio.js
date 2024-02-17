@@ -1,10 +1,31 @@
 const baseDeDatos = require('../base/conexionDB')
+const { onAuthStateChanged, signInWithEmailAndPassword } = require('firebase/auth')
+const { auth } = require('../firebase')
 
+onAuthStateChanged(auth, async (user) => {
+})
+
+const iniciarSesion = async (email, password) => {
+  try {
+    const credenciales = await signInWithEmailAndPassword(auth, email, password)
+    return credenciales
+  } catch (error) {
+    if (error.code === 'auth/wrong-password' || error.code === 'auth/user-not-found') {
+      return { error: 'Usuario o contraseña incorrectos' }
+    } else {
+      return { error }
+    }
+  }
+}
 
 const postInicioCliente = (req, res) => {
   const { email, password } = req.body;
-  const sql = `SELECT * FROM Usuarios WHERE email = ? AND password = ?`;
-  baseDeDatos.get(sql, [email, password], (err, row) => {
+  const credenciales = iniciarSesion(email, password)
+  if (!credenciales) {
+    return res.status(401).json({ error: 'Credenciales inválidas' });
+  }
+  const sql = `SELECT * FROM Usuarios WHERE email = ?`;
+  baseDeDatos.get(sql, [email], (err, row) => {
     if (err) {
       console.error('Error al buscar el cliente:', err.message);
       return res.status(500).json({ error: 'Error interno del servidor' });
@@ -21,8 +42,10 @@ const postInicioCliente = (req, res) => {
 
 function postInicioProfesional(req, res) {
   const { email, password } = req.body;
-  const sql = `SELECT * FROM Usuarios WHERE email = ? AND password = ?`;
-  baseDeDatos.get(sql, [email, password], (err, row) => {
+  credenciales = iniciarSesion(email, password)
+  if (!credenciales) { return }
+  const sql = `SELECT * FROM Usuarios WHERE email = ?`;
+  baseDeDatos.get(sql, [email], (err, row) => {
     if (err) {
       console.error('Error al buscar el profesional:', err.message);
       return res.status(500).json({ error: 'Error interno del servidor' });

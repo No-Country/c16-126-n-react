@@ -1,10 +1,34 @@
 const baseDeDatos = require('../base/conexionDB')
+const { createUserWithEmailAndPassword: crearUsuarioEnFirebase } = require('firebase/auth')
+const { auth } = require('../firebase')
 
 
+const registrarUsuarioFB = async (email, password) => {
+
+  try {
+    const credencialesDeUsuario = await crearUsuarioEnFirebase(auth, email, password)
+    return credencialesDeUsuario
+  } catch (error) {
+    console.log(error.message);
+    console.log(error.code);
+    if (error.code === 'auth/email-already-in-use') {
+      return res.status(400).json({ error: 'El correo ingresado ya existe' });
+    } else if (error.code === 'auth/invalid-email') {
+      return res.status(400).json({ error: 'El correo ingresado es inválido' });
+    } else if (error.code === 'auth/weak-password') {
+      return res.status(400).json({ error: 'La contraseña debe tener al menos 6 caracteres' });
+    } else if (error.code) {
+      return res.status(400).json({ error: 'Algo no ha salido como esperabamos' });
+    }
+  }
+}
 
 function postRegistroUsuario(req, res) {
-  console.log(req.body);
   const { nombre, apellido, email, ciudad, provincia, codigo_postal, password } = req.body
+
+  registrarUsuarioFB(email, password)
+
+
   const sql = `INSERT INTO Usuarios (nombre, apellido, email, codigo_postal, ciudad, provincia, password) VALUES (?, ?, ?, ?, ?, ?, ?)`;
   const newClient = [
     nombre,

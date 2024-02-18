@@ -18,7 +18,19 @@ const server = app.listen(PORT, (err) => {
     swaggerDocs(app, PORT);
   }
 })
-
+app.get('/', (req, res) => {
+  const htmlResponse = `
+  <html>
+    <head>
+      <title>Servidor corriendo</title>
+    </head>
+    <body>
+      <h1>Servidor corriendo</h1>
+    </body>
+  </html>
+  `
+  res.send(htmlResponse)
+})
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 

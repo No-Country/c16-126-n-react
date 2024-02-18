@@ -6,7 +6,8 @@
   "type": "commonjs",
   "scripts": {
     "test": "npx jest routes.test.js --detectOpenHandles",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "start": "node index.js"
   },
   "author": "Franco Ojeda",
   "license": "ISC",

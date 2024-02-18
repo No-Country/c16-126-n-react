@@ -4,6 +4,7 @@ require('dotenv').config()
 const router = require('./src/rutas/rutas')
 const { swaggerDocs } = require('./src/rutas/swagger')
 
+
 const app = express()
 
 app.use(cors())

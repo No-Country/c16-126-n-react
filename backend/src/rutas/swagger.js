@@ -1,5 +1,6 @@
 const swaggerJSDoc = require('swagger-jsdoc')
 const swaggerUi = require('swagger-ui-express')
+const path = require('path')
 
 const opciones = {
   swaggerDefinition: {
@@ -9,7 +10,7 @@ const opciones = {
       version: '1.0.0',
     },
   },
-  apis: ['./src/rutas/rutas.js'],
+  apis: [`${path.join(__dirname, './rutas.js')}`],
 }
 
 const swaggerSpec = swaggerJSDoc(opciones)

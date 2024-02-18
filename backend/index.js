@@ -24,4 +24,4 @@ app.use(express.urlencoded({ extended: true }))
 
 app.use('/api', router)
 
-module.exports = { app, server }
+module.exports = { server }

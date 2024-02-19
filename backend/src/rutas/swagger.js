@@ -23,6 +23,6 @@ const swaggerDocs = (app, port) => {
     res.send(swaggerSpec)
   })
 }
-console.log(swaggerSpec);
-console.log(opciones);
+// console.log(swaggerSpec);
+// console.log(opciones);
 module.exports = { swaggerDocs }

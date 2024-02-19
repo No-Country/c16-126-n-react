@@ -117,7 +117,7 @@ app.get('/', (req, res) => {
     <head>
       <title>Servidor corriendo</title>
     </head>
-    <body>
+    <body >
       <h1>Servidor corriendo</h1>
     </body>
   </html>

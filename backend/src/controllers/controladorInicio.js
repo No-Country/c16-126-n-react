@@ -1,6 +1,7 @@
 const baseDeDatos = require('../base/conexionDB')
 const { onAuthStateChanged, signInWithEmailAndPassword } = require('firebase/auth')
 const { auth } = require('../firebase')
+const DBTurso = require('../base/tablas/tablas')
 
 onAuthStateChanged(auth, async (user) => {
 })
@@ -18,45 +19,44 @@ const iniciarSesion = async (email, password) => {
   }
 }
 
-const postInicioCliente = (req, res) => {
+const postInicioCliente = async (req, res) => {
   const { email, password } = req.body;
   const credenciales = iniciarSesion(email, password)
   if (!credenciales) {
     return res.status(401).json({ error: 'Credenciales inválidas' });
   }
-  const sql = `SELECT * FROM Usuarios WHERE email = ?`;
-  baseDeDatos.get(sql, [email], (err, row) => {
-    if (err) {
-      console.error('Error al buscar el cliente:', err.message);
-      return res.status(500).json({ error: 'Error interno del servidor' });
-    }
-    if (!row) {
-      return res.status(401).json({ error: 'Credenciales inválidas' }); // Cambiar el código de estado a 401 para indicar credenciales inválidas
-    }
-    // Remover la propiedad "password" del objeto de respuesta
-    delete row.password;
-    res.status(200).json({ cliente: row }); // Establecer el código de estado como 200 y enviar el cliente como respuesta
-  });
-};
+
+  const usuario = await DBTurso.execute({
+    sql: 'SELECT * FROM Usuarios WHERE email = :email',
+    args: { ':email': email }
+  })
+  if (!usuario) {
+    console.error('Error al buscar el cliente:', err.message);
+    return res.status(500).json({ error: 'Error interno del servidor' });
+  }
+  if (!(await usuario).rows) {
+    return res.status(401).json({ error: 'Credenciales inválidas' }); // Cambiar el código de estado a 401 para indicar credenciales inválidas
+  }
+  res.status(200).json({ cliente: (await usuario).rows }); // Establecer el código de estado como 200 y enviar el cliente como respuesta
+}
 
 
-function postInicioProfesional(req, res) {
+const postInicioProfesional = async (req, res) => {
   const { email, password } = req.body;
   credenciales = iniciarSesion(email, password)
   if (!credenciales) { return }
-  const sql = `SELECT * FROM Usuarios WHERE email = ?`;
-  baseDeDatos.get(sql, [email], (err, row) => {
-    if (err) {
-      console.error('Error al buscar el profesional:', err.message);
-      return res.status(500).json({ error: 'Error interno del servidor' });
-    }
-    if (!row) {
-      return res.status(401).json({ error: 'Credenciales inválidas' }); // Cambiar el código de estado a 401 para indicar credenciales inválidas
-    }
-    // Remover la propiedad "password" del objeto de respuesta
-    delete row.password;
-    res.status(200).json({ profesional: row }); // Establecer el código de estado como 200 y enviar el profesional como respuesta
-  });
+  const usuario = await DBTurso.execute({
+    sql: 'SELECT * FROM Usuarios WHERE email = :email',
+    args: { ':email': email }
+  })
+  if (!usuario) {
+    console.error('Error al buscar el cliente:', err.message);
+    return res.status(500).json({ error: 'Error interno del servidor' });
+  }
+  if (!(await usuario).rows) {
+    return res.status(401).json({ error: 'Credenciales inválidas' }); // Cambiar el código de estado a 401 para indicar credenciales inválidas
+  }
+  res.status(200).json({ profesional: (await usuario).rows }); // Establecer el código de estado como 200 y enviar el cliente como respuesta
 }
 
 

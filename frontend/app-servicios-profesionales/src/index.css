@@ -2,4 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+.register {
+  @apply w-[1440px] h-[1024px] flex gap-20 justify-center items-center bg-[#DEE9EC];
+}
 
+.ipt-reg-s {
+  @apply text-start text-[24px] px-3 w-[306px] h-[64px] text-[#000000BF] placeholder-black bg-[#F2F5F5] border-solid border-[3px] rounded-[20px] border-[#ffffff10]  shadow-md shadow-[#00000040];
+}
+
+.ipt-reg-l {
+  @apply text-start text-[24px] px-3 w-[637px] h-[67px] text-[#000000BF] placeholder-black bg-[#F2F5F5] border-solid border-[3px] rounded-[20px] border-[#ffffff10] shadow-md shadow-[#00000040];
+}
+
+.btn-reg {
+  @apply w-[640px] h-[80px] text-center text-[32px] text-white bg-[#354ED1] border-[3px] rounded-[20px] border-[#354ED1] shadow-md shadow-[#00000040];
+}

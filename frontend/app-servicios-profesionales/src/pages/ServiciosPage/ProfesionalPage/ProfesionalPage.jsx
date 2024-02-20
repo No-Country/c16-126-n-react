@@ -3,17 +3,17 @@ import RatingToStar from "../../../components/RatingToStar/RatingToStar";
 
 const ProfesionalPage = () => {
   return (
-    <div className="bg-blue-100">
-      <div className="bg-blue-500 flex items-center justify-between ">
-        <p className="text-white text-2xl p-4 text-center flex-1">
-          TARJETA PROFESIONAL
-        </p>
-        <button className="h-10 w-35 px-5  flex items-center justify-center bg-blue-700 text-white text-xl rounded-md ml-auto border border-white shadow-md">
-          Contactar
-        </button>
-      </div>
+    <div className="bg-blue-100 flex flex-col h-screen ">
+      <header className="bg-blue-500 flex  ">
+        <div className="flex items-center flex-grow mx-auto max-w-[1280px] justify-between">
+          <p className="text-white text-2xl mx-auto  ">TARJETA PROFESIONAL</p>
+          <button className=" h-10 w-35 m-3 p-5 flex items-center  bg-blue-700 text-white text-xl rounded-md  border border-white shadow-md">
+            Contactar
+          </button>
+        </div>
+      </header>
 
-      <div className="flex ">
+      <div className="flex flex-grow mx-auto max-w-[1280px]">
         <div className="flex-shrink-0 p-4 text-center items-center">
           <img
             src="https://avatars.githubusercontent.com/u/101590889?v=4"

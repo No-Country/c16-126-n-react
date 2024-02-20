@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+
 import Servicios from "../Servicios/Servicios";
 
 const LandingPage = () => {
@@ -55,6 +57,12 @@ const LandingPage = () => {
       </section>
 
       <Servicios />
+
+      <NavLink to="/profesional">
+        <button className="bg-blue-400 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-xl">
+          Profesional
+        </button>
+      </NavLink>
     </>
   );
 };

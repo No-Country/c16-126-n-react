@@ -1,8 +1,9 @@
 const swaggerJSDoc = require('swagger-jsdoc')
 const express = require('express')
 const cors = require('cors')
-const dotenv = require('dotenv').config()
+require('dotenv').config()
 const swaggerUi = require('swagger-ui-express');
+// const { autorizarUsuario } = require('./src/autorizacion/autorizarUsuario.js')
 
 // const { createClient } = require("@libsql/client")
 
@@ -47,6 +48,11 @@ app.get('/', (req, res) => {
   res.send(htmlResponse)
 })
 
+// app.get('micuenta', autorizarUsuario, (req, res) => {
+//   console.log("Hola mundo");
+//   res.send('Hola mundo')
+// })
+
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 
@@ -60,7 +66,6 @@ const server = app.listen(PORT, (err) => {
     console.error('Error al iniciar el servidor:', err);
   } else {
     console.log(`Servidor ejecutándose en http://localhost:${PORT}`)
-    // swaggerDocs(app);
   }
 })
 
@@ -68,4 +73,4 @@ app.use((req, res) => {
   res.status(404).json({ error: 'Endpoint no encontrado' })
 })
 
-// module.exports = { server }
+module.exports = { server }

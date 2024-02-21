@@ -1,10 +1,7 @@
-const baseDeDatos = require('../base/conexionDB')
 const { onAuthStateChanged, signInWithEmailAndPassword } = require('firebase/auth')
 const { auth } = require('../firebase')
 const DBTurso = require('../base/tablas/tablas')
 
-onAuthStateChanged(auth, async (user) => {
-})
 
 const iniciarSesion = async (email, password) => {
   try {
@@ -21,8 +18,8 @@ const iniciarSesion = async (email, password) => {
 
 const postInicioCliente = async (req, res) => {
   const { email, password } = req.body;
-  const credenciales = iniciarSesion(email, password)
-  if (!credenciales) {
+  const credenciales = await iniciarSesion(email, password)
+  if (credenciales.error) {
     return res.status(401).json({ error: 'Credenciales inválidas' });
   }
 
@@ -43,8 +40,11 @@ const postInicioCliente = async (req, res) => {
 
 const postInicioProfesional = async (req, res) => {
   const { email, password } = req.body;
-  credenciales = iniciarSesion(email, password)
-  if (!credenciales) { return }
+  credenciales = await iniciarSesion(email, password)
+  // console.log(credenciales);
+  if (credenciales.error) {
+    return res.status(401).json({ error: 'Credenciales inválidas' });
+  }
   const usuario = await DBTurso.execute({
     sql: 'SELECT * FROM Usuarios WHERE email = :email',
     args: { ':email': email }

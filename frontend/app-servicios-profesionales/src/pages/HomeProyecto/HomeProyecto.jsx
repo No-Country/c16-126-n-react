@@ -1,4 +1,5 @@
 import React from "react";
+import Nosotros from "../../components/Nosotros/Nosotros";
 import { FaFigma, FaGithub } from "react-icons/fa";
 import { RiTeamLine } from "react-icons/ri";
 import { CgWebsite } from "react-icons/cg";
@@ -6,30 +7,40 @@ import { IoDocumentTextOutline } from "react-icons/io5";
 
 const HomeProyecto = () => {
   return (
-    <section className="flex flex-col flex-grow mx-auto max-w-[1280px] bg-gray-100">
-      <nav className=" py-6   ">
-        <div className="flex items-center justify-between ">
+    <section className="flex flex-col  flex-grow mx-auto max-w-[1280px] ">
+      <nav className="  py-6   ">
+        <div className="flex flex-col md:flex-row items-center justify-between">
           <div className="flex items-center justify-between flex-grow">
-            <button className="flex items-center space-x-4  text-xl font-bold text-white bg-green-400 px-10 py-2 rounded-xl">
+            <a className="flex items-center space-x-4  text-xl font-bold text-white bg-green-400 px-10 py-2 rounded-xl cursor-pointer">
               <RiTeamLine />
               <span>Nosotros</span>
-            </button>
-            <button className="flex items-center  text-xl space-x-4 font-bold text-white bg-green-400 px-10 py-2 rounded-xl">
+            </a>
+            <a className="flex items-center  text-xl space-x-4 font-bold text-white bg-green-400 px-10 py-2 rounded-xl cursor-pointer">
               <CgWebsite />
               <span>Website</span>
-            </button>
-            <button className="flex items-center space-x-4 text-xl font-bold text-white bg-green-400 px-10 py-2 rounded-xl">
+            </a>
+            <a
+              className="flex items-center space-x-4 text-xl font-bold text-white bg-green-400 px-10 py-2 rounded-xl cursor-pointer"
+              href="https://github.com/No-Country/c16-126-n-react"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <FaGithub />
               <span>GitHub</span>
-            </button>
-            <button className="flex items-center space-x-4 text-xl font-bold text-white bg-green-400 px-10 py-2 rounded-xl">
+            </a>
+            <a className="flex items-center space-x-4 text-xl font-bold text-white bg-green-400 px-10 py-2 rounded-xl cursor-pointer">
               <IoDocumentTextOutline />
               <span>Docs</span>
-            </button>
-            <button className=" items-center flex space-x-4 text-xl font-bold text-white bg-green-400 px-10 py-2 rounded-xl">
+            </a>
+            <a
+              className=" items-center flex space-x-4 text-xl font-bold text-white bg-green-400 px-10 py-2 rounded-xl cursor-pointer"
+              href="https://www.figma.com/file/Cf1oTmGWXlKIRCI7ESnn97/Proyecto-Servicios-Hogar?type=design&node-id=101-2&mode=design&t=Amgc1lh9F9Th2yy5-0"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <FaFigma />
               <span>Figma</span>
-            </button>
+            </a>
           </div>
         </div>
       </nav>
@@ -52,6 +63,8 @@ const HomeProyecto = () => {
           />
         </div>
       </div>
+
+      <Nosotros />
     </section>
   );
 };

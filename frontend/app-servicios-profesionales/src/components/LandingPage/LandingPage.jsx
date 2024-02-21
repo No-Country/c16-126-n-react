@@ -59,8 +59,14 @@ const LandingPage = () => {
       <Servicios />
 
       <NavLink to="/profesional">
-        <button className="bg-blue-400 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-xl">
-          Profesional
+        <button className="bg-blue-400 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-xl m-2">
+          Tarjeta Profesional
+        </button>
+      </NavLink>
+
+      <NavLink to="/proyecto">
+        <button className="bg-blue-400 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-xl m-2">
+          Home Proyecto
         </button>
       </NavLink>
     </>

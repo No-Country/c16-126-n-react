@@ -1,5 +1,5 @@
 import React from "react";
-import RatingToStar from "../../../components/RatingToStar/RatingToStar";
+import RatingToStar from "../../components/RatingToStar/RatingToStar";
 
 const ProfesionalPage = () => {
   return (
@@ -42,15 +42,28 @@ const ProfesionalPage = () => {
             <h3 className="text-lg font-semibold my-4 text-center">
               Valoraciones:
             </h3>
-            <div className="bg-white p-4 rounded shadow-md my-2">
-              <p>Un capo :D</p>
-              <div className="d-flex justify-content-between">
-                <RatingToStar rating={4} />
-                <p>Margarita Perez</p>
+            <div className="bg-white p-2 rounded-xl shadow-md my-2">
+              <p className="text-lg font-semibold mx-auto">Un capo :D</p>
+              <div className="flex items-center justify-start ">
+                <div className="flex items-center ">
+                  <RatingToStar rating={5} />
+                </div>
+                <p className="text-md font-semibold  ml-auto">
+                  Margarita Perez
+                </p>
               </div>
             </div>
-            <div className="bg-white p-4 rounded shadow-md my-2"></div>
-            <div className="bg-white p-4 rounded shadow-md my-2"></div>
+            <div className="bg-white p-2 rounded-xl shadow-md my-2">
+              <p className="text-lg font-semibold mx-auto">
+                Me prendió el foco
+              </p>
+              <div className="flex items-center justify-start ">
+                <div className="flex items-center ">
+                  <RatingToStar rating={4} />
+                </div>
+                <p className="text-md font-semibold  ml-auto">Luis Correa</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

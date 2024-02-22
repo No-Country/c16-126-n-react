@@ -15,9 +15,13 @@ const Servicios = () => {
   ];
 
   return (
-    <section className="grid h-screen place-items-center">
-      <div className="mx-auto w-[1440px]">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 w-[1440px] ">
+    <section className="text-center mt-20">
+      <p className="text-4xl text-blue-800 font-bold text-wrap">
+        Nuestros Servicios
+      </p>
+
+      <div className="mx-auto w-[1440px] mt-20">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 w-[1440px]">
           {servicios.map((servicio, index) => (
             <ServiceCard key={index} {...servicio} />
           ))}

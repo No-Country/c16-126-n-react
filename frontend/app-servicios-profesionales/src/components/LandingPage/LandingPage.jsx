@@ -1,10 +1,7 @@
-<<<<<<< HEAD
 import React from "react";
-=======
-import { NavLink } from "react-router-dom";
 
+import { NavLink } from "react-router-dom";
 import Servicios from "../Servicios/Servicios";
->>>>>>> 1d38c4407f994ef11db285567fb3b973050dfb42
 
 const LandingPage = () => {
   return (
@@ -70,10 +67,21 @@ const LandingPage = () => {
         </div>
       </section>
 
-      <Servicios/>
-      <div className="h-40"></div>
+      <section className="servicios mt-10">
+        <Servicios />
+      </section>
 
+      <NavLink to="/profesional">
+        <button className="bg-blue-400 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-xl m-2">
+          Tarjeta Profesional
+        </button>
+      </NavLink>
 
+      <NavLink to="/proyecto">
+        <button className="bg-blue-400 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-xl m-2">
+          Home Proyecto
+        </button>
+      </NavLink>
     </>
   );
 };

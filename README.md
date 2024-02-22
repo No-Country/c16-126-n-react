@@ -19,7 +19,7 @@ Equipo: c16-126-n-react
 
 | Rol               | Nombre               | Redes                                                                                                                             |
 | :---------------- | :------------------- | :-------------------------------------------------------------------------------------------------------------------------------- |
-| `UX/UI / QA    `  |  Laura Marcela Rozo Rodriguez     | [![behance]](https://www.behance.net/sergioarancibia3) [![linkedin]](https://www.linkedin.com/in/sergio-arancibia-517345237/)               |
+| `UX/UI / QA    `  |  Laura Marcela Rozo Rodriguez     |[![GitHub]](https://github.com/rcpc265) [![linkedin]](https://www.linkedin.com/in/sergio-arancibia-517345237/)               |
 | `Back End `       |  Franco Martín Ojeda    | [![GitHub]](https://github.com/rcpc265) [![linkedin]](https://www.linkedin.com/in/rafael-cangahuala-864748251/)              |
 | `Front End`       | Eduardo Hidalgo         | [![GitHub]](https://github.com/LeanCano) [![linkedin]](https://www.linkedin.com/in/leandrocanoc/)                             |
 | `Front End`        | Sebastian Gallego    | [![GitHub]](https://github.com/rodriarguello) [![linkedin]](https://www.linkedin.com/in/rodrigo-arguello-402073240/)               |                                                                                             

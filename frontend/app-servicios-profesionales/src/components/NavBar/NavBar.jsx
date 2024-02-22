@@ -89,7 +89,7 @@ const NavBar = () => {
             <div className="flex items-center justify-between ">
               <a href="#" className="-m-1.5 p-1.5">
                 <span className="sr-only">Servicios Hogar</span>
-                <img className="h-8 w-auto" src="" alt="logo-mobile" />
+                <p className="text-white text-2xl font-bold">ContactaAPP</p>
               </a>
               <button
                 type="button"

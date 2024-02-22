@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -10,7 +10,10 @@ const NavBar = () => {
 
   return (
     <header className="bg-blue-700">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+      <nav
+        className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+        aria-label="Global"
+      >
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
             <span className="sr-only">Servicios Hogar</span>
@@ -33,18 +36,32 @@ const NavBar = () => {
               aria-hidden="true"
             >
               {isMobileMenuOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
               ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                />
               )}
             </svg>
           </button>
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
-          <NavLink to="/" className="text-sm font-semibold leading-6 text-white">
+          <NavLink
+            to="/"
+            className="text-sm font-semibold leading-6 text-white"
+          >
             Inicio
           </NavLink>
-          <NavLink to="/servicios" className="text-sm font-semibold leading-6 text-white">
+          <NavLink
+            to="/servicios"
+            className="text-sm font-semibold leading-6 text-white"
+          >
             Servicios
           </NavLink>
           <a href="#" className="text-sm font-semibold leading-6 text-white">
@@ -58,9 +75,12 @@ const NavBar = () => {
           </a>
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="#" className="text-sm font-semibold leading-6 text-white">
+          <NavLink
+            to="/register"
+            className="text-sm font-semibold leading-6 text-white"
+          >
             Mi Cuenta
-          </a>
+          </NavLink>
         </div>
       </nav>
 
@@ -87,7 +107,11 @@ const NavBar = () => {
                   stroke="currentColor"
                   aria-hidden="true"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
                 </svg>
               </button>
             </div>

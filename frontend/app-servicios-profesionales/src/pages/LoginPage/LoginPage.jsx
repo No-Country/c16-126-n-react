@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 export default function Login() {
   return (
     <div className="flex justify-center">
-      <div className="w-[1440px] h-[1024px] flex gap-20 justify-center items-center bg-[#DEE9EC] ">
+      <div className="w-[1440px] h-[1024px] flex gap-20 justify-center items-center bg-[#DEE9EC]">
         <div>
           <form className="flex flex-col items-center p-2 m-3 gap-y-8 ">
             <h1 className="text-black text-[40px] ">Ingrese sus datos</h1>
@@ -11,12 +11,19 @@ export default function Login() {
             <input
               className="text-start text-[24px] px-3 w-[637px] h-[67px] text-[#000000BF] placeholder-black bg-[#F2F5F5] border-solid border-[3px] rounded-[20px] border-[#ffffff10] shadow-md shadow-[#00000040]"
               placeholder="Correo Electrónico"
+              name="email"
+              id="email"
+              autoComplete="off"
+              required
             />
 
             <input
               className="text-start text-[24px] px-3 w-[637px] h-[67px] text-[#000000BF] placeholder-black bg-[#F2F5F5] border-solid border-[3px] rounded-[20px] border-[#ffffff10] shadow-md shadow-[#00000040]"
               type="password"
               placeholder="Contraseña"
+              name="password"
+              id="password"
+              required
             />
 
             <button className="w-[640px] h-[80px] text-center text-[32px] text-white bg-[#354ED1] border-[3px] rounded-[20px] border-[#354ED1] shadow-md shadow-[#00000040] ">

@@ -12,26 +12,10 @@ Funcionalidades:
 • 
 • 
 
-##Video presentacion: 
+##Video presentación: 
+` Link de Youtube ` 
 
 Equipo: c16-126-n-react
-
-Rol 	Nombre 	Redes
-Project Manager 	Victoria Chaile 	GitHub linkedin
-UX/UI Designer 	Sergio Arancibia 	behance linkedin
-Front End 	Rafael Cangahuala 	GitHub linkedin
-Front End 	Leandro Canon 	GitHub linkedin
-Back End 	Rodrigo Arguello 	GitHub linkedin
-Back End 	Deivison Jiménez 	GitHub linkedin
-
-| Rol                  | Nombre                       | Redes               |
-| ---------------------| -----------------------------|---------------------|
-| UX/UI Designer / QA  ||  [![GitHub]](https://github.com/victoria-chaile) [![linkedin]](https://www.linkedin.com/in/victoria-agustina-chaile/)  |
-| Backend              | Franco Martín Ojeda          |	[![GitHub]](https://github.com/victoria-chaile) [![linkedin]](https://www.linkedin.com/in/victoria-agustina-chaile/)  |
-| Frontend             | Eduardo Hidalgo              |	[![GitHub]](https://github.com/victoria-chaile) [![linkedin]](https://www.linkedin.com/in/victoria-agustina-chaile/)  |
-| Frontend             | Sebastian Gallego            |	[![GitHub]](https://github.com/victoria-chaile) [![linkedin]](https://www.linkedin.com/in/victoria-agustina-chaile/)  |
-| Frontend             | Gabriel Taboada              |	[![GitHub]](https://github.com/victoria-chaile) [![linkedin]](https://www.linkedin.com/in/victoria-agustina-chaile/)  |
-| Frontend             | Jose Rangel M                |	[![GitHub]](https://github.com/victoria-chaile) [![linkedin]](https://www.linkedin.com/in/victoria-agustina-chaile/)  |
 
 | Rol               | Nombre               | Redes                                                                                                                             |
 | :---------------- | :------------------- | :-------------------------------------------------------------------------------------------------------------------------------- |

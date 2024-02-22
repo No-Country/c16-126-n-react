@@ -9,12 +9,16 @@ const NavBar = () => {
   };
 
   return (
-    <header className="bg-blue-700">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+    <header className="bg-blue-700 w-full sm:p-0 md:p-0">
+      <nav
+        className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+        aria-label="Global"
+      >
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
             <span className="sr-only">Servicios Hogar</span>
-            <img className="h-8 w-auto" src="" alt="logo" />
+            <p className="text-white text-2xl font-bold">ContactaAPP</p>
+            {/* <img className="h-8 w-auto" src="" alt="logo" /> */}
           </a>
         </div>
         <div className="lg:hidden">
@@ -33,18 +37,32 @@ const NavBar = () => {
               aria-hidden="true"
             >
               {isMobileMenuOpen ? (
-                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
               ) : (
-                <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                />
               )}
             </svg>
           </button>
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
-          <NavLink to="/" className="text-sm font-semibold leading-6 text-white">
+          <NavLink
+            to="/"
+            className="text-sm font-semibold leading-6 text-white"
+          >
             Inicio
           </NavLink>
-          <NavLink to="/servicios" className="text-sm font-semibold leading-6 text-white">
+          <NavLink
+            to="/servicios"
+            className="text-sm font-semibold leading-6 text-white"
+          >
             Servicios
           </NavLink>
           <a href="#" className="text-sm font-semibold leading-6 text-white">
@@ -87,7 +105,11 @@ const NavBar = () => {
                   stroke="currentColor"
                   aria-hidden="true"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
                 </svg>
               </button>
             </div>

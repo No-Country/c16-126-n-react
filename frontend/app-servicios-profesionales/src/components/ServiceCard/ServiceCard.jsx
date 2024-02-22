@@ -1,17 +1,26 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { solicitarProfesionales } from "../../data/getData";
+import { useState } from "react";
 
 const ServiceCard = ({ servicio, rutaIcono }) => {
   const iconPath = `/icons/${rutaIcono}.png`;
+  const navigate = useNavigate();
+  const [profesion, setProfesion] = useState(""); //estado para manejar las profesiones
 
-  const handleButtonClick = () => {
-    // Manejar la lógica cuando se hace clic en el botón
-    // Hacer la peticion de el listados proveedores de ese servicio
+  const handleButtonClick = async () => {
 
-    console.log("Pedir a la base");
+    const lowerCaseServicio = servicio.toLowerCase(); // convierte la profesion a letras minisculas
+    setProfesion(lowerCaseServicio); // asigna el valor del servicio al estado profesion 
+
+    const profesionales = await solicitarProfesionales(lowerCaseServicio); // funcion que llama al api de solicitarProfesionales
+    console.log(profesionales.profesionales);
+
+    navigate(`/servicios/${lowerCaseServicio}`); // navegacion a la profesion especifica para listar profesionales
+  
   };
 
   return (
-    <div className="flex flex-col items-center mb-10 ">
+    <div className="flex flex-col items-center mb-10">
       <div>
         <img
           src={iconPath}
@@ -21,7 +30,7 @@ const ServiceCard = ({ servicio, rutaIcono }) => {
           className="mb-5"
         />
       </div>
-      <NavLink to="/servicios">
+      <NavLink to={`servicios/${profesion}`}>
         <button
           className="bg-blue-400 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-xl"
           onClick={handleButtonClick}

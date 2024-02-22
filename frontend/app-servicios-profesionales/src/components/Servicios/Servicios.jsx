@@ -7,7 +7,7 @@ const Servicios = () => {
     { servicio: "Carpintería", rutaIcono: "carpinteria" },
     { servicio: "Cerrajería", rutaIcono: "cerrajeria" },
     { servicio: "Limpieza", rutaIcono: "limpieza" },
-    { servicio: "Albañileria", rutaIcono: "albanileria" },
+    { servicio: "Albañilería", rutaIcono: "albanileria" },
     { servicio: "Electricidad", rutaIcono: "electricidad" },
     { servicio: "Decoración", rutaIcono: "decoracion" },
     { servicio: "Mascotas", rutaIcono: "mascotas" },

@@ -24,6 +24,12 @@ Front End 	Leandro Canon 	GitHub linkedin
 Back End 	Rodrigo Arguello 	GitHub linkedin
 Back End 	Deivison Jiménez 	GitHub linkedin
 
+| Rol                  | Nombre                | Redes               |
+| ---------------------| ----------------------|---------------------|
+| UX/UI Designer / QA  | Content Cell          |
+
+
+
 
 Stack Tecnológico
 Rama 	Tecnologías

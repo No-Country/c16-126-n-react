@@ -26,12 +26,21 @@ Back End 	Deivison Jiménez 	GitHub linkedin
 
 | Rol                  | Nombre                       | Redes               |
 | ---------------------| -----------------------------|---------------------|
-| UX/UI Designer / QA  | Laura Marcela Rozo Rodriguez | [![GitHub]](https://github.com/victoria-chaile) [![linkedin]](https://www.linkedin.com/in/victoria-agustina-chaile/)  |
+| UX/UI Designer / QA  ||  [![GitHub]](https://github.com/victoria-chaile) [![linkedin]](https://www.linkedin.com/in/victoria-agustina-chaile/)  |
 | Backend              | Franco Martín Ojeda          |	[![GitHub]](https://github.com/victoria-chaile) [![linkedin]](https://www.linkedin.com/in/victoria-agustina-chaile/)  |
 | Frontend             | Eduardo Hidalgo              |	[![GitHub]](https://github.com/victoria-chaile) [![linkedin]](https://www.linkedin.com/in/victoria-agustina-chaile/)  |
 | Frontend             | Sebastian Gallego            |	[![GitHub]](https://github.com/victoria-chaile) [![linkedin]](https://www.linkedin.com/in/victoria-agustina-chaile/)  |
 | Frontend             | Gabriel Taboada              |	[![GitHub]](https://github.com/victoria-chaile) [![linkedin]](https://www.linkedin.com/in/victoria-agustina-chaile/)  |
 | Frontend             | Jose Rangel M                |	[![GitHub]](https://github.com/victoria-chaile) [![linkedin]](https://www.linkedin.com/in/victoria-agustina-chaile/)  |
+
+| Rol               | Nombre               | Redes                                                                                                                             |
+| :---------------- | :------------------- | :-------------------------------------------------------------------------------------------------------------------------------- |
+| `UX/UI / QA    `  |  Laura Marcela Rozo Rodriguez     | [![behance]](https://www.behance.net/sergioarancibia3) [![linkedin]](https://www.linkedin.com/in/sergio-arancibia-517345237/)               |
+| `Back End `       |  Franco Martín Ojeda    | [![GitHub]](https://github.com/rcpc265) [![linkedin]](https://www.linkedin.com/in/rafael-cangahuala-864748251/)              |
+| `Front End`       | Eduardo Hidalgo         | [![GitHub]](https://github.com/LeanCano) [![linkedin]](https://www.linkedin.com/in/leandrocanoc/)                             |
+| `Front End`        | Sebastian Gallego    | [![GitHub]](https://github.com/rodriarguello) [![linkedin]](https://www.linkedin.com/in/rodrigo-arguello-402073240/)               |                                                                                             
+| `Front End`        | Gabriel Taboada      | [![GitHub]](https://github.com/Deivison81) [![linkedin]](https://www.linkedin.com/in/deivison-jimenez/)                         |
+| `Front End`        | Jose Rangel M       | [![GitHub]](https://github.com/Emanuel-Capo) [![linkedin]](https://www.linkedin.com/in/emanuel-capo/)                        |
 
 
 

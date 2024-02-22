@@ -26,12 +26,12 @@ Back End 	Deivison Jiménez 	GitHub linkedin
 
 | Rol                  | Nombre                       | Redes               |
 | ---------------------| -----------------------------|---------------------|
-| UX/UI Designer / QA  | Laura Marcela Rozo Rodriguez |                     |
-| Backend              | Franco Martín Ojeda          |		            |
-| Frontend             | Eduardo Hidalgo              |		            |
-| Frontend             | Sebastian Gallego            |		            |
-| Frontend             | Gabriel Taboada              |		            |
-| Frontend             | Jose Rangel M                |		            |
+| UX/UI Designer / QA  | Laura Marcela Rozo Rodriguez | ![GitHub]](https://github.com/victoria-chaile) [![linkedin]](https://www.linkedin.com/in/victoria-agustina-chaile/)  |
+| Backend              | Franco Martín Ojeda          |	![GitHub]](https://github.com/victoria-chaile) [![linkedin]](https://www.linkedin.com/in/victoria-agustina-chaile/)  |
+| Frontend             | Eduardo Hidalgo              |	![GitHub]](https://github.com/victoria-chaile) [![linkedin]](https://www.linkedin.com/in/victoria-agustina-chaile/)  |
+| Frontend             | Sebastian Gallego            |	![GitHub]](https://github.com/victoria-chaile) [![linkedin]](https://www.linkedin.com/in/victoria-agustina-chaile/)  |
+| Frontend             | Gabriel Taboada              |	![GitHub]](https://github.com/victoria-chaile) [![linkedin]](https://www.linkedin.com/in/victoria-agustina-chaile/)  |
+| Frontend             | Jose Rangel M                |	![GitHub]](https://github.com/victoria-chaile) [![linkedin]](https://www.linkedin.com/in/victoria-agustina-chaile/)  |
 
 
 

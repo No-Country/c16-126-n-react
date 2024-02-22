@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 import React from "react";
+=======
+import { NavLink } from "react-router-dom";
+
+import Servicios from "../Servicios/Servicios";
+>>>>>>> 1d38c4407f994ef11db285567fb3b973050dfb42
 
 const LandingPage = () => {
   return (
@@ -64,7 +70,10 @@ const LandingPage = () => {
         </div>
       </section>
 
+      <Servicios/>
       <div className="h-40"></div>
+
+
     </>
   );
 };

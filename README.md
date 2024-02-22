@@ -19,7 +19,7 @@ Equipo: c16-126-n-react
 
 | Rol               | Nombre               | Redes                                                                                                                             |
 | :---------------- | :------------------- | :-------------------------------------------------------------------------------------------------------------------------------- |
-| `UX/UI / QA    `  |  Laura Marcela Rozo Rodriguez     |[![GitHub]](https://github.com/rcpc265) [![linkedin]](https://www.linkedin.com/in/sergio-arancibia-517345237/)               |
+| `UX/UI / QA    `  |  Laura Marcela Rozo Rodriguez     |<a href="https://linkedin.com/in/carlos-salvador-513a7b122/" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/linkedin.svg" alt="carlos salvador díaz" height="30" width="40" />linkedin</a>              |
 | `Back End `       |  Franco Martín Ojeda    | [![GitHub]](https://github.com/rcpc265) [![linkedin]](https://www.linkedin.com/in/rafael-cangahuala-864748251/)              |
 | `Front End`       | Eduardo Hidalgo         | [![GitHub]](https://github.com/LeanCano) [![linkedin]](https://www.linkedin.com/in/leandrocanoc/)                             |
 | `Front End`        | Sebastian Gallego    | [![GitHub]](https://github.com/rodriarguello) [![linkedin]](https://www.linkedin.com/in/rodrigo-arguello-402073240/)               |                                                                                             

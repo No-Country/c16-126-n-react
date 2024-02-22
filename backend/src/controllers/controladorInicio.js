@@ -1,4 +1,4 @@
-const { onAuthStateChanged, signInWithEmailAndPassword } = require('firebase/auth')
+const { signInWithEmailAndPassword } = require('firebase/auth')
 const { auth } = require('../firebase')
 const DBTurso = require('../base/tablas/tablas')
 

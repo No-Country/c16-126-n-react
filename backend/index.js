@@ -48,10 +48,6 @@ app.get('/', (req, res) => {
   res.send(htmlResponse)
 })
 
-// app.get('micuenta', autorizarUsuario, (req, res) => {
-//   console.log("Hola mundo");
-//   res.send('Hola mundo')
-// })
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 

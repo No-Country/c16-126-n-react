@@ -82,6 +82,12 @@ const LandingPage = () => {
           Home Proyecto
         </button>
       </NavLink>
+
+      <NavLink to="/perfil">
+        <button className="bg-blue-400 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-xl m-2">
+          Perfil
+        </button>
+      </NavLink>
     </>
   );
 };

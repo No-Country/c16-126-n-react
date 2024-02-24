@@ -4,6 +4,7 @@ import LandingPage from "../components/LandingPage/LandingPage";
 import ServiciosPage from "../pages/ServiciosPage/ServiciosPage";
 import ProfesionalPage from "../pages/ProfesionalPage/ProfesionalPage";
 import HomeProyecto from "../pages/HomeProyecto/HomeProyecto";
+import Perfil from "../components/Perfil/Perfil";
 
 const AppRouter = () => {
   return (
@@ -16,6 +17,8 @@ const AppRouter = () => {
         <Route path="profesional" element={<ProfesionalPage />} />
 
         <Route path="proyecto" element={<HomeProyecto />} />
+
+        <Route path="perfil" element={<Perfil />} />
       </Routes>
     </>
   );

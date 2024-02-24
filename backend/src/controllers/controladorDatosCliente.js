@@ -22,7 +22,10 @@ const getDatosCliente = async (req, res) => {
     const cliente = await verificarRegistro(email);
     if (!cliente) {
       res.status(404).json({ error: 'Cliente no encontrado' });
+    } else if (cliente.rows.length < 1) {
+      res.status(200).json({ message: 'No se encontraron datos del cliente' });
     } else {
+
       res.status(200).json({ cliente: cliente.rows });
     }
   } catch (error) {
@@ -39,7 +42,7 @@ const postDatosCliente = async (req, res) => {
     const existeRegistro = await verificarRegistro(email)
     const usuario_id = await obtenerUsuarioId(email)
 
-    if (existeRegistro) {
+    if (existeRegistro.rows.length > 0) {
       const actualizarDireccion = await DBTurso.execute({
         sql: 'UPDATE clientes SET direccion = :direccion WHERE usuario_id = :usuario_id',
         args: {

@@ -19,15 +19,12 @@ Equipo: c16-126-n-react
 
 | Rol               | Nombre               | Redes                                                                                                                             |
 | :---------------- | :------------------- | :-------------------------------------------------------------------------------------------------------------------------------- |
-| `UX/UI / QA    `  |  Laura Marcela Rozo Rodriguez     |<a href="https://linkedin.com/in/carlos-salvador-513a7b122/" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/linkedin.svg" alt="carlos salvador díaz" height="30" width="40" />linkedin</a>              |
-| `Back End `       |  Franco Martín Ojeda    | [![GitHub]](https://github.com/rcpc265) [![linkedin]](https://www.linkedin.com/in/rafael-cangahuala-864748251/)              |
-| `Front End`       | Eduardo Hidalgo         | [![GitHub]](https://github.com/LeanCano) [![linkedin]](https://www.linkedin.com/in/leandrocanoc/)                             |
-| `Front End`        | Sebastian Gallego    | [![GitHub]](https://github.com/rodriarguello) [![linkedin]](https://www.linkedin.com/in/rodrigo-arguello-402073240/)               |                                                                                             
-| `Front End`        | Gabriel Taboada      | [![GitHub]](https://github.com/Deivison81) [![linkedin]](https://www.linkedin.com/in/deivison-jimenez/)                         |
-| `Front End`        | Jose Rangel M       | [![GitHub]](https://github.com/Emanuel-Capo) [![linkedin]](https://www.linkedin.com/in/emanuel-capo/)                        |
-
-
-
+| `UX/UI / QA    `  |  Laura Marcela Rozo Rodriguez     |[![linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in///)    |
+| `Back End `       |  Franco Martín Ojeda    | [![linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in///)              |
+| `Front End`       | Eduardo Hidalgo         | [![linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in///)                             |
+| `Front End`        | Sebastian Gallego    | [![linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sebastiangallegocanon//)             |                                                                                             
+| `Front End`        | Gabriel Taboada      | [![linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in///)                         |
+| `Front End`        | Jose Rangel M       | [![linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in///)  
 ## Stack Tecnológico
 
 

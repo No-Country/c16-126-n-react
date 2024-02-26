@@ -73,10 +73,6 @@ const postDatosCliente = async (req, res) => {
   } catch {
     res.status(500).json({ error: 'Error interno del servidor' });
   }
-  // const usuario = await DBTurso.execute({
-  //   sql: 'UPDATE usuarios SET nombre = :nombre, apellido = :apellido, password = :password, codigo_postal = :codigo_postal, ciudad = :ciudad, provincia = :provincia WHERE email = :email',
-  //   args: ""
-  // })
 }
 
 

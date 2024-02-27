@@ -69,6 +69,7 @@ const ServiciosPage = () => {
           <ProfesionalCard key={index} {...profesional} />
         ))}
       </div>
+
       {/* <div className="grid grid-cols-2 grid-rows-1 w-full max-h-full p-5 h-screen ">
         <div className="w-[50%] h-[50%] mt-10 border-l-4 border-blue-700/90 m-5  ">
           <form className="max-w-sm mx-auto">

@@ -20,8 +20,8 @@ const Servicios = () => {
         Nuestros Servicios
       </p>
 
-      <div className="mx-auto w-[1440px] mt-20">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 w-[1440px]">
+      <div className="mx-auto container mt-20">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 ">
           {servicios.map((servicio, index) => (
             <ServiceCard key={index} {...servicio} />
           ))}

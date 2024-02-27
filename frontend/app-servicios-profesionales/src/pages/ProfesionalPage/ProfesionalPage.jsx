@@ -1,7 +1,14 @@
 import React from "react";
 import RatingToStar from "../../components/RatingToStar/RatingToStar";
+import { useParams } from "react-router-dom";
 
-const ProfesionalPage = () => {
+const ProfesionalPage = ({ location }) => {
+  const {
+    state: { profesional },
+  } = location;
+
+  console.log(profesional, location);
+
   return (
     <div className="bg-blue-100 flex flex-col h-screen ">
       <header className="bg-blue-500 flex  ">
@@ -16,15 +23,15 @@ const ProfesionalPage = () => {
       <div className="flex flex-grow mx-auto max-w-[1280px]">
         <div className="flex-shrink-0 p-4 text-center items-center">
           <img
-            src="https://avatars.githubusercontent.com/u/101590889?v=4"
+            src={profesional.foto}
             alt=""
             className="w-60 h-60 rounded-full m-10 "
           />
-          <p className="text-lg font-bold"> JORGE MUÑOZ</p>
-          <p className="text-lg text-gray-600"> Electricista UNC</p>
-          <p className="text-lg text-gray-600"> Córdoba</p>
+          <p className="text-lg font-bold"> {profesional.nombre}</p>
+          <p className="text-lg text-gray-600"> {profesional.profesion}</p>
+          <p className="text-lg text-gray-600"> {profesional.ciudad}</p>
           <div className=" ml-auto flex items-center">
-            <RatingToStar rating={4} />
+            <RatingToStar rating={profesional.puntaje} />
           </div>
         </div>
 
@@ -33,12 +40,7 @@ const ProfesionalPage = () => {
             <h3 className="text-lg font-semibold my-4 text-center ">
               Acerca de mi:
             </h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci,
-              repellat? Explicabo libero quas pariatur amet eos similique soluta
-              nisi. Quia nisi provident explicabo corporis quo, tempore odio
-              corrupti itaque iure!
-            </p>
+            <p>{resumen}</p>
             <h3 className="text-lg font-semibold my-4 text-center">
               Valoraciones:
             </h3>

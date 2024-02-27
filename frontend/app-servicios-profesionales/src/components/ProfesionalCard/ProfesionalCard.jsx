@@ -2,7 +2,7 @@ import RatingToStar from "../RatingToStar/RatingToStar";
 
 const ProfesionalCard = ({ foto, nombre, ciudad, puntaje }) => {
   return (
-    <div className=" flex flex-col  items-center  border-2 shadow-md p-2 rounded-xl">
+    <div className=" flex flex-col  items-center  border-2 shadow-md p-2 rounded-xl pointer ">
       <img
         src={foto}
         alt="Foto del Prestador del Servicio"

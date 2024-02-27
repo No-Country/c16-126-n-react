@@ -1,6 +1,8 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+
 //import { solicitarProfesionales } from "../../data/getData";
 
 //import RatingToStar from "../../components/RatingToStar/RatingToStar";
@@ -43,7 +45,6 @@ const ServiciosPage = () => {
       .then((data) => {
         if (data) {
           const listaData = data[profesion] || [];
-          console.log(profesion, listaData);
           setProfesionales(listaData);
         } else {
           throw new Error(
@@ -53,8 +54,6 @@ const ServiciosPage = () => {
       })
       .catch((error) => console.error(error));
   }, [servicio]);
-
-  console.log(profesionales);
 
   return (
     <div>
@@ -66,7 +65,15 @@ const ServiciosPage = () => {
 
       <div className="grid grid-cols-2 lg:grid-cols-4 p-10 container justify-between mx-auto gap-5">
         {profesionales.map((profesional, index) => (
-          <ProfesionalCard key={index} {...profesional} />
+          <Link
+            key={index}
+            to={{
+              pathname: `/profesional/${index}`,
+              state: { profesional },
+            }}
+          >
+            <ProfesionalCard {...profesional} />
+          </Link>
         ))}
       </div>
 

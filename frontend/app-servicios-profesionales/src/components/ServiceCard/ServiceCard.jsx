@@ -1,11 +1,17 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { solicitarProfesionales } from "../../data/getData";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const ServiceCard = ({ servicio, rutaIcono }) => {
   const iconPath = `/icons/${rutaIcono}.png`;
   const navigate = useNavigate();
   const [profesion, setProfesion] = useState(""); //estado para manejar las profesiones
+
+  useEffect(() => {
+    if (profesion !== "") {
+      navigate(`/servicios/${profesion}`);
+    }
+  }, [profesion, navigate]);
 
   const handleButtonClick = async () => {
     const lowerCaseServicio = servicio.toLowerCase(); // convierte la profesion a letras minisculas
@@ -13,8 +19,6 @@ const ServiceCard = ({ servicio, rutaIcono }) => {
 
     //const profesionales = await solicitarProfesionales(lowerCaseServicio); // funcion que llama al api de solicitarProfesionales
     //console.log(profesionales.profesionales);
-
-    navigate(`/servicios/${lowerCaseServicio}`); // navegacion a la profesion especifica para listar profesionales
   };
 
   return (

@@ -40,8 +40,8 @@ app.get('/', (req, res) => {
   <head>
   <title>Servidor corriendo</title>
   </head>
-  <body >
-  <h1>Servidor corriendo</h1>
+  <body style ="background-color: #f2f2f2; display: grid; place-content:center">
+  <h1 style = "text-align: center;">Servidor corriendo</h1>
   </body>
   </html>
   `

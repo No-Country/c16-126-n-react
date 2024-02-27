@@ -9,6 +9,7 @@ const { postInicioCliente, postInicioProfesional } = require('../controllers/con
 const { autorizarUsuario } = require('../autorizacion/autorizarUsuario')
 const { perfil } = require('../controllers/controladorDatosPerfil')
 const { getDatosCliente, postDatosCliente } = require('../controllers/controladorDatosCliente')
+const { getDatosProfesional } = require('../controllers/controladorDatosProfesional')
 
 router
   /**
@@ -372,5 +373,7 @@ router
  */
 
   .post('/datosCliente', autorizarUsuario, postDatosCliente)
+  .get('/datosProfesional', autorizarUsuario, getDatosProfesional)
+// .post('/horarioProfesional', autorizarUsuario, postHorarioProfesional)
 
 module.exports = router

@@ -8,15 +8,13 @@ const ServiceCard = ({ servicio, rutaIcono }) => {
   const [profesion, setProfesion] = useState(""); //estado para manejar las profesiones
 
   const handleButtonClick = async () => {
-
     const lowerCaseServicio = servicio.toLowerCase(); // convierte la profesion a letras minisculas
-    setProfesion(lowerCaseServicio); // asigna el valor del servicio al estado profesion 
+    setProfesion(lowerCaseServicio); // asigna el valor del servicio al estado profesion
 
-    const profesionales = await solicitarProfesionales(lowerCaseServicio); // funcion que llama al api de solicitarProfesionales
-    console.log(profesionales.profesionales);
+    //const profesionales = await solicitarProfesionales(lowerCaseServicio); // funcion que llama al api de solicitarProfesionales
+    //console.log(profesionales.profesionales);
 
     navigate(`/servicios/${lowerCaseServicio}`); // navegacion a la profesion especifica para listar profesionales
-  
   };
 
   return (

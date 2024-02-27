@@ -1,12 +1,10 @@
-require('dotenv').config()
-const { createClient } = require("@libsql/client")
-
+require("dotenv").config();
+const { createClient } = require("@libsql/client");
 
 const DB = createClient({
-	url: "libsql://wealthy-doctor-mindbender-francoojeda.turso.io",
-	authToken: process.env.DB_TOKEN
-})
-
+  url: "libsql://wealthy-doctor-mindbender-francoojeda.turso.io",
+  authToken: process.env.DB_TOKEN,
+});
 
 DB.execute(`
 CREATE TABLE IF NOT EXISTS usuarios (
@@ -21,7 +19,7 @@ CREATE TABLE IF NOT EXISTS usuarios (
     PRIMARY KEY("usuario_id" AUTOINCREMENT)
   );
 )
-`)
+`);
 
 DB.execute(`
 CREATE TABLE IF NOT EXISTS "profesionales" (
@@ -32,7 +30,7 @@ CREATE TABLE IF NOT EXISTS "profesionales" (
 	FOREIGN KEY("usuario_id") REFERENCES "usuarios"("usuario_id"),
 	PRIMARY KEY("profesional_id")
 );
-`)
+`);
 
 DB.execute(`
 CREATE TABLE IF NOT EXISTS "clientes" (
@@ -43,7 +41,7 @@ CREATE TABLE IF NOT EXISTS "clientes" (
 	FOREIGN KEY("usuario_id") REFERENCES "usuarios"("usuario_id"),
 	PRIMARY KEY("cliente_id")
 );
-`)
+`);
 
 DB.execute(`
 CREATE TABLE IF NOT EXISTS "profesiones" (
@@ -52,7 +50,7 @@ CREATE TABLE IF NOT EXISTS "profesiones" (
 	"descripcion"	TEXT NOT NULL,
 	PRIMARY KEY("profesion_id")
 );
-`)
+`);
 DB.execute(`
 CREATE TABLE IF NOT EXISTS "profesional_profesiones" (
 	"profesional_id"	INTEGER,
@@ -62,7 +60,7 @@ CREATE TABLE IF NOT EXISTS "profesional_profesiones" (
 	FOREIGN KEY("profesional_id") REFERENCES "profesionales"("profesional_id"),
 	PRIMARY KEY("profesional_id","profesion_id")
 );
-`)
+`);
 DB.execute(`
 CREATE TABLE IF NOT EXISTS "cliente_profesional_reseña" (
 	"reseña_id"	INTEGER,
@@ -75,8 +73,7 @@ CREATE TABLE IF NOT EXISTS "cliente_profesional_reseña" (
 	FOREIGN KEY("cliente_id") REFERENCES "clientes"("usuario_id"),
 	UNIQUE("cliente_id","profesional_id"),
 	PRIMARY KEY("reseña_id" AUTOINCREMENT)
-);`
-)
+);`);
 
 DB.execute(`
 CREATE TABLE IF NOT EXISTS "profesional_cliente_reseña" (
@@ -91,6 +88,6 @@ CREATE TABLE IF NOT EXISTS "profesional_cliente_reseña" (
 	UNIQUE("profesional_id","cliente_id"),
 	PRIMARY KEY("reseña_id" AUTOINCREMENT)
 );
-`)
+`);
 
-module.exports = DB
+module.exports = DB;

@@ -1,8 +1,3 @@
-// require('dotenv').config()
-// const { createClient } = require("@libsql/client")
-
-
-
 // const config = {
 // 	url: "libsql://better-thing-francoojeda.turso.io",
 // 	authToken: process.env.DB_TOKEN
@@ -142,7 +137,5 @@
 // 	}
 // }
 
-
-
-
 // module.exports = DB
+

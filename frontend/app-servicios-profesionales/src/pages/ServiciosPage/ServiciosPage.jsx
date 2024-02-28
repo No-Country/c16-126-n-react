@@ -68,7 +68,7 @@ const ServiciosPage = () => {
           <Link
             key={index}
             to={{
-              pathname: `/profesional/${index}`,
+              pathname: `/profesional/${profesional.nombre}`,
               state: { profesional },
             }}
           >

@@ -1,13 +1,18 @@
 import React from "react";
 import RatingToStar from "../../components/RatingToStar/RatingToStar";
 import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
 
-const ProfesionalPage = ({ location }) => {
-  const {
-    state: { profesional },
-  } = location;
-
-  console.log(profesional, location);
+const ProfesionalPage = () => {
+  const profesional = {
+    foto: "https://media.licdn.com/dms/image/D4D03AQFV7s7YwSIz1Q/profile-displayphoto-shrink_400_400/0/1701561732877?e=1714608000&v=beta&t=4nq5kHe_ppgZZuan2Wk32iaEpnzBs-gU5Nsc8pXQxII",
+    nombre: "Juan Vital",
+    profesion: "Electricista",
+    ciudad: "Ramallo",
+    puntaje: "4.5",
+    resumen:
+      "Reparaciones eléctricas residenciales - 15 Años de experiencia en la zona. Trabajo en hoteles y brarrios privados ",
+  };
 
   return (
     <div className="bg-blue-100 flex flex-col h-screen ">
@@ -20,7 +25,7 @@ const ProfesionalPage = ({ location }) => {
         </div>
       </header>
 
-      <div className="flex flex-grow mx-auto max-w-[1280px]">
+      <div className="flex flex-grow mx-auto container">
         <div className="flex-shrink-0 p-4 text-center items-center">
           <img
             src={profesional.foto}
@@ -40,30 +45,32 @@ const ProfesionalPage = ({ location }) => {
             <h3 className="text-lg font-semibold my-4 text-center ">
               Acerca de mi:
             </h3>
-            <p>{resumen}</p>
+            <p>{profesional.resumen}</p>
             <h3 className="text-lg font-semibold my-4 text-center">
               Valoraciones:
             </h3>
-            <div className="bg-white p-2 rounded-xl shadow-md my-2">
-              <p className="text-lg font-semibold mx-auto">Un capo :D</p>
-              <div className="flex items-center justify-start ">
-                <div className="flex items-center ">
-                  <RatingToStar rating={5} />
-                </div>
-                <p className="text-md font-semibold  ml-auto">
-                  Margarita Perez
+            <div className="container">
+              <div className="bg-white p-2 rounded-xl shadow-md my-2 ">
+                <p className="text-lg font-semibold mx-auto">
+                  Excelente atención - Rápida Respuesta
                 </p>
-              </div>
-            </div>
-            <div className="bg-white p-2 rounded-xl shadow-md my-2">
-              <p className="text-lg font-semibold mx-auto">
-                Me prendió el foco
-              </p>
-              <div className="flex items-center justify-start ">
-                <div className="flex items-center ">
-                  <RatingToStar rating={4} />
+                <div className="flex flex-col lg:flex-row items-center justify-start ">
+                  <div className="flex items-center ">
+                    <RatingToStar rating={5} />
+                  </div>
+                  <p className="text-md font-semibold  ml-auto">Sofía Pérez</p>
                 </div>
-                <p className="text-md font-semibold  ml-auto">Luis Correa</p>
+              </div>
+              <div className="bg-white p-2 rounded-xl shadow-md my-2">
+                <p className="text-lg font-semibold mx-auto">
+                  Cumplió con el horario de visita - todo tal cual lo acordado
+                </p>
+                <div className="flex flex-col lg:flex-row items-center justify-start ">
+                  <div className="flex items-center ">
+                    <RatingToStar rating={4} />
+                  </div>
+                  <p className="text-md font-semibold  ml-auto">Martín López</p>
+                </div>
               </div>
             </div>
           </div>

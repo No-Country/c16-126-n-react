@@ -1,4 +1,3 @@
-const DBTurso = require('../base/tablas/tablas');
 const { pool } = require('../base/tablas/DB')
 
 const verificarRegistro = async (email) => {

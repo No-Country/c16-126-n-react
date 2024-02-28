@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -76,9 +76,12 @@ const NavBar = () => {
           </a>
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="#" className="text-sm font-semibold leading-6 text-white">
+          <NavLink
+            to="/register"
+            className="text-sm font-semibold leading-6 text-white"
+          >
             Mi Cuenta
-          </a>
+          </NavLink>
         </div>
       </nav>
 

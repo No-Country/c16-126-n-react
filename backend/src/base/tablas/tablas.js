@@ -5,7 +5,7 @@
 
 // const config = {
 // 	url: "libsql://better-thing-francoojeda.turso.io",
-// 	authToken: process.env.DB_TOKEN
+// authToken: process.env.DB_TOKEN
 // }
 // const DB = createClient(config)
 

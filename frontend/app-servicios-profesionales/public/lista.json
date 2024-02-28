@@ -1,0 +1,128 @@
+{
+  "reparaciones": [
+    {
+      "nombre": "Juan Pérez",
+      "profesion": "Reparaciones",
+      "foto":"https://media.licdn.com/dms/image/C4D03AQHke364W9IS2A/profile-displayphoto-shrink_800_800/0/1524543909990?e=1714608000&v=beta&t=1VWdPN4RrR5OP0vUxvbQjmUnfVuz_EyVdf-9R2d0E4Q",
+      "ciudad": "Córdoba",
+      "resumen": "Especialista en muebles - Reformas - Mantenimiento del Hogar - Pintura",
+      "puntaje": 4.5,
+      "valoraciones": [
+        {"puntaje": 5, "comentario": "Excelente trabajo", "cliente": "Ana López"},
+        {"puntaje": 4, "comentario": "Muy profesional", "cliente": "Pedro García"}
+      ]
+    },
+    {
+      "nombre": "María Rodríguez",
+      "profesion": "Reparaciones",
+      "foto":"https://media.licdn.com/dms/image/D4D35AQEXIpvpxY8ysw/profile-framedphoto-shrink_400_400/0/1707078377078?e=1709647200&v=beta&t=j02Seb7DtGk0-xzR9GhnZ8nvVHdoEbsVP7riUfr-QHw",
+      "ciudad": "Buenos Aires",
+      "resumen": "Diseño personalizados - Reparaciones en General - Mantenimiento",
+      "puntaje": 4.2,
+      "valoraciones": [
+        {"puntaje": 4.5, "comentario": "Muy satisfecho", "cliente": "Laura Martínez"},
+        {"puntaje": 3.8, "comentario": "Entrega a tiempo", "cliente": "Carlos Pérez"}
+      ]
+    }
+  ],
+  "electricidad": [
+    {
+      "nombre": "Laura Rodríguez",
+      "profesion": "Electricista",
+      "foto":"https://media.licdn.com/dms/image/D4D03AQE1wpgekI6aiw/profile-displayphoto-shrink_400_400/0/1693326429752?e=1714608000&v=beta&t=yAm4tSV_EfQe5q9BavRLOknmtTxObtCOb6kX8FFjtc4",
+      "ciudad": "Buenos Aires",
+      "resumen": "Especialista en instalaciones eléctricas",
+      "puntaje": 4.2,
+      "valoraciones": [
+        {"puntaje": 3, "comentario": "Buen servicio", "cliente": "María González"},
+        {"puntaje": 4.5, "comentario": "Rápido y eficiente", "cliente": "José Martínez"}
+      ]
+    },
+    {
+      "nombre": "Carlos Sánchez",
+      "profesion": "Electricista",
+      "foto":"https://media.licdn.com/dms/image/D4D35AQEGiL0z7yOtZA/profile-framedphoto-shrink_400_400/0/1675216287469?e=1709647200&v=beta&t=KY0jP0BiJyguWaCri_T99UbpPNTz9Ta3LCWVyyIiLpo",
+      "ciudad": "Córdoba",
+      "resumen": "Reparaciones eléctricas residenciales",
+      "puntaje": 4.8,
+      "valoraciones": [
+        {"puntaje": 4.5, "comentario": "Excelente atención", "cliente": "Sofía Pérez"},
+        {"puntaje": 5, "comentario": "Rápida respuesta", "cliente": "Martín López"}
+      ]
+    },
+    {
+      "nombre": "Miguel Romero",
+      "profesion": "Electricista",
+      "foto":"https://media.licdn.com/dms/image/D4D03AQEwB8UziNRGRw/profile-displayphoto-shrink_400_400/0/1676469172335?e=1714608000&v=beta&t=E4lyhVQPyTyX8wyCuPVupvp2jK8T6yHEd-_32OqpOoo",
+      "ciudad": "Buenos Aires",
+      "resumen": "Especialista en instalaciones eléctricas",
+      "puntaje": 4.2,
+      "valoraciones": [
+        {"puntaje": 3, "comentario": "Buen servicio", "cliente": "María González"},
+        {"puntaje": 4.5, "comentario": "Rápido y eficiente", "cliente": "José Martínez"}
+      ]
+    },
+    {
+      "nombre": "Juan Vital",
+      "profesion": "Electricista",
+      "foto":"https://media.licdn.com/dms/image/D4D03AQFV7s7YwSIz1Q/profile-displayphoto-shrink_400_400/0/1701561732877?e=1714608000&v=beta&t=4nq5kHe_ppgZZuan2Wk32iaEpnzBs-gU5Nsc8pXQxII",
+      "ciudad": "Ramallo",
+      "resumen": "Reparaciones eléctricas residenciales",
+      "puntaje": 4.2,
+      "valoraciones": [
+        {"puntaje": 4.5, "comentario": "Excelente atención", "cliente": "Sofía Pérez"},
+        {"puntaje": 5, "comentario": "Rápida respuesta", "cliente": "Martín López"}
+      ]
+    }, {
+      "nombre": "Guido Dignani",
+      "profesion": "Electricista",
+      "foto":"https://media.licdn.com/dms/image/C4D03AQFnna9Bu1W3KQ/profile-displayphoto-shrink_400_400/0/1516496871535?e=1714608000&v=beta&t=9Rdd3mXOOcaG997LXLH60ugfhOyJbPeqpgtKDPSUfLA",
+      "ciudad": "Salta",
+      "resumen": "Especialista en instalaciones eléctricas",
+      "puntaje": 4.2,
+      "valoraciones": [
+        {"puntaje": 3, "comentario": "Buen servicio", "cliente": "María González"},
+        {"puntaje": 4.5, "comentario": "Rápido y eficiente", "cliente": "José Martínez"}
+      ]
+    },
+    {
+      "nombre": "Mario De Luis",
+      "profesion": "Electricista",
+      "foto":"https://media.licdn.com/dms/image/D4D35AQFeKnmmYbb-uQ/profile-framedphoto-shrink_400_400/0/1705789650498?e=1709647200&v=beta&t=td2vtNHPeHOJwY5yAwrygY-2T3kZ4Dnn4jGtyjYucJw",
+      "ciudad": "Santa Fe",
+      "resumen": "Reparaciones eléctricas residenciales",
+      "puntaje": 4.8,
+      "valoraciones": [
+        {"puntaje": 4.5, "comentario": "Excelente atención", "cliente": "Sofía Pérez"},
+        {"puntaje": 5, "comentario": "Rápida respuesta", "cliente": "Martín López"}
+      ]
+    }
+    
+  ],
+  "limpieza": [
+    {
+      "nombre": "Ana Gómez",
+      "profesion": "Limpieza",
+      "foto":"https://media.licdn.com/dms/image/D4D35AQF0dZfTOr4lPA/profile-framedphoto-shrink_400_400/0/1704689715819?e=1709647200&v=beta&t=E-KnqbSSefS7NujpDlek9ndKdVkn0AMMMfn5TwX-ruw",
+      "ciudad": "Córdoba",
+      "resumen": "Limpieza en general, tuberías y desagües",
+      "puntaje": 4.0,
+      "valoraciones": [
+        {"puntaje": 3.5, "comentario": "Buen trabajo", "cliente": "Daniel García"},
+        {"puntaje": 4, "comentario": "Profesionalismo", "cliente": "Carla Martínez"}
+      ]
+    },
+    {
+      "nombre": "Pablo Fernández",
+      "profesion": "Limpieza",
+      "foto":"https://media.licdn.com/dms/image/D4D03AQGs0CcUO-LkcA/profile-displayphoto-shrink_400_400/0/1694660320416?e=1714608000&v=beta&t=xcU5AjMjDXeawWqg5sS4Kdh74h2uPfskZw9J--BSSoA",
+      "ciudad": "Buenos Aires",
+      "resumen": "Limpieza en Altura",
+      "puntaje": 4.5,
+      "valoraciones": [
+        {"puntaje": 4, "comentario": "Servicio rápido", "cliente": "Fernanda Pérez"},
+        {"puntaje": 5, "comentario": "Muy recomendado", "cliente": "Alejandro López"}
+      ]
+    }
+  ]
+}

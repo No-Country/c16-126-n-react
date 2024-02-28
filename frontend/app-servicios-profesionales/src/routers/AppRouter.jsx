@@ -1,23 +1,24 @@
-import React from 'react'
-import {Route, Routes } from 'react-router-dom'
-import LandingPage from '../components/LandingPage/LandingPage'
-import ServiciosPage from '../pages/ServiciosPage/ServiciosPage'
-
-
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+import LandingPage from "../components/LandingPage/LandingPage";
+import ServiciosPage from "../pages/ServiciosPage/ServiciosPage";
+import ProfesionalPage from "../pages/ProfesionalPage/ProfesionalPage";
+import HomeProyecto from "../pages/HomeProyecto/HomeProyecto";
 
 const AppRouter = () => {
   return (
     <>
-        <Routes>
-         
-            <Route path='servicios' element={<ServiciosPage/>}/>  
+      <Routes>
+        <Route path="/*" element={<LandingPage />} />
 
+        <Route path="servicios/:servicio" element={<ServiciosPage />} />
 
-            <Route path='/*' element={<LandingPage/>}/>  
+        <Route path="profesional/:index" element={<ProfesionalPage />} />
 
-        </Routes>      
+        <Route path="proyecto" element={<HomeProyecto />} />
+      </Routes>
     </>
-  )
-}
+  );
+};
 
-export default AppRouter
+export default AppRouter;

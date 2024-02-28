@@ -1,3 +1,4 @@
+
 // CREATE TABLE IF NOT EXISTS usuarios(
 //   usuario_id INT AUTO_INCREMENT PRIMARY KEY,
 //   nombre TEXT NOT NULL,
@@ -5,7 +6,7 @@
 //   email VARCHAR(255) NOT NULL UNIQUE,
 //   codigo_postal TEXT NOT NULL,
 //   ciudad TEXT NOT NULL,
-//   provincia INT NOT NULL,
+//   provincia TEXT NOT NULL,
 //   estado INT NOT NULL DEFAULT 1
 // );
 

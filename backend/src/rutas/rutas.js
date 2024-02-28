@@ -10,6 +10,7 @@ const { autorizarUsuario } = require('../autorizacion/autorizarUsuario')
 const { perfil } = require('../controllers/controladorDatosPerfil')
 const { getDatosCliente, postDatosCliente } = require('../controllers/controladorDatosCliente')
 const { getDatosProfesional, postHorarioProfesional } = require('../controllers/controladorDatosProfesional')
+const { cargarProfesiones } = require('../controllers/controladorCargarProfesiones')
 
 router
   /**
@@ -375,5 +376,6 @@ router
   .post('/datosCliente', autorizarUsuario, postDatosCliente)
   .get('/datosProfesional', autorizarUsuario, getDatosProfesional)
   .post('/horarioProfesional', autorizarUsuario, postHorarioProfesional)
+  .post('/cargarProfesiones', cargarProfesiones)
 
 module.exports = router

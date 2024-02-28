@@ -1,8 +1,12 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
+import AuthContext from "../../context/AuthProvider";
+
+const LOGIN_URL = "https://jsonplaceholder.typicode.com/users";
 
 export default function Login() {
+  const { setAuth } = useContext(AuthContext);
   const userRef = useRef();
   const errRef = useRef();
 
@@ -21,18 +25,46 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(email, password);
-    setEmail("");
-    setPassword("");
-    setSuccess(true);
+
+    try {
+      const response = await axios.post(
+        LOGIN_URL,
+        JSON.stringify({ email, username: password }),
+        {
+          headers: { "Content-type": "application/json" },
+          withCredentials: true,
+        }
+      );
+      console.log(JSON.stringify(response?.data));
+      const accessToken = response?.data?.accessToken;
+      /* const roles = response?.data?.roles; */
+      setAuth({ email, password, accessToken });
+      setEmail("");
+      setPassword("");
+      setSuccess(true);
+    } catch (err) {
+      if (!err?.response) {
+        setErrMsg("No server Response");
+      } else if (err.response?.status === 400) {
+        setErrMsg("Error de email u contraseña");
+      } else if (err.response?.status === 401) {
+        setErrMsg("Sin autorización");
+      } else {
+        setErrMsg("Inicio de Sesión Falló");
+      }
+      errRef.current.focus();
+    }
   };
 
   return (
     <>
       {success ? (
-        <section className="flex justify-center ">
+        <section className="flex flex-col items-center ">
           <p className="text-[#000000BF] text-[28px]">
             Iniciaste sesion con exito
+          </p>
+          <br />
+          <p>
             <NavLink
               to="/"
               className="text-[#454BE0E0] text-[30px] underline px-3"

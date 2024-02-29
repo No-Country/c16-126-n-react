@@ -1,7 +1,18 @@
-import React from "react";
-import RatingToStar from "../../components/RatingToStar/RatingToStar";
+import { useEffect, useState } from "react";
 
 const Perfil = () => {
+  const [usuario, setUsuario] = useState(null);
+
+  useEffect(() => {
+    const datosUsuario = localStorage.getItem("user");
+    if (datosUsuario) {
+      const usuarioGuardado = JSON.parse(datosUsuario);
+      setUsuario(usuarioGuardado);
+    }
+  }, []);
+
+  console.log(usuario);
+
   return (
     <div className=" flex flex-col   ">
       <header className="bg-blue-600 flex  ">
@@ -13,8 +24,8 @@ const Perfil = () => {
       <div className="flex flex-col md:flex-row mx-auto md:max-w-[1280px] ">
         <div className="flex flex-col  p-4 text-center items-center">
           <img
-            src="https://avatars.githubusercontent.com/u/101590889?v=4"
-            alt=""
+            src=""
+            alt="imagen del usuario"
             className="w-[220px] h-[220px] rounded-full m-10 "
           />
           <a className="h-12 w-[200px] p-7 flex justify-center items-center bg-blue-700 text-white text-2xl rounded-xl shadow-md">
@@ -24,17 +35,17 @@ const Perfil = () => {
             Cambiar Contraseña
           </a>
 
-          <ul className="flex flex-col items-center ">
-            <a className=" h-10 font-semibold flex items-center  text-slate-800 text-2xl ">
+          <ul className="flex flex-col items-center text-gray-400 pointer-none">
+            <a className=" h-10 font-semibold flex items-center   text-2xl ">
               Idioma
             </a>
-            <a className=" h-10  font-semibold flex items-center  text-slate-800 text-2xl ">
+            <a className=" h-10  font-semibold flex items-center   text-2xl ">
               Preferencias
             </a>
-            <a className=" h-10  font-semibold flex items-center  text-slate-800 text-2xl ">
+            <a className=" h-10  font-semibold flex items-center   text-2xl ">
               Modo
             </a>
-            <a className=" h-10  font-semibold flex items-center  text-slate-800 text-2xl ">
+            <a className=" h-10  font-semibold flex items-center   text-2xl ">
               Privacidad
             </a>
           </ul>
@@ -43,7 +54,7 @@ const Perfil = () => {
         <div className="flex flex-col ml-8 p-4 flex-grow items-center h-full">
           <div className="flex flex-col max-w-6xl text-center  ">
             <h3 className="text-3xl font-semibold my-4 text-center ">
-              JORGE MUÑOZ
+              {usuario.nombre} {usuario.apellido}
             </h3>
             <div className="flex gap-4 justify-center mt-8 mx-auto">
               <a
@@ -62,38 +73,32 @@ const Perfil = () => {
 
             <div className="grid grid-cols-1 gap-y-5 max-w-full mt-14 text-xl  ">
               <div className="grid grid-cols-2 justify-between   ">
-                <p className="text-gray-600 text-start">Fecha de Nacimiento</p>
-                <p className="text-black font-semibold text-end">01/01/1990</p>
-              </div>
-              <div className="grid grid-cols-2  ">
                 <p className="text-gray-600 text-start">Email</p>
                 <p className="text-black font-semibold text-end">
-                  usuario@example.com
+                  {usuario.email}
                 </p>
               </div>
               <div className="grid grid-cols-2  ">
-                <p className="text-gray-600 text-start">Teléfono</p>
+                <p className="text-gray-600 text-start">Ciudad</p>
                 <p className="text-black font-semibold text-end">
-                  123-456-7890
+                  {usuario.ciudad}
                 </p>
               </div>
               <div className="grid grid-cols-2  ">
-                <p className="text-gray-600 text-start ">Domicilio</p>
+                <p className="text-gray-600 text-start">Códido Postal:</p>
                 <p className="text-black font-semibold text-end">
-                  9 de Julio 101
+                  {usuario.codigo_postal}
                 </p>
               </div>
-              <div className="grid grid-cols-2 ">
-                <p className="text-gray-600 text-start">Ciudad / Provincia</p>
-                <p className="text-black font-semibold text-end">Córdoba</p>
-              </div>
               <div className="grid grid-cols-2  ">
-                <p className="text-gray-600 text-start">Profesión</p>
-                <p className="text-black font-semibold text-end">-</p>
+                <p className="text-gray-600 text-start ">Provincia</p>
+                <p className="text-black font-semibold text-end">
+                  {usuario.provincia}
+                </p>
               </div>
             </div>
 
-            <div className="flex flex-col">
+            <div className="flex flex-col text-gray-400">
               <h4 className="text-2xl font-semibold my-8 text-start ">
                 FAVORITOS
               </h4>

@@ -1,9 +1,15 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from '../../auth/AuthContext'
 
 const NavBar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+
+
+  const {logged,logout} = useContext(AuthContext)
+
+  
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
   };
@@ -81,11 +87,13 @@ const NavBar = () => {
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <NavLink
-            to="/register"
+            to={logged? '/perfil' : '/login'}
             className="text-sm font-semibold leading-6 text-white"
           >
             Mi Cuenta
           </NavLink>
+
+          {logged && <button onClick={logout} className='ml-9  text-white font-bold'>Cerrar Sesión</button>}
         </div>
       </nav>
 

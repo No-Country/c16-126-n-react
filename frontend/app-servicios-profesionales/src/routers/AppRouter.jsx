@@ -4,30 +4,61 @@ import LandingPage from "../components/LandingPage/LandingPage";
 import ServiciosPage from "../pages/ServiciosPage/ServiciosPage";
 import ProfesionalPage from "../pages/ProfesionalPage/ProfesionalPage";
 import HomeProyecto from "../pages/HomeProyecto/HomeProyecto";
-import RegisterPage from "../pages/RegisterPage/RegisterPage";
-import LoginPage from "../pages/LoginPage/LoginPage";
 import ContactoPage from "../pages/ContactoPage/ContactoPage";
+import Perfil from "../pages/Perfil/Perfil";
+import PrivateRoute from "./PrivateRoute";
+import Publicas from "./Publicas";
+import PublicRoute from "./PublicRoutes";
+
 
 const AppRouter = () => {
-  return (
-    <>
-      <Routes>
-        <Route path="/*" element={<LandingPage />} />
+     return (
+          <>
+               <Routes>
 
-        <Route path="servicios/:servicio" element={<ServiciosPage />} />
 
-        <Route path="profesional/:index" element={<ProfesionalPage />} />
+                    {/* Public Routes */}
 
-        <Route path="proyecto" element={<HomeProyecto />} />
+                    <Route path='/*' element={
+                         <PublicRoute>
+                              <Publicas />
+                         </PublicRoute>}>
+                    </Route>
 
-        <Route path="login" element={<LoginPage />} />
 
-        <Route path="register" element={<RegisterPage />} />
+                    {/* Public Routes */}
 
-        <Route path="contacto" element={<ContactoPage />} />
-      </Routes>
-    </>
-  );
+
+
+                              <Route path="/" element={<LandingPage />} />
+
+                              <Route path="servicios/:servicio" element={<ServiciosPage />} />
+          
+                              <Route path="profesional/:index" element={<ProfesionalPage />} />
+          
+                              <Route path="proyecto" element={<HomeProyecto />} />
+          
+          
+                              <Route path="contacto" element={<ContactoPage />} />
+
+
+
+
+
+
+                    {/* Private Route */}
+
+                    <Route path="/perfil" element={
+                         <PrivateRoute>
+                              <Perfil />
+                         </PrivateRoute>
+                    }>
+
+                    </Route>
+
+               </Routes>
+          </>
+     );
 };
 
 export default AppRouter;

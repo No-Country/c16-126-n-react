@@ -1,6 +1,7 @@
-import React, { useState, useRef, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState, useRef, useEffect, useContext } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { AuthContext } from "../../auth/AuthContext";
 
 export default function Login() {
   const userRef = useRef();
@@ -10,6 +11,15 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const [errMsg, setErrMsg] = useState("");
   const [success, setSuccess] = useState(false);
+
+
+  // navigate
+  const navigate = useNavigate();
+
+
+
+  // Context
+  const {login} = useContext(AuthContext);
 
   useEffect(() => {
     userRef.current.focus();
@@ -21,10 +31,17 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    login({email,password})
+    
+    navigate('/perfil' , {
+      replace:setSuccess(true)
+    });
+
     console.log(email, password);
-    setEmail("");
-    setPassword("");
-    setSuccess(true);
+    // setEmail("");
+    // setPassword("");
+    // setSuccess(true);
   };
 
   return (
@@ -126,7 +143,7 @@ export default function Login() {
               <img
                 src="../src/assets/register.png"
                 alt="electricista"
-                className="w-[465px] h-[748px]"
+                className="w-[365px] h-[548px]"
               />
             </div>
           </div>

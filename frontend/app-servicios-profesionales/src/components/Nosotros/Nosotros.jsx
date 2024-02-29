@@ -34,12 +34,6 @@ const Nosotros = () => {
       rol: "FrontEnd Developer",
       linkedinUrl: "",
     },
-    {
-      avatarUrl: "https://avatars.githubusercontent.com/u/99056682?v=4",
-      nombre: "Jose Rangel M",
-      rol: "FrontEnd Developer",
-      linkedinUrl: "",
-    },
   ];
 
   return (

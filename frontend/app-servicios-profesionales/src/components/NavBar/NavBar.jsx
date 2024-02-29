@@ -63,7 +63,7 @@ const NavBar = () => {
             Inicio
           </NavLink>
           <a
-            href="#servicios"
+            href="/#servicios"
             className="text-sm font-semibold leading-6 text-white"
           >
             Servicios
@@ -81,9 +81,6 @@ const NavBar = () => {
           >
             Contacto
           </NavLink>
-          <a href="#" className="text-sm font-semibold leading-6 text-white">
-            Notificaciones
-          </a>
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <NavLink

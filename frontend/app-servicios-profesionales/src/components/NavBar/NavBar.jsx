@@ -1,15 +1,12 @@
-import React, { useState,useContext } from "react";
+import React, { useState, useContext } from "react";
 import { NavLink } from "react-router-dom";
-import { AuthContext } from '../../auth/AuthContext'
+import { AuthContext } from "../../auth/AuthContext";
 
 const NavBar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  const { logged, logout } = useContext(AuthContext);
 
-
-  const {logged,logout} = useContext(AuthContext)
-
-  
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!isMobileMenuOpen);
   };
@@ -72,9 +69,12 @@ const NavBar = () => {
             Servicios
           </a>
 
-          <a href="#" className="text-sm font-semibold leading-6 text-white">
-            ¿Quiénes somos?
-          </a>
+          <NavLink
+            to="/quienes-somos"
+            className="text-sm font-semibold leading-6 text-white"
+          >
+            ¿Quienes Somos?
+          </NavLink>
           <NavLink
             to="/contacto"
             className="text-sm font-semibold leading-6 text-white"
@@ -87,13 +87,17 @@ const NavBar = () => {
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
           <NavLink
-            to={logged? '/perfil' : '/login'}
+            to={logged ? "/perfil" : "/login"}
             className="text-sm font-semibold leading-6 text-white"
           >
             Mi Cuenta
           </NavLink>
 
-          {logged && <button onClick={logout} className='ml-9  text-white font-bold'>Cerrar Sesión</button>}
+          {logged && (
+            <button onClick={logout} className="ml-9  text-white font-bold">
+              Cerrar Sesión
+            </button>
+          )}
         </div>
       </nav>
 

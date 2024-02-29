@@ -12,14 +12,11 @@ export default function Login() {
   const [errMsg, setErrMsg] = useState("");
   const [success, setSuccess] = useState(false);
 
-
   // navigate
   const navigate = useNavigate();
 
-
-
   // Context
-  const {login} = useContext(AuthContext);
+  const { login } = useContext(AuthContext);
 
   useEffect(() => {
     userRef.current.focus();
@@ -32,10 +29,10 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    login({email,password})
-    
-    navigate('/perfil' , {
-      replace:setSuccess(true)
+    login({ email, password });
+
+    navigate("/perfil", {
+      replace: setSuccess(true),
     });
 
     console.log(email, password);
@@ -106,24 +103,6 @@ export default function Login() {
 
                 <button className="w-[640px] h-[80px] text-center text-[32px] text-white bg-[#354ED1] border-[3px] rounded-[20px] border-[#354ED1] shadow-md shadow-[#00000040]">
                   Iniciar sesión
-                </button>
-
-                <p className="text-[32px] text-[#000000BF]">o</p>
-
-                <button
-                  className="flex items-center w-[640px] h-[80px] text-[32px]  text-[#000000BF] bg-[#F2F5F5] border-[2px] rounded-[20px] border-[#ffffff10] shadow-md shadow-[#00000040]"
-                  onClick={() => console.log("Hola")}
-                >
-                  <div className="px-[26px]">
-                    <img
-                      src="../src/assets/google.png"
-                      alt="google"
-                      className="w-[65px] h-[65px]"
-                    />
-                  </div>
-                  <div className="px-[48px] ">
-                    <span className="w-[523px]">Continuar con Google</span>
-                  </div>
                 </button>
 
                 <div className="flex flex-col items-center justify-center">

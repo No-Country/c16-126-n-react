@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 const Perfil = () => {
-  const [usuario, setUsuario] = useState(null);
+  const [usuario, setUsuario] = useState({});
 
   useEffect(() => {
     const datosUsuario = localStorage.getItem("user");

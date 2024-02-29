@@ -15,7 +15,7 @@ const Servicios = () => {
   ];
 
   return (
-    <section className="text-center mt-20">
+    <section id="servicios" className="text-center mt-20">
       <p className="text-4xl text-blue-800 font-bold text-wrap">
         Nuestros Servicios
       </p>

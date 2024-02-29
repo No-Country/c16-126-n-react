@@ -59,13 +59,22 @@ const NavBar = () => {
           >
             Inicio
           </NavLink>
+          <a
+            href="#servicios"
+            className="text-sm font-semibold leading-6 text-white"
+          >
+            Servicios
+          </a>
 
           <a href="#" className="text-sm font-semibold leading-6 text-white">
             ¿Quiénes somos?
           </a>
-          <a href="#" className="text-sm font-semibold leading-6 text-white">
+          <NavLink
+            to="/contacto"
+            className="text-sm font-semibold leading-6 text-white"
+          >
             Contacto
-          </a>
+          </NavLink>
           <a href="#" className="text-sm font-semibold leading-6 text-white">
             Notificaciones
           </a>

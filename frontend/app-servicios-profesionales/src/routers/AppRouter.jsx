@@ -6,6 +6,7 @@ import ProfesionalPage from "../pages/ProfesionalPage/ProfesionalPage";
 import HomeProyecto from "../pages/HomeProyecto/HomeProyecto";
 import RegisterPage from "../pages/RegisterPage/RegisterPage";
 import LoginPage from "../pages/LoginPage/LoginPage";
+import ContactoPage from "../pages/ContactoPage/ContactoPage";
 
 const AppRouter = () => {
   return (
@@ -22,6 +23,8 @@ const AppRouter = () => {
         <Route path="login" element={<LoginPage />} />
 
         <Route path="register" element={<RegisterPage />} />
+
+        <Route path="contacto" element={<ContactoPage />} />
       </Routes>
     </>
   );

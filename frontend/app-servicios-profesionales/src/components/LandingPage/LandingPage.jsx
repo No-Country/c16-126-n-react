@@ -70,12 +70,6 @@ const LandingPage = () => {
       <section className="servicios mt-10">
         <Servicios />
       </section>
-
-      <NavLink to="/proyecto">
-        <button className="bg-blue-400 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-xl m-2">
-          Home Proyecto
-        </button>
-      </NavLink>
     </>
   );
 };

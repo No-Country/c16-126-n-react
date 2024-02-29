@@ -59,12 +59,7 @@ const NavBar = () => {
           >
             Inicio
           </NavLink>
-          <NavLink
-            to="/servicios"
-            className="text-sm font-semibold leading-6 text-white"
-          >
-            Servicios
-          </NavLink>
+
           <a href="#" className="text-sm font-semibold leading-6 text-white">
             ¿Quiénes somos?
           </a>

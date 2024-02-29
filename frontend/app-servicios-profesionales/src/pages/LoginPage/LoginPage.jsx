@@ -35,7 +35,7 @@ export default function Login() {
       replace: setSuccess(true),
     });
 
-    console.log(email, password);
+    
     // setEmail("");
     // setPassword("");
     // setSuccess(true);
@@ -63,10 +63,10 @@ export default function Login() {
                 className="flex flex-col items-center p-2 m-3 gap-y-8"
                 onSubmit={handleSubmit}
               >
-                <h1 className="text-black text-[40px] ">Ingrese sus datos</h1>
+                <h1 className="text-black text-[50px] ">Ingrese sus datos</h1>
 
                 <input
-                  className="text-start text-[24px] px-3 w-[637px] h-[67px] text-[#000000BF] placeholder-black bg-[#F2F5F5] border-solid border-[3px] rounded-[20px] border-[#ffffff10] shadow-md shadow-[#00000040]"
+                  className="text-start text-[24px] px-3 w-[637px] h-[58px] text-[#000000BF] placeholder-black bg-[#F2F5F5] border-solid border-[3px] rounded-[20px] border-[#ffffff10] shadow-md shadow-[#00000040]"
                   placeholder="Correo Electrónico"
                   name="email"
                   id="email"

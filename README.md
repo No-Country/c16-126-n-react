@@ -1,25 +1,28 @@
 # All Services APP
 
-A brief description of what this project does and who it's for
+La aplicación que estamos construyendo tiene como objetivo conectar a usuarios con proveedores de servicios de mantenimiento para el hogar. Por ejemplo, si un usuario necesita un electricista, puede buscar en la aplicación y seleccionar profesionales según su ubicación, evaluaciones de otros usuarios y comentarios. La aplicación proporcionará una plataforma eficiente para facilitar la búsqueda, la reserva y la evaluación de profesionales del hogar, mejorando así la accesibilidad y la confiabilidad de los servicios de mantenimiento.
 
 
 
-Problemática:
+# Funcionalidades:
 
-• 
+- Registro de Usuario
+- Login
+- Busqueda de profesionales 
+- Filtro por ciudades
+- Filtro por Provincias
 
-• 
-Funcionalidades:
-• Registro de Usuario 
 
-• 
-• 
-• 
+# Links: [Api WebPage:  ](https://allservicesapi-production.up.railway.app)
 
-##Video presentación: 
+## Screenshots
+![imagen](https://github.com/No-Country/c16-126-n-react/assets/101590889/2a255a3e-ee08-4bb9-83bb-dfe8b8a673d6)
+
+
+# Video presentación: 
 ` Link de Youtube ` 
 
-Equipo: c16-126-n-react
+# Equipo: c16-126-n-react
 
 | Rol               | Nombre               | Redes                                                                                                                             |
 | :---------------- | :------------------- | :-------------------------------------------------------------------------------------------------------------------------------- |
@@ -29,7 +32,7 @@ Equipo: c16-126-n-react
 | `Front End`        | Sebastian Gallego    | [![linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/sebastiangallegocanon//)             |                                                                                             
 | `Front End`        | Gabriel Taboada      | [![linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in///)                         |
 | `Front End`        | Jose Rangel M       | [![linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in///)  
-## Stack Tecnológico
+# Stack Tecnológico
 
 
 | Rama          | Tecnologías                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
@@ -41,4 +44,4 @@ Equipo: c16-126-n-react
 | Deployment    | ![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | Others        | ![GIT](https://img.shields.io/badge/Git-fc6d26?style=for-the-badge&logo=git&logoColor=white) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)       
 	
-Demo: 
+# Demo: 

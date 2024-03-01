@@ -1,23 +1,24 @@
-# All Services APP
+## All Services APP
 
 La aplicación que estamos construyendo tiene como objetivo conectar a usuarios con proveedores de servicios de mantenimiento para el hogar. Por ejemplo, si un usuario necesita un electricista, puede buscar en la aplicación y seleccionar profesionales según su ubicación, evaluaciones de otros usuarios y comentarios. La aplicación proporcionará una plataforma eficiente para facilitar la búsqueda, la reserva y la evaluación de profesionales del hogar, mejorando así la accesibilidad y la confiabilidad de los servicios de mantenimiento.
 
 
-Funcionalidades:
-• Registro de Usuario 
-• Login
-• Busqueda de profesionales 
-• Filtro por ciudades
-• Filtro por Provincias
+
+## Funcionalidades:
+
+- Registro de Usuario
+- Login
+- Busqueda de profesionales 
+- Filtro por ciudades
+- Filtro por Provincias
 
 
+## Links: Api: [## Api WebPage:  ](https://allservicesapi-production.up.railway.app/#)
 
-## Links: Api: [##Video presentación:  ](https://allservicesapi-production.up.railway.app/#)
-
-##Video presentación: 
+## Video presentación: 
 ` Link de Youtube ` 
 
-Equipo: c16-126-n-react
+## Equipo: c16-126-n-react
 
 | Rol               | Nombre               | Redes                                                                                                                             |
 | :---------------- | :------------------- | :-------------------------------------------------------------------------------------------------------------------------------- |
@@ -39,4 +40,4 @@ Equipo: c16-126-n-react
 | Deployment    | ![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 | Others        | ![GIT](https://img.shields.io/badge/Git-fc6d26?style=for-the-badge&logo=git&logoColor=white) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)       
 	
-Demo: 
+## Demo: 

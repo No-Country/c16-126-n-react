@@ -13,9 +13,10 @@ La aplicación que estamos construyendo tiene como objetivo conectar a usuarios 
 - Filtro por Provincias
 
 
-# Links: [Api WebPage:  ](https://allservicesapi-production.up.railway.app/#)
+# Links: [Api WebPage:  ](https://allservicesapi-production.up.railway.app)
 
-![Uploading imagen.png…]()
+## Screenshots
+![imagen](https://github.com/No-Country/c16-126-n-react/assets/101590889/2a255a3e-ee08-4bb9-83bb-dfe8b8a673d6)
 
 
 # Video presentación: 

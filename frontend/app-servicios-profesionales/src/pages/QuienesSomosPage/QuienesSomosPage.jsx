@@ -46,54 +46,45 @@ export default function QuienesSomosPage() {
           </div>
         </header>
 
-        <main className="flex flex-col items-center justify-start mx-auto container mt-4">
+        <main className="flex flex-col items-center justify-start mx-auto container mt-8">
           {" "}
           <h2 className="text-3xl m-4 font-bold">Sobre Nuestro Equipo:</h2>
-          <p className="text-2xl mb-2 font-semibold">
+          <p className="text-2xl mb-4 font-semibold leading-9">
             Nuestro equipo de desarrollo web está compuesto por profesionales
             apasionados y altamente capacitados, cada uno aportando habilidades
             únicas para garantizar el éxito de nuestro proyecto. A continuación,
             presentamos a los miembros clave de nuestro equipo:
           </p>
-          <p className="m-3 text-2xl">
+          <p className="m-3 text-2xl leading-9">
             <p className="text-2xl mb-2 font-semibold ">
               Diseño UI/UX y Testing (Laura Marcela Rozo Rodriguez) :
             </p>
-            Nuestro experto en diseño UI/UX se encarga de crear una experiencia
-            de usuario intuitiva y atractiva. Desde el diseño de interfaces
-            elegantes hasta la creación de prototipos interactivos, este miembro
-            asegura que la aplicación sea fácil de usar y visualmente atractiva.
-            Además, este profesional también desempeña un papel crucial en las
-            pruebas de usuario, garantizando que cada función y característica
-            funcione sin problemas y cumpla con las expectativas de nuestros
-            usuarios.
+            Nuestra experta en diseño UI/UX se encarga de crear una experiencia
+            de usuario intuitiva y atractiva. Además, Laura también desempeña un
+            papel crucial en las pruebas de usuario, garantizando que cada
+            función y característica funcione sin problemas y cumpla con las
+            expectativas.
           </p>
-          <p className="m-3 text-2xl">
+          <p className="m-3 text-2xl leading-9">
             <p className="text-2xl mb-2 font-semibold ">
               Backend (Franco Martí­n Ojeda) :
             </p>
             Nuestro desarrollador backend es el arquitecto detrás de la
             funcionalidad principal de la aplicación. Se encarga de construir y
             mantener la infraestructura que respalda la lógica del negocio, la
-            gestión de datos y la comunicación con la base de datos. Trabaja en
-            estrecha colaboración con el equipo de frontend para garantizar una
-            integración fluida de las características diseñadas para mejorar la
-            experiencia del usuario.
+            gestión de datos y la comunicación con la base de datos.
           </p>
-          <p className="m-3 text-2xl">
+          <p className="m-3 text-2xl leading-9">
             <p className="text-2xl mb-2 font-semibold ">
               Frontend (Eduardo Hidalgo, Gabriel Taboada, Sebastian Gallego) :
             </p>
             Nuestro equipo de desarrollo frontend se compone de tres
             profesionales altamente capacitados y creativos. Trabajan en la
             interfaz de usuario visible para los usuarios finales, implementando
-            diseños elegantes y garantizando una navegación fluida. Cada miembro
-            del equipo frontend se especializa en diferentes aspectos, como
-            diseño de interfaz, desarrollo de componentes y optimización de
-            rendimiento para garantizar una experiencia de usuario excepcional.
+            diseños elegantes y garantizando una navegación fluida.
           </p>
           <h2 className="text-3xl my-10 font-bold">Sobre el Proyecto </h2>
-          <p className="text-2xl m-4 font-semibold mb-10">
+          <p className="text-2xl m-4 font-semibold mb-10 leading-9">
             La aplicación que estamos construyendo tiene como objetivo conectar
             a usuarios con proveedores de servicios de mantenimiento para el
             hogar. Por ejemplo, si un usuario necesita un electricista, puede
@@ -102,11 +93,7 @@ export default function QuienesSomosPage() {
             aplicación proporcionará una plataforma eficiente para facilitar la
             búsqueda, la reserva y la evaluación de profesionales del hogar,
             mejorando así la accesibilidad y la confiabilidad de los servicios
-            de mantenimiento. Con un equipo diverso y especializado, estamos
-            comprometidos a llevar a cabo este proyecto de manera efectiva,
-            brindando a nuestros usuarios una experiencia única y satisfactoria
-            en la búsqueda de profesionales del hogar. ¡Estamos emocionados por
-            el viaje y los logros que nos esperan!
+            de mantenimiento.
           </p>
         </main>
 

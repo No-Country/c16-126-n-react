@@ -44,7 +44,7 @@ export default function RegisterPage() {
             className="flex flex-col items-center p-2 m-3 gap-y-8"
             onSubmit={handleSubmit(onSubmit)}
           >
-            <h1 className="text-black text-[40px] border-[#00000040]">
+            <h1 className="text-black font-bold text-[30px] border-[#00000040]">
               Crear cuenta
             </h1>
 
@@ -204,12 +204,12 @@ export default function RegisterPage() {
             <button className="btn-reg">Registrarse</button>
 
             <div className="flex flex-col items-center justify-center">
-              <p className="text-[#000000BF] text-[28px]">
+              <p className="text-[#000000BF] font-bold text-[20px]">
                 ¿Ya tienes una cuenta?
               </p>
               <NavLink
                 to="/login"
-                className="text-[#454BE0E0] text-[30px] underline"
+                className="text-[#454BE0E0] text-[20px] underline"
               >
                 Inicia sesión
               </NavLink>
@@ -220,7 +220,7 @@ export default function RegisterPage() {
           <img
             src="../src/assets/register.png"
             alt="electricista"
-            className="w-[465px] h-[748px]"
+            className="w-[265px] h-[448px]"
           />
         </div>
       </div>

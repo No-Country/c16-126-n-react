@@ -1,7 +1,9 @@
-import React, { useState,useEffect } from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { registroUsuarios } from "../../data/getData";
+import SelectorProvincias from "../../components/SelectorProvincias/SelectorProvincias";
+import SelectorCiudades from "../../components/SelectorCiudades/SelectorCiudades";
 
 export default function RegisterPage() {
   const {
@@ -11,39 +13,31 @@ export default function RegisterPage() {
     reset,
   } = useForm();
 
-
   const initialValues = {
-    nombre:"",
-    apellido:"",
-    email:"",
-    codigo_postal:"",
-    ciudad:"",
-    provincia:"",
-    password:"",
-  }
+    nombre: "",
+    apellido: "",
+    email: "",
+    codigo_postal: "",
+    ciudad: "",
+    provincia: "",
+    password: "",
+  };
 
-  const [formState, setFormState] = useState({...initialValues});
-
-
+  const [formState, setFormState] = useState({ ...initialValues });
 
   const onSubmit = handleSubmit(async () => {
-
-
-
     const data = {
-      Nombre:formState.nombre,
-      Apellido:formState.apellido,
-      Email:formState.email,
-      Codigo_Postal:formState.codigo_postal,
-      Ciudad:formState.ciudad,
-      Provincia:formState.provincia,
-      Password:formState.password,
-    }
+      Nombre: formState.nombre,
+      Apellido: formState.apellido,
+      Email: formState.email,
+      Codigo_Postal: formState.codigo_postal,
+      Ciudad: formState.ciudad,
+      Provincia: formState.provincia,
+      Password: formState.password,
+    };
 
     try {
-
       const response = await registroUsuarios(data);
-     
 
       if (response.data) {
         alert("Usuario registrado exitosamente");
@@ -73,7 +67,12 @@ export default function RegisterPage() {
                 <input
                   className="ipt-reg-s"
                   placeholder="Nombre"
-                  onChange={(e) => setFormState(prevState => ({ ...prevState, nombre: e.target.value }))}
+                  onChange={(e) =>
+                    setFormState((prevState) => ({
+                      ...prevState,
+                      nombre: e.target.value,
+                    }))
+                  }
                   name="nombre"
                   type="text"
                   {...register("nombre", {
@@ -101,8 +100,12 @@ export default function RegisterPage() {
                 <input
                   className="ipt-reg-s"
                   placeholder="Apellido"
-                  onChange={(e) => setFormState(prevState => ({ ...prevState, apellido: e.target.value }))}
-
+                  onChange={(e) =>
+                    setFormState((prevState) => ({
+                      ...prevState,
+                      apellido: e.target.value,
+                    }))
+                  }
                   name="apellido"
                   type="text"
                   {...register("apellido", {
@@ -134,7 +137,12 @@ export default function RegisterPage() {
               <input
                 className="ipt-reg-l"
                 placeholder="Correo Electrónico"
-                onChange={(e) => setFormState(prevState => ({ ...prevState, email: e.target.value }))}
+                onChange={(e) =>
+                  setFormState((prevState) => ({
+                    ...prevState,
+                    email: e.target.value,
+                  }))
+                }
                 name="email"
                 type="email"
                 {...register("email", {
@@ -154,7 +162,12 @@ export default function RegisterPage() {
               <input
                 className="ipt-reg-l"
                 placeholder="Contraseña"
-                onChange={(e) => setFormState(prevState => ({ ...prevState, password: e.target.value }))}
+                onChange={(e) =>
+                  setFormState((prevState) => ({
+                    ...prevState,
+                    password: e.target.value,
+                  }))
+                }
                 name="password"
                 type="password"
                 {...register("password", {
@@ -172,10 +185,16 @@ export default function RegisterPage() {
             </div>
 
             <div className="flex flex-col">
+              {/* <SelectorProvincias /> */}
               <input
                 className="ipt-reg-l"
                 placeholder="Provincia"
-                onChange={(e) => setFormState(prevState => ({ ...prevState, provincia: e.target.value }))}
+                onChange={(e) =>
+                  setFormState((prevState) => ({
+                    ...prevState,
+                    provincia: e.target.value,
+                  }))
+                }
                 name="provincia"
                 type="text"
                 {...register("provincia", {
@@ -189,10 +208,16 @@ export default function RegisterPage() {
 
             <div className="flex gap-[1.5rem]">
               <div className="flex flex-col">
+                {/* <SelectorCiudades /> */}
                 <input
                   className="ipt-reg-s"
                   placeholder="Ciudad"
-                  onChange={(e) => setFormState(prevState => ({ ...prevState, ciudad: e.target.value }))}
+                  onChange={(e) =>
+                    setFormState((prevState) => ({
+                      ...prevState,
+                      ciudad: e.target.value,
+                    }))
+                  }
                   name="ciudad"
                   type="text"
                   {...register("ciudad", {
@@ -208,7 +233,12 @@ export default function RegisterPage() {
                 <input
                   className="ipt-reg-s"
                   placeholder="Codigo Postal"
-                  onChange={(e) => setFormState(prevState => ({ ...prevState, codigo_postal: e.target.value }))}
+                  onChange={(e) =>
+                    setFormState((prevState) => ({
+                      ...prevState,
+                      codigo_postal: e.target.value,
+                    }))
+                  }
                   name="codigo_postal"
                   type="text"
                   {...register("codigo_postal", {

@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -12,7 +13,12 @@ const Footer = () => {
             data-te-ripple-init
             data-te-ripple-color="light"
           >
+            <NavLink
+            to="/register"
+            
+          >
             Registrarse
+          </NavLink>
           </button>
         </p>
       </div>

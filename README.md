@@ -1,20 +1,18 @@
 # All Services APP
 
-A brief description of what this project does and who it's for
+La aplicación que estamos construyendo tiene como objetivo conectar a usuarios con proveedores de servicios de mantenimiento para el hogar. Por ejemplo, si un usuario necesita un electricista, puede buscar en la aplicación y seleccionar profesionales según su ubicación, evaluaciones de otros usuarios y comentarios. La aplicación proporcionará una plataforma eficiente para facilitar la búsqueda, la reserva y la evaluación de profesionales del hogar, mejorando así la accesibilidad y la confiabilidad de los servicios de mantenimiento.
 
 
-
-Problemática:
-
-• 
-
-• 
 Funcionalidades:
 • Registro de Usuario 
+• Login
+• Busqueda de profesionales 
+• Filtro por ciudades
+• Filtro por Provincias
 
-• 
-• 
-• 
+
+
+## Links: Api: [##Video presentación:  ](https://allservicesapi-production.up.railway.app/#)
 
 ##Video presentación: 
 ` Link de Youtube ` 

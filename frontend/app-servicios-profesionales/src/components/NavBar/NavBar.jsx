@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../auth/AuthContext";
+import { FaRegCircleUser } from "react-icons/fa6";
 
 const NavBar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -20,7 +21,7 @@ const NavBar = () => {
         <div className="flex lg:flex-1">
           <a href="#" className="-m-1.5 p-1.5">
             <span className="sr-only">Servicios Hogar</span>
-            <p className="text-white text-2xl font-bold">ContactaAPP</p>
+            <NavLink to='/' className="text-white text-2xl font-bold">ContactaAPP</NavLink>
             {/* <img className="h-8 w-auto" src="" alt="logo" /> */}
           </a>
         </div>
@@ -83,11 +84,12 @@ const NavBar = () => {
           </NavLink>
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+          <FaRegCircleUser className="text-white mr-2 m-[3px]"/>
           <NavLink
             to={logged ? "/perfil" : "/login"}
-            className="text-sm font-semibold leading-6 text-white"
+            className="text-sm font-bold leading-6 text-white d-flex"
           >
-            Mi Cuenta
+            {logged ? <p>  Mi Cuenta</p> : <p> Acceder</p>}
           </NavLink>
 
           {logged && (
@@ -134,42 +136,43 @@ const NavBar = () => {
                 <div className="space-y-2 py-6">
                   <NavLink
                     to="/"
+                    onClick={toggleMobileMenu}
                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-blue-800"
                   >
                     Inicio
                   </NavLink>
                   <NavLink
-                    to="/servicios"
+                    to="/#servicios"
+                    onClick={toggleMobileMenu}
                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-blue-800"
                   >
                     Servicios
                   </NavLink>
-                  <a
-                    href="#"
+                  <NavLink
+                    to="/quienes-somos"
+                    onClick={toggleMobileMenu}
                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-blue-800"
                   >
                     Quienes Somos?
-                  </a>
-                  <a
-                    href="#"
+                  </NavLink>
+                  <NavLink
+                    to="/contacto"
+                    onClick={toggleMobileMenu}
                     className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-blue-800"
                   >
                     Contacto
-                  </a>
-                  <a
-                    href="#"
-                    className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-white hover:bg-blue-800"
-                  >
-                    Notificaciones
-                  </a>
+                  </NavLink>
                 </div>
                 <div className="py-6">
-                  <a
-                    href="#"
+                  <NavLink
+
+                    to={logged ? "/perfil" : "/login"}
+                    onClick={toggleMobileMenu}
+
                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-white hover:bg-blue-800"
                   >
-                    Mi Cuenta
-                  </a>
+                    {logged ? <p>Mi Cuenta</p> : <p>Acceder</p>}
+                  </NavLink>
                 </div>
               </div>
             </div>

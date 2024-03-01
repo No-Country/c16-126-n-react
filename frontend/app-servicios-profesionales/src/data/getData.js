@@ -32,13 +32,11 @@ export const inicioSesion = async ({ email, password }) => {
   try {
     const response = await axios.post(
       apiUrl,
-      { email,password },
+      { email, password },
 
-      
       {
         headers: {
           "Content-Type": "application/json",
-
         },
       }
     );
@@ -50,7 +48,7 @@ export const inicioSesion = async ({ email, password }) => {
 
     return { error: true, data: error.response.data };
   }
-}
+};
 
 // Registro Usuario
 export const registroUsuarios = async ({
@@ -63,8 +61,8 @@ export const registroUsuarios = async ({
   password,
 }) => {
   try {
-    return await axios.post(
-      "https://allservicesapi-dev-mszq.3.us-1.fl0.io/api/registroUsuarios",
+    const response = await axios.post(
+      "https://allservicesapi-production.up.railway.app/api/registroUsuarios",
       {
         nombre,
         apellido,
@@ -73,21 +71,11 @@ export const registroUsuarios = async ({
         ciudad,
         provincia,
         password,
-      },
-      {
-        headers: {
-          "Content-Type": "application/json",
-           "Access-Control-Allow-Origin": "*",
-    
-          
-
-        },
       }
     );
-
-    
+    return response.data;
   } catch (error) {
-    console.error(error.response?.data || error.message);
+    console.error("Error during registration:", error);
     return { error: true, data: error.response?.data || error.message };
   }
 };

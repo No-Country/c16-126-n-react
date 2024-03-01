@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { registroUsuarios } from "../../data/getData";
@@ -11,60 +11,24 @@ export default function RegisterPage() {
     reset,
   } = useForm();
 
-
-  const initialValues = {
-    nombre:"",
-    apellido:"",
-    email:"",
-    codigo_postal:"",
-    ciudad:"",
-    provincia:"",
-    password:"",
-  }
-
-  const [formState, setFormState] = useState({...initialValues});
-
-
-
-  const onSubmit = handleSubmit(async () => {
-
-
-
-    const data = {
-      Nombre:formState.nombre,
-      Apellido:formState.apellido,
-      Email:formState.email,
-      Codigo_Postal:formState.codigo_postal,
-      Ciudad:formState.ciudad,
-      Provincia:formState.provincia,
-      Password:formState.password,
-    }
-
+  const onSubmit = async (formData, e) => {
     try {
-
-      const response = await registroUsuarios(data);
-     
-
-      if (response.data) {
-        alert("Usuario registrado exitosamente");
-        // reset();
-      } else {
-        alert("Error al registrar usuario");
-      }
+      const response = await registroUsuarios(formData);
+      console.log(response);
     } catch (error) {
-      console.error("Error during registration:", error);
+      console.error("Error during registration:", error.data);
     }
-  });
+  };
 
   return (
     <div className="flex justify-center">
       <div className="register ">
         <div>
           <form
-            className="flex flex-col items-center p-2 m-3 gap-y-8 "
-            onSubmit={onSubmit}
+            className="flex flex-col items-center p-2 m-3 gap-y-8"
+            onSubmit={handleSubmit(onSubmit)}
           >
-            <h1 className="text-black text-[40px] border-[#00000040] ">
+            <h1 className="text-black text-[40px] border-[#00000040]">
               Crear cuenta
             </h1>
 
@@ -73,21 +37,17 @@ export default function RegisterPage() {
                 <input
                   className="ipt-reg-s"
                   placeholder="Nombre"
-                  onChange={(e) => setFormState(prevState => ({ ...prevState, nombre: e.target.value }))}
                   name="nombre"
                   type="text"
                   {...register("nombre", {
-                    required: {
-                      value: true,
-                      message: "Nombre requerido",
-                    },
+                    required: { value: true, message: "Nombre requerido" },
                     minLength: {
                       value: 2,
-                      message: "El nombre debe tener mas de 2 caracteres",
+                      message: "El nombre debe tener más de 2 caracteres",
                     },
                     maxLength: {
                       value: 20,
-                      message: "El nombre no puede tener mas de 20 caracteres",
+                      message: "El nombre no puede tener más de 20 caracteres",
                     },
                   })}
                 />
@@ -101,23 +61,18 @@ export default function RegisterPage() {
                 <input
                   className="ipt-reg-s"
                   placeholder="Apellido"
-                  onChange={(e) => setFormState(prevState => ({ ...prevState, apellido: e.target.value }))}
-
                   name="apellido"
                   type="text"
                   {...register("apellido", {
-                    required: {
-                      value: true,
-                      message: "Apellido requerido",
-                    },
+                    required: { value: true, message: "Apellido requerido" },
                     minLength: {
                       value: 2,
-                      message: "El apellido debe tener mas de 2 caracteres",
+                      message: "El apellido debe tener más de 2 caracteres",
                     },
                     maxLength: {
                       value: 20,
                       message:
-                        "El apellido no puede tener mas de 20 caracteres",
+                        "El apellido no puede tener más de 20 caracteres",
                     },
                   })}
                 />
@@ -134,7 +89,6 @@ export default function RegisterPage() {
               <input
                 className="ipt-reg-l"
                 placeholder="Correo Electrónico"
-                onChange={(e) => setFormState(prevState => ({ ...prevState, email: e.target.value }))}
                 name="email"
                 type="email"
                 {...register("email", {
@@ -154,7 +108,6 @@ export default function RegisterPage() {
               <input
                 className="ipt-reg-l"
                 placeholder="Contraseña"
-                onChange={(e) => setFormState(prevState => ({ ...prevState, password: e.target.value }))}
                 name="password"
                 type="password"
                 {...register("password", {
@@ -175,7 +128,6 @@ export default function RegisterPage() {
               <input
                 className="ipt-reg-l"
                 placeholder="Provincia"
-                onChange={(e) => setFormState(prevState => ({ ...prevState, provincia: e.target.value }))}
                 name="provincia"
                 type="text"
                 {...register("provincia", {
@@ -192,7 +144,6 @@ export default function RegisterPage() {
                 <input
                   className="ipt-reg-s"
                   placeholder="Ciudad"
-                  onChange={(e) => setFormState(prevState => ({ ...prevState, ciudad: e.target.value }))}
                   name="ciudad"
                   type="text"
                   {...register("ciudad", {
@@ -208,7 +159,6 @@ export default function RegisterPage() {
                 <input
                   className="ipt-reg-s"
                   placeholder="Codigo Postal"
-                  onChange={(e) => setFormState(prevState => ({ ...prevState, codigo_postal: e.target.value }))}
                   name="codigo_postal"
                   type="text"
                   {...register("codigo_postal", {
@@ -224,10 +174,7 @@ export default function RegisterPage() {
                       value: 4,
                       message: "El CP debe contener 4 caracteres",
                     },
-                    pattern: {
-                      value: /[0-9]{4}$/,
-                      message: "CP no válido",
-                    },
+                    pattern: { value: /[0-9]{4}$/, message: "CP no válido" },
                   })}
                 />
                 {errors.codigo_postal && (

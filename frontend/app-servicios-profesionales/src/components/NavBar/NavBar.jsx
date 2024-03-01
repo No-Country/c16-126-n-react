@@ -87,7 +87,7 @@ const NavBar = () => {
             to={logged ? "/perfil" : "/login"}
             className="text-sm font-semibold leading-6 text-white"
           >
-            Mi Cuenta
+            {logged? <p>Mi Cuenta</p> : <p>Acceder</p>}
           </NavLink>
 
           {logged && (

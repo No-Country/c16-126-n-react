@@ -1,6 +1,8 @@
 const swaggerJSDoc = require('swagger-jsdoc')
 const express = require('express')
 const cors = require('cors')
+const hbs = require('express-handlebars')
+const path = require('path')
 require('dotenv').config()
 const swaggerUi = require('swagger-ui-express');
 // const { autorizarUsuario } = require('./src/autorizacion/autorizarUsuario.js')
@@ -13,6 +15,12 @@ const router = require('./src/rutas/rutas.js')
 const app = express()
 const PORT = process.env.PORT || 4321
 
+
+// Handlebars-Config
+app.engine('hbs', hbs.engine({ extname: '.hbs' }))
+app.set('view engine', 'hbs')
+app.set('views', path.join(__dirname, 'src', 'views'))
+// Server-config
 app.disable('x-powered-by')
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
@@ -35,17 +43,7 @@ const swaggerSpec = swaggerJSDoc(opciones)
 
 
 app.get('/', (req, res) => {
-  const htmlResponse = `
-  <html>
-  <head>
-  <title>Servidor corriendo</title>
-  </head>
-  <body style ="background-color: #f2f2f2; display: grid; place-content:center">
-  <h1 style = "text-align: center;">Servidor corriendo</h1>
-  </body>
-  </html>
-  `
-  res.send(htmlResponse)
+  res.render('home')
 })
 
 

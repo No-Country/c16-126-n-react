@@ -1,7 +1,8 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useContext } from "react";
+import { NavLink, Navigate, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { registroUsuarios } from "../../data/getData";
+import { inicioSesion, registroUsuarios } from "../../data/getData";
+import { AuthContext } from "../../auth/AuthContext";
 
 export default function RegisterPage() {
   const {
@@ -11,10 +12,25 @@ export default function RegisterPage() {
     reset,
   } = useForm();
 
+
+
+  const navigate = useNavigate();
+
+  const { login } = useContext(AuthContext)
   const onSubmit = async (formData, e) => {
+
+    e.preventDefault();
+
     try {
-      const response = await registroUsuarios(formData);
-      console.log(response);
+      
+      await registroUsuarios(formData);
+
+      login({ email: formData.email, password: formData.password });
+
+      navigate("/perfil", {
+        state: { success: true },
+      });
+
     } catch (error) {
       console.error("Error during registration:", error.data);
     }

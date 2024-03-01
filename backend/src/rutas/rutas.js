@@ -11,7 +11,7 @@ const { perfil } = require('../controllers/controladorDatosPerfil')
 const { getDatosCliente, postDatosCliente } = require('../controllers/controladorDatosCliente')
 const { getDatosProfesional, postHorarioProfesional } = require('../controllers/controladorDatosProfesional')
 const { cargarProfesiones } = require('../controllers/controladorCargarProfesiones')
-
+const { getProfesiones } = require('../controllers/controladorProfesiones')
 router
   /**
   * @swagger
@@ -469,6 +469,39 @@ router
  */
 
   .post('/horarioProfesional', autorizarUsuario, postHorarioProfesional)
+  /**
+ * @swagger
+ * /api/profesiones:
+ *   get:
+ *     summary: Obtener lista de profesiones
+ *     description: Obtiene la lista de profesiones disponibles en la base de datos.
+ *     responses:
+ *       '200':
+ *         description: Lista de profesiones obtenida correctamente
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               items:
+ *                 type: string
+ *               example: {
+ *                           "profesion_id": 9,
+ *                           "nombre": "mascotas",
+ *                            "descripcion": "Servicio dedicado al cuidado y atención de mascotas."
+ *                         },
+ *       '500':
+ *         description: Error al obtener la lista de profesiones
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   description: Mensaje de error detallado
+ */
+
+  .get('/profesiones', getProfesiones)
   .post('/cargarProfesiones', cargarProfesiones)
 
 module.exports = router

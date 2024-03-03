@@ -1,16 +1,17 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { NavLink, json } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { registroUsuarios } from "../../data/getData";
+import axios from "axios";
 import SelectorProvincias from "../../components/SelectorProvincias/SelectorProvincias";
 import SelectorCiudades from "../../components/SelectorCiudades/SelectorCiudades";
 
 export default function RegisterPage() {
   const {
     register,
+    watch,
     handleSubmit,
     formState: { errors },
-    reset,
   } = useForm();
 
   const initialValues = {
@@ -24,6 +25,9 @@ export default function RegisterPage() {
   };
 
   const [formState, setFormState] = useState({ ...initialValues });
+  const [provincia, setProvincias] = useState([]);
+  const [provinciaSeleccionada, setProvinciaSeleccionada] = useState("");
+  const [ciudades, setCiudades] = useState([]);
 
   const onSubmit = handleSubmit(async () => {
     const data = {
@@ -41,7 +45,6 @@ export default function RegisterPage() {
 
       if (response.data) {
         alert("Usuario registrado exitosamente");
-        // reset();
       } else {
         alert("Error al registrar usuario");
       }
@@ -49,6 +52,69 @@ export default function RegisterPage() {
       console.error("Error during registration:", error);
     }
   });
+
+  useEffect(() => {
+    console.log(formState);
+  }, [formState]);
+
+  const obtenerProvincias = async () => {
+    try {
+      const response = await axios.get(
+        "https://apis.datos.gob.ar/georef/api/provincias"
+      );
+      const provinciasFiltradas = response.data.provincias.map((provincia) => ({
+        id: provincia.id,
+        nombre: provincia.nombre,
+      }));
+      setProvincias(provinciasFiltradas);
+    } catch (error) {
+      console.error("Error obteniendo provincias:", error);
+    }
+  };
+
+  const handleProvinciaChange = (e) => {
+    const selectedProvinciaId = e.target.value;
+    setProvinciaSeleccionada(selectedProvinciaId);
+    setFormState((prevState) => ({
+      ...prevState,
+      provincia: e.target.value,
+      ciudad: "",
+    }));
+  };
+
+  useEffect(() => {
+    const cargarProvincias = async () => {
+      await obtenerProvincias();
+    };
+
+    cargarProvincias();
+  }, []);
+
+  const obtenerCiudades = async () => {
+    try {
+      if (provinciaSeleccionada) {
+        const response = await axios.get(
+          `https://apis.datos.gob.ar/georef/api/departamentos?provincia=${provinciaSeleccionada}&campos=id,nombre&max=100`
+        );
+        const ciudadesFiltradas = response.data.departamentos.map((ciudad) => ({
+          id: ciudad.id,
+          nombre: ciudad.nombre,
+        }));
+        setCiudades(ciudadesFiltradas);
+      } else {
+        console.error("No hay una provincia seleccionada");
+      }
+    } catch (error) {
+      console.error("Error obteniendo ciudades:", error);
+    }
+  };
+
+  useEffect(() => {
+    const cargarCiudades = async () => {
+      await obtenerCiudades();
+    };
+    cargarCiudades();
+  }, [provinciaSeleccionada]);
 
   return (
     <div className="flex justify-center">
@@ -63,17 +129,13 @@ export default function RegisterPage() {
             </h1>
 
             <div className="flex gap-[1.5rem]">
+              {/* Input Nombre */}
               <div className="flex flex-col">
                 <input
                   className="ipt-reg-s"
                   placeholder="Nombre"
-                  onChange={(e) =>
-                    setFormState((prevState) => ({
-                      ...prevState,
-                      nombre: e.target.value,
-                    }))
-                  }
                   name="nombre"
+                  value={formState.nombre}
                   type="text"
                   {...register("nombre", {
                     required: {
@@ -89,24 +151,25 @@ export default function RegisterPage() {
                       message: "El nombre no puede tener mas de 20 caracteres",
                     },
                   })}
+                  onChange={(e) =>
+                    setFormState((prevState) => ({
+                      ...prevState,
+                      nombre: e.target.value,
+                    }))
+                  }
                 />
 
                 {errors.nombre && (
                   <span className="text-red-500">{errors.nombre.message}</span>
                 )}
               </div>
-
+              {/* Input Apellido */}
               <div className="flex flex-col">
                 <input
                   className="ipt-reg-s"
                   placeholder="Apellido"
-                  onChange={(e) =>
-                    setFormState((prevState) => ({
-                      ...prevState,
-                      apellido: e.target.value,
-                    }))
-                  }
                   name="apellido"
+                  value={formState.apellido}
                   type="text"
                   {...register("apellido", {
                     required: {
@@ -123,6 +186,12 @@ export default function RegisterPage() {
                         "El apellido no puede tener mas de 20 caracteres",
                     },
                   })}
+                  onChange={(e) =>
+                    setFormState((prevState) => ({
+                      ...prevState,
+                      apellido: e.target.value,
+                    }))
+                  }
                 />
 
                 {errors.apellido && (
@@ -132,18 +201,13 @@ export default function RegisterPage() {
                 )}
               </div>
             </div>
-
+            {/* Input Email */}
             <div className="flex flex-col">
               <input
                 className="ipt-reg-l"
                 placeholder="Correo Electrónico"
-                onChange={(e) =>
-                  setFormState((prevState) => ({
-                    ...prevState,
-                    email: e.target.value,
-                  }))
-                }
                 name="email"
+                value={formState.email}
                 type="email"
                 {...register("email", {
                   required: { value: true, message: "Correo requerido" },
@@ -152,23 +216,24 @@ export default function RegisterPage() {
                     message: "Correo no válido",
                   },
                 })}
+                onChange={(e) =>
+                  setFormState((prevState) => ({
+                    ...prevState,
+                    email: e.target.value,
+                  }))
+                }
               />
               {errors.email && (
                 <span className="text-red-500">{errors.email.message}</span>
               )}
             </div>
-
+            {/* Input Contraseña */}
             <div className="flex flex-col">
               <input
                 className="ipt-reg-l"
                 placeholder="Contraseña"
-                onChange={(e) =>
-                  setFormState((prevState) => ({
-                    ...prevState,
-                    password: e.target.value,
-                  }))
-                }
                 name="password"
+                value={formState.password}
                 type="password"
                 {...register("password", {
                   required: { value: true, message: "Contraseña requerida" },
@@ -178,52 +243,105 @@ export default function RegisterPage() {
                       "La contraseña debe tener un mínimo de 6 caracteres",
                   },
                 })}
+                onChange={(e) =>
+                  setFormState((prevState) => ({
+                    ...prevState,
+                    password: e.target.value,
+                  }))
+                }
               />
               {errors.password && (
                 <span className="text-red-500">{errors.password.message}</span>
               )}
             </div>
-
+            {/* Input Confirmar Contraseña */}
             <div className="flex flex-col">
-              {/* <SelectorProvincias /> */}
               <input
                 className="ipt-reg-l"
-                placeholder="Provincia"
-                onChange={(e) =>
-                  setFormState((prevState) => ({
-                    ...prevState,
-                    provincia: e.target.value,
-                  }))
-                }
+                placeholder="Confirmar Contraseña"
+                name="confirmarPassword"
+                type="password"
+                {...register("confirmarPassword", {
+                  required: {
+                    value: true,
+                    message: "Confirmar contraseña es requerido",
+                  },
+                  validate: (value) => {
+                    return (
+                      value === watch("password") ||
+                      "Las contraseñas no coinciden"
+                    );
+                  },
+                })}
+              />
+              {errors.confirmarPassword && (
+                <span className="text-red-500">
+                  {errors.confirmarPassword.message}
+                </span>
+              )}
+            </div>
+            {/* Select Provincia */}
+            <div className="flex flex-col">
+              <select
+                className="ipt-reg-l"
                 name="provincia"
-                type="text"
+                value={formState.provincia.nombre}
                 {...register("provincia", {
                   required: { value: true, message: "Elija una provincia" },
                 })}
-              />
+                onChange={handleProvinciaChange}
+              >
+                <option value="" selected disabled>
+                  Provincia
+                </option>
+                {Array.isArray(provincia) && provincia.length > 0 ? (
+                  provincia.map((provincia) => (
+                    <option key={provincia.nombre} value={provincia.nombre}>
+                      {provincia.nombre}
+                    </option>
+                  ))
+                ) : (
+                  <option value="" disabled>
+                    No hay provincias disponibles
+                  </option>
+                )}
+              </select>
               {errors.provincia && (
                 <span className="text-red-500">{errors.provincia.message}</span>
               )}
             </div>
-
+            {/* Select Ciudad + Input CP */}
             <div className="flex gap-[1.5rem]">
               <div className="flex flex-col">
-                {/* <SelectorCiudades /> */}
-                <input
+                <select
                   className="ipt-reg-s"
-                  placeholder="Ciudad"
+                  name="ciudad"
+                  value={formState.ciudad}
+                  {...register("ciudad", {
+                    required: { value: true, message: "Coloque una ciudad" },
+                  })}
                   onChange={(e) =>
                     setFormState((prevState) => ({
                       ...prevState,
                       ciudad: e.target.value,
                     }))
                   }
-                  name="ciudad"
-                  type="text"
-                  {...register("ciudad", {
-                    required: { value: true, message: "Coloque una ciudad" },
-                  })}
-                />
+                >
+                  <option value="" selected disabled>
+                    Ciudad
+                  </option>
+                  {Array.isArray(ciudades) && ciudades.length > 0 ? (
+                    ciudades.map((ciudad) => (
+                      <option key={ciudad.id} value={ciudad.nombre}>
+                        {ciudad.nombre}
+                      </option>
+                    ))
+                  ) : (
+                    <option value="" disabled>
+                      No hay ciudades disponibles
+                    </option>
+                  )}
+                </select>
                 {errors.ciudad && (
                   <span className="text-red-500">{errors.ciudad.message}</span>
                 )}
@@ -233,13 +351,8 @@ export default function RegisterPage() {
                 <input
                   className="ipt-reg-s"
                   placeholder="Codigo Postal"
-                  onChange={(e) =>
-                    setFormState((prevState) => ({
-                      ...prevState,
-                      codigo_postal: e.target.value,
-                    }))
-                  }
                   name="codigo_postal"
+                  value={formState.codigo_postal}
                   type="text"
                   {...register("codigo_postal", {
                     required: {
@@ -259,6 +372,12 @@ export default function RegisterPage() {
                       message: "CP no válido",
                     },
                   })}
+                  onChange={(e) =>
+                    setFormState((prevState) => ({
+                      ...prevState,
+                      codigo_postal: e.target.value,
+                    }))
+                  }
                 />
                 {errors.codigo_postal && (
                   <span className="text-red-500">

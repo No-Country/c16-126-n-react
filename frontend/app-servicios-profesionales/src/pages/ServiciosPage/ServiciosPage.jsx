@@ -5,13 +5,18 @@ import ProfesionalCard from "../../components/ProfesionalCard/ProfesionalCard";
 import axios from "axios";
 import SelectUbicacion from "../../components/SelectUbicacion/SelectUbicacion";
 
-//Cuando abro esta pagina tengo que hacer una consulta
-//a la API buscando los profesionales que complan con
-//el servicio solicitado segun el ID
-
 const ServiciosPage = () => {
   const [profesion, setProfesion] = useState([]);
   const [profesiones, setProfesiones] = useState([]);
+
+  const [provinciaSeleccionada, setProvinciaSeleccionada] = useState("");
+  const [ciudadSeleccionada, setCiudadSeleccionada] = useState("");
+
+  // Función de devolución de llamada para recibir los valores del componente hijo
+  const handleUbicacionSeleccionada = (provincia, ciudad) => {
+    setProvinciaSeleccionada(provincia);
+    setCiudadSeleccionada(ciudad);
+  };
 
   useEffect(() => {
     axios
@@ -69,7 +74,16 @@ const ServiciosPage = () => {
       </div>
 
       <section>
-        <SelectUbicacion />
+        <SelectUbicacion
+          onUbicacionSeleccionada={handleUbicacionSeleccionada}
+        />
+      </section>
+
+      <section className="flex flex-col p-4 gap-4 justify-center items-center text-center">
+        <p>Provincia:</p>
+        <p className="text-orange-600">{provinciaSeleccionada}</p>
+        <p>Ciudad:</p>
+        <p className="text-orange-600">{ciudadSeleccionada}</p>
       </section>
     </div>
   );
@@ -82,36 +96,11 @@ export default ServiciosPage;
 
 
  <div className="flex flex-col p-4 gap-4 justify-center items-center text-center">
-        <p>Filtro de Búsqueda:</p>
-        <div className=" flex gap-2">
-          <label htmlFor="opciones">Provincia:</label>
-          <select id="opciones">
-            <option value="">Seleccionar...</option>
-            <option value="opcion1">Opción 1</option>
-            <option value="opcion2">Opción 2</option>
-            <option value="opcion3">Opción 3</option>
-          </select>
-        </div>
-        <div className=" flex gap-2">
-          <label htmlFor="opciones">Ciudad:</label>
-          <select id="opciones">
-            <option value="">Seleccionar...</option>
-            <option value="opcion1">Opción 1</option>
-            <option value="opcion2">Opción 2</option>
-            <option value="opcion3">Opción 3</option>
-          </select>
-        </div>
-      </div>
-
+       
       <div className="grid grid-cols-2 lg:grid-cols-4 p-10 container justify-between mx-auto gap-5"></div>
-   
-
-
 
 
 <div>
-      
-
       <div className="grid grid-cols-2 lg:grid-cols-4 p-10 container justify-between mx-auto gap-5">
         {profesionales.map((profesional, index) => (
           <Link
@@ -174,4 +163,4 @@ export default ServiciosPage;
   );
 };
 
-export default ServiciosPage;*/
+*/

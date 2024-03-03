@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-export default function SelectUbicacion() {
+export default function SelectUbicacion({ onUbicacionSeleccionada }) {
   const [provincias, setProvincias] = useState([]);
   const [selectedProvincia, setSelectedProvincia] = useState("");
   const [ciudades, setCiudades] = useState([]);
@@ -38,6 +38,10 @@ export default function SelectUbicacion() {
     }
   }, [selectedProvincia]); // se efecuta cuando ya tenga una provincia
 
+  const handleCiudadChange = (e) => {
+    onUbicacionSeleccionada(selectedProvincia, e.target.value);
+  };
+
   return (
     <div className="flex flex-col mt-4 p-4 gap-4 justify-center items-center text-center">
       <label htmlFor="provincia" className="text-lg underline font-semibold">
@@ -62,11 +66,12 @@ export default function SelectUbicacion() {
       </label>
       <select
         id="ciudad"
+        onChange={(e) => handleCiudadChange(e)}
         className="w-[360px] border p-2 font-semibold rounded-md shadow-md focus:outline-none focus:border-blue-500"
       >
         <option value="">Selecciona...</option>
         {ciudades.map((ciudad) => (
-          <option key={ciudad.id} value={ciudad.id}>
+          <option key={ciudad.id} value={ciudad.nombre}>
             {ciudad.nombre}
           </option>
         ))}

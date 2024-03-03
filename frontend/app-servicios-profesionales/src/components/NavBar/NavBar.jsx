@@ -19,11 +19,9 @@ const NavBar = () => {
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
-          <a href="#" className="-m-1.5 p-1.5">
-            <span className="sr-only">Servicios Hogar</span>
-            <NavLink to='/' className="text-white text-2xl font-bold">ContactaAPP</NavLink>
-            {/* <img className="h-8 w-auto" src="" alt="logo" /> */}
-          </a>
+          <NavLink to="/" className="text-white text-2xl font-bold">
+            ContactaAPP
+          </NavLink>
         </div>
         <div className="lg:hidden">
           <button
@@ -63,6 +61,7 @@ const NavBar = () => {
           >
             Inicio
           </NavLink>
+
           <a
             href="/#servicios"
             className="text-sm font-semibold leading-6 text-white"
@@ -84,12 +83,12 @@ const NavBar = () => {
           </NavLink>
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <FaRegCircleUser className="text-white mr-2 m-[3px]"/>
+          <FaRegCircleUser className="text-white mr-2 m-[3px]" />
           <NavLink
             to={logged ? "/perfil" : "/login"}
             className="text-sm font-bold leading-6 text-white d-flex"
           >
-            {logged ? <p>  Mi Cuenta</p> : <p> Acceder</p>}
+            {logged ? <p> Mi Cuenta</p> : <p> Acceder</p>}
           </NavLink>
 
           {logged && (
@@ -165,10 +164,8 @@ const NavBar = () => {
                 </div>
                 <div className="py-6">
                   <NavLink
-
                     to={logged ? "/perfil" : "/login"}
                     onClick={toggleMobileMenu}
-
                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-white hover:bg-blue-800"
                   >
                     {logged ? <p>Mi Cuenta</p> : <p>Acceder</p>}

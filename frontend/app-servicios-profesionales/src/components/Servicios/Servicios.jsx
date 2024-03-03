@@ -1,18 +1,33 @@
 import ServiceCard from "../ServiceCard/ServiceCard";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 const Servicios = () => {
   const servicios = [
-    { servicio: "Jardinería", rutaIcono: "jardineria" },
-    { servicio: "Fontanería", rutaIcono: "fontaneria" },
-    { servicio: "Carpintería", rutaIcono: "carpinteria" },
-    { servicio: "Cerrajería", rutaIcono: "cerrajeria" },
-    { servicio: "Limpieza", rutaIcono: "limpieza" },
-    { servicio: "Albañilería", rutaIcono: "albanileria" },
-    { servicio: "Electricidad", rutaIcono: "electricidad" },
-    { servicio: "Decoración", rutaIcono: "decoracion" },
-    { servicio: "Mascotas", rutaIcono: "mascotas" },
-    { servicio: "Reparaciones", rutaIcono: "reparaciones" },
+    { profesion_id: 1, servicio: "Jardinería", rutaIcono: "jardineria" },
+    { profesion_id: 2, servicio: "Fontanería", rutaIcono: "fontaneria" },
+    { profesion_id: 3, servicio: "Carpintería", rutaIcono: "carpinteria" },
+    { profesion_id: 4, servicio: "Cerrajería", rutaIcono: "cerrajeria" },
+    { profesion_id: 5, servicio: "Limpieza", rutaIcono: "limpieza" },
+    { profesion_id: 6, servicio: "Albañilería", rutaIcono: "albanileria" },
+    { profesion_id: 7, servicio: "Electricidad", rutaIcono: "electricidad" },
+    { profesion_id: 8, servicio: "Decoración", rutaIcono: "decoracion" },
+    { profesion_id: 9, servicio: "Mascotas", rutaIcono: "mascotas" },
+    { profesion_id: 10, servicio: "Reparaciones", rutaIcono: "reparaciones" },
   ];
+
+  const [profesiones, setProfesiones] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("https://allservicesapi-production.up.railway.app/api/profesiones")
+      .then((response) => {
+        setProfesiones(response.data.profesiones);
+      })
+      .catch((error) => {
+        console.error("Error al obtener las profesiones:", error);
+      });
+  }, []);
 
   return (
     <section id="servicios" className="text-center mt-20">

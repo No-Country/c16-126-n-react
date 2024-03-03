@@ -55,7 +55,7 @@ export default function QuienesSomosPage() {
             únicas para garantizar el éxito de nuestro proyecto. A continuación,
             presentamos a los miembros clave de nuestro equipo:
           </p>
-          <p className="m-3 text-2xl leading-9">
+          <h2 className="m-3 text-2xl leading-9">
             <p className="text-2xl mb-2 font-semibold ">
               Diseño UI/UX y Testing (Laura Marcela Rozo Rodriguez) :
             </p>
@@ -64,8 +64,8 @@ export default function QuienesSomosPage() {
             papel crucial en las pruebas de usuario, garantizando que cada
             función y característica funcione sin problemas y cumpla con las
             expectativas.
-          </p>
-          <p className="m-3 text-2xl leading-9">
+          </h2>
+          <h2 className="m-3 text-2xl leading-9">
             <p className="text-2xl mb-2 font-semibold ">
               Backend (Franco Martí­n Ojeda) :
             </p>
@@ -73,8 +73,8 @@ export default function QuienesSomosPage() {
             funcionalidad principal de la aplicación. Se encarga de construir y
             mantener la infraestructura que respalda la lógica del negocio, la
             gestión de datos y la comunicación con la base de datos.
-          </p>
-          <p className="m-3 text-2xl leading-9">
+          </h2>
+          <h2 className="m-3 text-2xl leading-9">
             <p className="text-2xl mb-2 font-semibold ">
               Frontend (Eduardo Hidalgo, Gabriel Taboada, Sebastian Gallego) :
             </p>
@@ -82,7 +82,7 @@ export default function QuienesSomosPage() {
             profesionales altamente capacitados y creativos. Trabajan en la
             interfaz de usuario visible para los usuarios finales, implementando
             diseños elegantes y garantizando una navegación fluida.
-          </p>
+          </h2>
           <h2 className="text-3xl my-10 font-bold">Sobre el Proyecto </h2>
           <p className="text-2xl m-4 font-semibold mb-10 leading-9">
             La aplicación que estamos construyendo tiene como objetivo conectar

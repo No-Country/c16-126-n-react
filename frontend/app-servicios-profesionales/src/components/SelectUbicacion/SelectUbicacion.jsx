@@ -47,7 +47,7 @@ export default function SelectUbicacion() {
         id="provincia"
         onChange={(e) => setSelectedProvincia(e.target.value)}
         value={selectedProvincia}
-        className="border p-2 font-semibold rounded-md shadow-md focus:outline-none focus:border-blue-500"
+        className="w-[360px] border p-2 font-semibold rounded-md shadow-md focus:outline-none focus:border-blue-500"
       >
         <option value="">Selecciona...</option>
         {provincias.map((provincia) => (
@@ -62,7 +62,7 @@ export default function SelectUbicacion() {
       </label>
       <select
         id="ciudad"
-        className="border p-2 font-semibold rounded-md shadow-md focus:outline-none focus:border-blue-500"
+        className="w-[360px] border p-2 font-semibold rounded-md shadow-md focus:outline-none focus:border-blue-500"
       >
         <option value="">Selecciona...</option>
         {ciudades.map((ciudad) => (

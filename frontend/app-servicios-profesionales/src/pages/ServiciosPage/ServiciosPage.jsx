@@ -1,11 +1,9 @@
 import React from "react";
-import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ProfesionalCard from "../../components/ProfesionalCard/ProfesionalCard";
-import { Spinner } from "@material-tailwind/react";
-
 import axios from "axios";
+import SelectUbicacion from "../../components/SelectUbicacion/SelectUbicacion";
 
 //Cuando abro esta pagina tengo que hacer una consulta
 //a la API buscando los profesionales que complan con
@@ -69,6 +67,10 @@ const ServiciosPage = () => {
       <div className=" flex   justify-center items-center text-center h-[60px] bg-blue-600">
         <p className="text-2xl text-white font-bold"> {profesion.nombre}</p>
       </div>
+
+      <section>
+        <SelectUbicacion />
+      </section>
     </div>
   );
 };

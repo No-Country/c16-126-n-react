@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
+import CargarUsuario from "../../components/CargarDatosUsuario/CargarUsuario";
+import CargarPerfilProfesional from "../../components/CargarPerfilProfesional/CargarPerfilProfesional";
 
 const Perfil = () => {
   const [usuario, setUsuario] = useState({});
+  const [step, setStep] = useState(1);
 
   useEffect(() => {
     const datosUsuario = localStorage.getItem("user");
@@ -13,62 +16,44 @@ const Perfil = () => {
 
   console.log(usuario);
 
-  return (
-    <div className=" flex flex-col   ">
-      <header className="bg-blue-600 flex  ">
-        <div className="flex items-center flex-grow mx-auto max-w-[1280px] justify-between">
-          <p className="text-white text-2xl mx-auto py-6 ">PERFIL</p>
-        </div>
-      </header>
 
-      <div className="flex flex-col md:flex-row mx-auto md:max-w-[1280px] ">
-        <div className="flex flex-col  p-4 text-center items-center">
-          <img
-            src=""
-            alt="imagen del usuario"
-            className="w-[220px] h-[220px] rounded-full m-10 "
-          />
-          <a className="h-12 w-[200px] p-7 flex justify-center items-center bg-blue-700 text-white text-2xl rounded-xl shadow-md">
-            Editar Perfil
-          </a>
-          <a className=" h-10 mb-6  flex items-center  text-blue-700 text-2xl ">
-            Cambiar Contraseña
-          </a>
 
-          <ul className="flex flex-col items-center text-gray-400 pointer-none">
-            <a className=" h-10 font-semibold flex items-center   text-2xl ">
-              Idioma
-            </a>
-            <a className=" h-10  font-semibold flex items-center   text-2xl ">
-              Preferencias
-            </a>
-            <a className=" h-10  font-semibold flex items-center   text-2xl ">
-              Modo
-            </a>
-            <a className=" h-10  font-semibold flex items-center   text-2xl ">
-              Privacidad
-            </a>
-          </ul>
-        </div>
 
-        <div className="flex flex-col ml-8 p-4 flex-grow items-center h-full">
-          <div className="flex flex-col max-w-6xl text-center  ">
-            <h3 className="text-3xl font-semibold my-4 text-center ">
+  const handleDatosUsuario = () => {
+    setStep((prevStep) => prevStep + 1);
+  };
+
+  const handleDatosProfesional = () => {
+    setStep((prevStep) => prevStep + 2);
+  };
+
+  const handleVolver = () => {
+    setStep((prevStep) => step == 1);
+  };
+
+  const renderStep = () => {
+    switch(step) {
+      case 1: 
+      return (
+        <>
+          <h3 className="text-3xl font-semibold my-4 text-center ">
               {usuario.nombre} {usuario.apellido}
             </h3>
             <div className="flex gap-4 justify-center mt-8 mx-auto">
-              <a
-                href=""
+              <button
+                
                 className="text-lg bg-slate-200 text-slate-900  rounded-xl p-4 shadow-lg"
+                onClick={handleDatosUsuario}
               >
                 Cargar Datos de Usuario
-              </a>
-              <a
-                href=""
+              </button>
+              <button
+                
                 className="text-lg bg-slate-200 text-slate-900  rounded-xl p-4 shadow-lg"
+                onClick={handleDatosProfesional}
               >
                 Cargar Perfil Profesional
-              </a>
+              </button>
             </div>
 
             <div className="grid grid-cols-1 gap-y-5 max-w-full mt-14 text-xl  ">
@@ -105,16 +90,16 @@ const Perfil = () => {
               <div className="flex gap-14 ">
                 <div className="flex flex-col items-center gap-2 text-lg font-semibold">
                   <img
-                    src=""
-                    alt=""
+                    src={`https://randomuser.me/api/portraits/men/${Math.floor(Math.random() * 10) + 1}.jpg`}
+                    alt="user"
                     className="h-20 w-20 rounded-full shadow-lg bg-gray-300 border"
                   />
                   <p>Lucas</p>
                 </div>
                 <div className="flex flex-col items-center gap-2 text-lg font-semibold">
                   <img
-                    src=""
-                    alt=""
+                  src={`https://randomuser.me/api/portraits/women/${Math.floor(Math.random() * 10) + 1}.jpg`}
+                    alt="user"
                     className="h-20 w-20 rounded-full shadow-lg bg-gray-300 border"
                   />
                   <p>Marcela</p>
@@ -122,7 +107,7 @@ const Perfil = () => {
 
                 <div className="flex flex-col items-center gap-2 text-lg font-semibold">
                   <img
-                    src=""
+                    src={`https://randomuser.me/api/portraits/women/${Math.floor(Math.random() * 100) + 1}.jpg`}
                     alt=""
                     className="h-20 w-20 rounded-full shadow-lg bg-gray-300 border"
                   />
@@ -130,7 +115,7 @@ const Perfil = () => {
                 </div>
                 <div className="flex flex-col items-center gap-2 text-lg font-semibold">
                   <img
-                    src=""
+                    src={`https://randomuser.me/api/portraits/men/${Math.floor(Math.random() * 10) + 1}.jpg`}
                     alt=""
                     className="h-20 w-20 rounded-full shadow-lg bg-gray-300 border"
                   />
@@ -138,6 +123,72 @@ const Perfil = () => {
                 </div>
               </div>
             </div>
+        </>
+      );
+      case 2: 
+      return(
+        <div className="grid grid-cols-1">
+          <CargarUsuario/>
+
+        </div>
+
+      );
+
+      case 3: 
+      return (
+        <CargarPerfilProfesional/>
+      )
+
+      default:
+        return null;
+    }
+  }
+
+
+
+  return (
+    <div className=" flex flex-col   ">
+      <header className="bg-blue-600 flex  ">
+        <div className="flex items-center flex-grow mx-auto max-w-[1280px] justify-between">
+          <p className="text-white text-2xl mx-auto py-6 ">PERFIL</p>
+        </div>
+      </header>
+      <div className="flex flex-col md:flex-row mx-auto md:max-w-[1280px] ">
+        <div className="flex flex-col  p-4 text-center items-center">
+   
+          <img
+            src={`https://randomuser.me/api/portraits/men/${usuario.usuario_id}.jpg`}
+            alt="imagen del usuario"
+            className="w-[220px] h-[220px] rounded-full m-10 "
+          />
+          <a href="" className="h-12 w-[200px] p-7 flex justify-center items-center bg-blue-700 text-white text-2xl rounded-xl shadow-md">
+            Editar Perfil
+          </a>
+          <a className=" h-10 mb-6  flex items-center  text-blue-700 text-2xl ">
+            Cambiar Contraseña
+          </a>
+
+          <ul className="flex flex-col items-center text-gray-400 pointer-none">
+            <a className=" h-10 font-semibold flex items-center   text-2xl ">
+              Idioma
+            </a>
+            <a className=" h-10  font-semibold flex items-center   text-2xl ">
+              Preferencias
+            </a>
+            <a className=" h-10  font-semibold flex items-center   text-2xl ">
+              Modo
+            </a>
+            <a className=" h-10  font-semibold flex items-center   text-2xl ">
+              Privacidad
+            </a>
+          </ul>
+        </div>
+
+        <div className="flex flex-col ml-8 p-4 flex-grow items-center h-full">
+          <div className="flex flex-col max-w-6xl text-center  ">
+
+          {renderStep()}
+          
           </div>
         </div>
       </div>

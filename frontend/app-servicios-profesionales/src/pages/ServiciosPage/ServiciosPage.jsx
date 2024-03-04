@@ -32,7 +32,6 @@ const ServiciosPage = () => {
     setProfesion(prof);
   }, [profesiones]);
 
-  //saca null
   useEffect(() => {
     if (profesion) {
       axios
@@ -45,6 +44,7 @@ const ServiciosPage = () => {
         .then((response) => {
           const profesionalesObtenidos = response.data.profesionales; // Ajusta esto según la estructura de tu respuesta
           setProfesionales(profesionalesObtenidos);
+          console.log(profesionalesObtenidos);
         })
         .catch((error) => {
           console.error(error);

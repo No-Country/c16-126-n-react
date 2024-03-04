@@ -8,15 +8,7 @@ import SelectUbicacion from "../../components/SelectUbicacion/SelectUbicacion";
 const ServiciosPage = () => {
   const [profesion, setProfesion] = useState([]);
   const [profesiones, setProfesiones] = useState([]);
-
-  const [provinciaSeleccionada, setProvinciaSeleccionada] = useState("");
-  const [ciudadSeleccionada, setCiudadSeleccionada] = useState("");
-
-  // Función de devolución de llamada para recibir los valores del componente hijo
-  const handleUbicacionSeleccionada = (provincia, ciudad) => {
-    setProvinciaSeleccionada(provincia);
-    setCiudadSeleccionada(ciudad);
-  };
+  const [profesionales, setProfesionales] = useState([]);
 
   useEffect(() => {
     axios
@@ -40,8 +32,28 @@ const ServiciosPage = () => {
     setProfesion(prof);
   }, [profesiones]);
 
+  //saca null
+  useEffect(() => {
+    if (profesion) {
+      axios
+        .post(
+          "https://allservicesapi-production.up.railway.app/api/solicitarProfesionales",
+          {
+            profesion: profesion_id,
+          }
+        )
+        .then((response) => {
+          const profesionalesObtenidos = response.data.profesionales; // Ajusta esto según la estructura de tu respuesta
+          setProfesionales(profesionalesObtenidos);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    }
+  }, [profesion_id]); // Se ejecuta cuando la profesión cambie
+
   //Renderizado Condicional por si se demora el Get
-  if (!profesion) {
+  if (!profesion || !profesionales) {
     return (
       <section className="flex justify-center h-screen items-center text-center ">
         <div role="status">
@@ -73,40 +85,12 @@ const ServiciosPage = () => {
         <p className="text-2xl text-white font-bold"> {profesion.nombre}</p>
       </div>
 
-      <section>
-        <SelectUbicacion
-          onUbicacionSeleccionada={handleUbicacionSeleccionada}
-        />
-      </section>
-
-      <section className="flex flex-col p-4 gap-4 justify-center items-center text-center">
-        <p>Provincia:</p>
-        <p className="text-orange-600">{provinciaSeleccionada}</p>
-        <p>Ciudad:</p>
-        <p className="text-orange-600">{ciudadSeleccionada}</p>
-      </section>
-    </div>
-  );
-};
-
-export default ServiciosPage;
-
-/*
-    
-
-
- <div className="flex flex-col p-4 gap-4 justify-center items-center text-center">
-       
-      <div className="grid grid-cols-2 lg:grid-cols-4 p-10 container justify-between mx-auto gap-5"></div>
-
-
-<div>
-      <div className="grid grid-cols-2 lg:grid-cols-4 p-10 container justify-between mx-auto gap-5">
-        {profesionales.map((profesional, index) => (
+      <div className="grid grid-col-1 md:grid-cols-2 lg:grid-cols-3 p-2 container justify-between mx-auto gap-6 mt-10">
+        {profesionales.map((profesional) => (
           <Link
-            key={index}
+            key={profesional.usuario_id}
             to={{
-              pathname: `/profesional/${profesional.nombre}`,
+              pathname: `/profesional/${profesional.usuario_id}`,
               state: { profesional },
             }}
           >
@@ -114,53 +98,8 @@ export default ServiciosPage;
           </Link>
         ))}
       </div>
-
-      {/* <div className="grid grid-cols-2 grid-rows-1 w-full max-h-full p-5 h-screen ">
-        <div className="w-[50%] h-[50%] mt-10 border-l-4 border-blue-700/90 m-5  ">
-          <form className="max-w-sm mx-auto">
-            <p className="text-[20px] font-bold text-blue-800">
-              Busca una ciudad
-            </p>
-            <label htmlFor="underline_select" className="sr-only">
-              Busca una ciudad
-            </label>
-            <select
-              id="underline_select"
-              className="block py-2.5 px-0 w-full text-md text-gray-500 bg-transparent
-      border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400
-      dark:border-gray-200 focus:outline-none focus:ring-0 focus:border-gray-200 peer"
-            >
-              <option defaultValue="" disabled selected>
-                Busca una ciudad
-              </option>
-              <option defaultValue="Buenos Aires">Buenos Aires</option>
-              <option defaultValue="Santa Fe">Santa Fe</option>
-            </select>
-          </form>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 xl:grid-cols-3 gap-6">
-          {profesional.map((prof, index) => (
-            <div
-              className=" h-[350px] flex flex-col justify-center items-center"
-              key={index}
-            >
-              <img
-                src="https://avatars.githubusercontent.com/u/101590889?v=4"
-                className=" rounded-full h-[150px] w-[150px] "
-                alt="a"
-              />
-              <p className="text-[20px] font-semibold">
-                {prof.nombre} {prof.apellido}
-              </p>
-              <p className="text-[18px] font-semibold">{prof.ciudad}</p>
-              <RatingToStar rating={4} />
-            </div>
-          ))}
-        </div>
-      </div> }
     </div>
   );
 };
 
-*/
+export default ServiciosPage;

@@ -21,10 +21,10 @@ const CargarPerfilProfesional = () => {
         SwalError('Por favor, complete el campo de Disponibilidad Horaria.');
       } else {
         const response = await axios.post('https://allservicesapi-production.up.railway.app/api/horarioProfesional', {
-          horario: horario, 
+          disponibilidad_horaria: horario, 
         });
-  
-        if (response.data.success) {
+        
+        if (response.data) {
           swalExitoso(response.data.mensaje);
           console.log('Response:', response.data);
         } else {
@@ -45,7 +45,7 @@ const CargarPerfilProfesional = () => {
         SwalError('Por favor, elija una profesión');
       } else {
         const response = await axios.post('https://allservicesapi-production.up.railway.app/api/cargarOficios', {
-          selectedProfesion: selectedProfesion, 
+          profesion: selectedProfesion, 
         });
         swalExitoso(response.data.mensaje);
         console.log('Response:', response.data);
@@ -82,9 +82,9 @@ const CargarPerfilProfesional = () => {
         type='text'
         onChange={(e) => setHorario(e.target.value)}
         placeholder='Ingrese su disponibilidad horaria'
-        className='block w-[500px] p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base
+        className='block lg:w-[500px] p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base
         focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400
-         dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 '
+         dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 sm:w-[100px]'
       />
       <button className='bg-blue-700 text-white rounded-md mt-5 w-[200px] h-[50px] text-[18px]' type='submit'>
         Guardar Disponibilidad

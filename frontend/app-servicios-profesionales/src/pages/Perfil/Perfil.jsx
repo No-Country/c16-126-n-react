@@ -27,10 +27,7 @@ const Perfil = () => {
     setStep((prevStep) => prevStep + 2);
   };
 
-  const handleVolver = () => {
-    setStep((prevStep) => step == 1);
-  };
-
+ 
   const renderStep = () => {
     switch(step) {
       case 1: 

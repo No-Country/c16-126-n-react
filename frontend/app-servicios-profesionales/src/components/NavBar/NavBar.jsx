@@ -20,7 +20,7 @@ const NavBar = () => {
       >
         <div className="flex lg:flex-1">
           <NavLink to="/" className="text-white text-2xl font-bold">
-            ContactaAPP
+            All Service App
           </NavLink>
         </div>
         <div className="lg:hidden">

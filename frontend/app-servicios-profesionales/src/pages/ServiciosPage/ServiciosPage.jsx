@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import ProfesionalCard from "../../components/ProfesionalCard/ProfesionalCard";
 import axios from "axios";
-import SelectUbicacion from "../../components/SelectUbicacion/SelectUbicacion";
 
 const ServiciosPage = () => {
   const [profesion, setProfesion] = useState([]);
@@ -45,6 +44,10 @@ const ServiciosPage = () => {
           const profesionalesObtenidos = response.data.profesionales; // Ajusta esto según la estructura de tu respuesta
           setProfesionales(profesionalesObtenidos);
           console.log(profesionalesObtenidos);
+          localStorage.setItem(
+            "profesionales",
+            JSON.stringify(profesionalesObtenidos)
+          );
         })
         .catch((error) => {
           console.error(error);

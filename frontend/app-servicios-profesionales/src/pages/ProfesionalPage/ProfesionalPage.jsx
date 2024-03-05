@@ -3,6 +3,7 @@ import RatingToStar from "../../components/RatingToStar/RatingToStar";
 import { useState, useEffect } from "react";
 import Valoraciones from "../../components/Valoraciones/Valoraciones";
 import axios from "axios";
+import BadgeProfesion from "../../components/BadgeProfesion/BadgeProfesion";
 
 const ProfesionalPage = () => {
   const rutaActual = window.location.pathname;
@@ -10,6 +11,8 @@ const ProfesionalPage = () => {
   const idProfesional = segmentos[segmentos.length - 1];
 
   const [profesional, setProfesional] = useState(null);
+  const [disponibilidad, setDisponibolidad] = useState(null);
+  const [oficios, setOficios] = useState([]);
 
   useEffect(() => {
     const listaProfesionales = localStorage.getItem("profesionales");
@@ -36,12 +39,16 @@ const ProfesionalPage = () => {
             },
           }
         )
-        .then((response) => console.log(response.data))
+        .then((response) => {
+          setDisponibolidad(response.data.profesional.disponibilidad_horaria);
+          setOficios(response.data.oficios);
+        })
+
         .catch((error) => console.error("Error:", error));
     }
   }, [profesional]);
 
-  if (!profesional) {
+  if (!profesional || !oficios) {
     return (
       <section className="flex justify-center h-screen items-center text-center ">
         <div role="status">
@@ -78,7 +85,7 @@ const ProfesionalPage = () => {
   } = profesional;
 
   return (
-    <div className="bg-blue-100 flex flex-col   ">
+    <div className=" flex flex-col   ">
       <header className="bg-blue-500 flex  ">
         <div className="flex items-center flex-grow mx-auto max-w-[1280px] justify-between">
           <p className="text-white container text-2xl p-3 text-center mx-auto  ">
@@ -87,7 +94,7 @@ const ProfesionalPage = () => {
         </div>
       </header>
 
-      <div className="flex flex-col lg:flex-row mx-auto lg:w-[1280px] ">
+      <div className="flex flex-col lg:flex-row mx-auto lg:w-[1280px] mt-8">
         <div className=" h-[420px] w-[330px] flex flex-col mx-auto p-4 text-center border shadow-xl rounded-lg m-4">
           <img
             src={`https://randomuser.me/api/portraits/men/${idProfesional}.jpg`}
@@ -102,7 +109,7 @@ const ProfesionalPage = () => {
           <p className="text-lg text-gray-600"> {ciudad}</p>
           <p className="text-lg text-gray-600"> ({codigo_postal})</p>
           <div className=" mx-auto flex items-center">
-            <RatingToStar rating={4} />
+            <RatingToStar rating={4.5} />
           </div>
         </div>
 
@@ -111,24 +118,14 @@ const ProfesionalPage = () => {
             <div className="flex flex-col  items-center mx-center gap-4  ">
               <div className="flex flex-col md:flex-row gap-2 p-4 text-md font-bold border shadow-xl rounded-lg items-center">
                 <p className="text-md font-bold mr-4">Profesiones:</p>
-                <span className="bg-blue-100 text-blue-800 text-md font-medium me-2 px-2.5 py-1 rounded dark:bg-blue-900 dark:text-blue-300">
-                  Carpintería
-                </span>
-                <span className="bg-gray-100 text-gray-800 text-md font-medium me-2 px-2.5 py-1 rounded dark:bg-gray-700 dark:text-gray-300">
-                  Electricidad
-                </span>
-                <span className="bg-red-100 text-red-800 text-md font-medium me-2 px-2.5 py-1 rounded dark:bg-red-900 dark:text-red-300">
-                  Fontanería
-                </span>
-                <span className="bg-green-100 text-green-800 text-md font-medium me-2 px-2.5 py-1 rounded dark:bg-green-900 dark:text-green-300">
-                  Mascotas
-                </span>
+
+                {oficios.map((oficio, index) => (
+                  <BadgeProfesion key={index} {...oficio} />
+                ))}
               </div>
               <div className="flex flex-col md:flex-row gap-2 p-4 text-md font-bold border shadow-xl rounded-lg ">
                 <p>Disponibilidad:</p>
-                <span className="font-semibold">
-                  Lunes a viernes de 10 a 18 hs.{" "}
-                </span>
+                <span className="font-semibold">{disponibilidad}</span>
               </div>
               <div className="flex flex-col md:flex-row gap-2 p-4 text-md font-bold border shadow-xl rounded-lg ">
                 <p>Contacto: </p>
@@ -138,15 +135,20 @@ const ProfesionalPage = () => {
               </div>
             </div>
 
-            <h3 className="text-lg font-semibold my-4 text-center ">
-              Acerca de mi:
-            </h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
-              sunt similique harum laborum maxime in impedit minima odit porro
-              non deleniti repudiandae sit ut nihil sequi quo fuga, quia eum.
-            </p>
-            <h3 className="text-lg font-semibold my-4 text-center">
+            <div className="bg-gray-300 border shadow-xl rounded-lg mt-10 p-5">
+              <h3 className="text-lg font-semibold  text-center text-gray-500 mb-2 ">
+                Acerca de mi:
+              </h3>
+              <p className="text-md text-gray-500 ">
+                Información a cargar por los profesionales en la próxima versión
+                de la aplicación. Donde podrán detallar la experiencia,
+                trayectoria, recorrido profesional, entre otros detalles que
+                pueden servir a la hora de que los clientes tengan que decidir
+                por un prestador de servicio.
+              </p>
+            </div>
+
+            <h3 className="text-lg font-semibold mt-8 text-center text-gray-500">
               Valoraciones:
             </h3>
             <Valoraciones />

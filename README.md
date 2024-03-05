@@ -57,5 +57,5 @@ La aplicación que estamos construyendo tiene como objetivo conectar a usuarios 
 | Others        | ![GIT](https://img.shields.io/badge/Git-fc6d26?style=for-the-badge&logo=git&logoColor=white) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)       
 	
 # Demo: 
-[Demo](https://65e672bc985e052cdf617b2e--courageous-manatee-8d28de.netlify.app/)https://65e672bc985e052cdf617b2e--courageous-manatee-8d28de.netlify.app/)
+[Demo](https://65e672bc985e052cdf617b2e--courageous-manatee-8d28de.netlify.app/)
 

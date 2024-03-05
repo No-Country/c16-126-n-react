@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
 import CargarUsuario from "../../components/CargarDatosUsuario/CargarUsuario";
 import CargarPerfilProfesional from "../../components/CargarPerfilProfesional/CargarPerfilProfesional";
+import EditarPerfil from "../../components/EditarPerfil/EditarPerfil";
 
 const Perfil = () => {
   const [usuario, setUsuario] = useState({});
   const [step, setStep] = useState(1);
+
+
+  
 
   useEffect(() => {
     const datosUsuario = localStorage.getItem("user");
@@ -14,7 +18,6 @@ const Perfil = () => {
     }
   }, []);
 
-  console.log(usuario);
 
 
 
@@ -25,6 +28,15 @@ const Perfil = () => {
 
   const handleDatosProfesional = () => {
     setStep((prevStep) => prevStep + 2);
+  };
+
+  const handleEditarPerfil = () => {
+    setStep((prevStep) => prevStep + 3);
+  };
+
+  const handleDatosPerfil = () => {
+    window.location.reload(true);
+
   };
 
  
@@ -136,6 +148,11 @@ const Perfil = () => {
         <CargarPerfilProfesional/>
       )
 
+      case 4: 
+      return (
+        <EditarPerfil usuario={usuario} setUsuario={setUsuario}/>
+      )
+
       default:
         return null;
     }
@@ -158,9 +175,14 @@ const Perfil = () => {
             alt="imagen del usuario"
             className="w-[220px] h-[220px] rounded-full m-10 "
           />
-          <a href="" className="h-12 w-[200px] p-7 flex justify-center items-center bg-blue-700 text-white text-2xl rounded-xl shadow-md">
+           <button onClick={handleDatosPerfil} className="h-12 w-[200px] p-5 flex justify-center items-center bg-blue-700 text-white text-2xl rounded-xl shadow-md mb-5">
+            Volver al Perfil
+          </button>
+
+
+          <button onClick={handleEditarPerfil} className="h-12 w-[200px] p-7 flex justify-center items-center bg-blue-700 text-white text-2xl rounded-xl shadow-md">
             Editar Perfil
-          </a>
+          </button>
           <a className=" h-10 mb-6  flex items-center  text-blue-700 text-2xl ">
             Cambiar Contraseña
           </a>

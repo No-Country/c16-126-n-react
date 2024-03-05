@@ -83,8 +83,8 @@ const CargarPerfilProfesional = () => {
         onChange={(e) => setHorario(e.target.value)}
         placeholder='Ingrese su disponibilidad horaria'
         className='block lg:w-[500px] p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base
-        focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400
-         dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 sm:w-[100px]'
+        focus:ring-blue-500 focus:border-blue-500  dark:border-gray-600 dark:placeholder-gray-400
+         dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 '
       />
       <button className='bg-blue-700 text-white rounded-md mt-5 w-[200px] h-[50px] text-[18px]' type='submit'>
         Guardar Disponibilidad
@@ -107,8 +107,8 @@ const CargarPerfilProfesional = () => {
         value={selectedProfesion}
         onChange={(e) => setSelectedProfesion(e.target.value)}
         className="p-2  mt-2  text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base
-        focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400
-         dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+        focus:ring-blue-500 focus:border-blue-500  dark:border-gray-600 dark:placeholder-gray-400
+          dark:focus:ring-blue-500 dark:focus:border-blue-500"
       >
         <option value="">Select...</option>
         {profesion.map((prof) => (

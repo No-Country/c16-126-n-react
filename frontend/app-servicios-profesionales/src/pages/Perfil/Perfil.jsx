@@ -23,20 +23,19 @@ const Perfil = () => {
 
 
   const handleDatosUsuario = () => {
-    setStep((prevStep) => prevStep + 1);
+    setStep(2);
   };
 
   const handleDatosProfesional = () => {
-    setStep((prevStep) => prevStep + 2);
+    setStep(3);
   };
 
   const handleEditarPerfil = () => {
-    setStep((prevStep) => prevStep + 3);
+    setStep(4);
   };
 
   const handleDatosPerfil = () => {
-    window.location.reload(true);
-
+    setStep(1);
   };
 
  

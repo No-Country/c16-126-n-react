@@ -1,6 +1,6 @@
-import { FaLinkedin } from "react-icons/fa";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
 
-const NosotrosCard = ({ avatarUrl, nombre, rol, linkedinUrl }) => {
+const NosotrosCard = ({ avatarUrl, nombre, rol, linkedinUrl, githugbUrl }) => {
   return (
     <div className="flex flex-col items-center justify-between m-5">
       <div className="flex flex-col items-center lg:flex-row">
@@ -14,14 +14,24 @@ const NosotrosCard = ({ avatarUrl, nombre, rol, linkedinUrl }) => {
         <div className=" w-[400px] px-5 mx-auto border-1 py-5 shadow-md bg-slate-100">
           <p className="text-2xl font-bold ">{nombre} </p>
           <p className="text-xl font-semibold text-gray-600 mb-4">Rol: {rol}</p>
-          <a
-            href={linkedinUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-3xl text-blue-500 font-semibold "
-          >
-            <FaLinkedin />
-          </a>
+          <div className="flex gap-3">
+            <a
+              href={linkedinUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-3xl text-blue-500 font-semibold "
+            >
+              <FaLinkedin />
+            </a>
+            <a
+              href={githugbUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-3xl text-black font-semibold "
+            >
+              <FaGithub />
+            </a>{" "}
+          </div>
         </div>
       </div>
     </div>

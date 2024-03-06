@@ -3,7 +3,7 @@ import { NavLink, Navigate, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { inicioSesion, registroUsuarios } from "../../data/getData";
 import { AuthContext } from "../../auth/AuthContext";
-import { img } from "../../assets/register.png";
+import img from "../../assets/register.png";
 
 export default function RegisterPage() {
   const {

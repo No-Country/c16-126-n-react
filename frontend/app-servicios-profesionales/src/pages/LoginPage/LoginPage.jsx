@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect, useContext } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../../auth/AuthContext";
-import { img } from "../../assets/register.png";
+import img from "../../assets/register.png";
 
 export default function Login() {
   const userRef = useRef();

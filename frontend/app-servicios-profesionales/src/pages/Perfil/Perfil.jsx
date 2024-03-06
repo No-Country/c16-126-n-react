@@ -1,22 +1,25 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import CargarUsuario from "../../components/CargarDatosUsuario/CargarUsuario";
 import CargarPerfilProfesional from "../../components/CargarPerfilProfesional/CargarPerfilProfesional";
 import EditarPerfil from "../../components/EditarPerfil/EditarPerfil";
+import { AuthContext } from "../../auth/AuthContext";
 
 const Perfil = () => {
   const [usuario, setUsuario] = useState({});
   const [step, setStep] = useState(1);
 
+ const {user} = useContext(AuthContext)
 
   
 
   useEffect(() => {
-    const datosUsuario = localStorage.getItem("user");
-    if (datosUsuario) {
-      const usuarioGuardado = JSON.parse(datosUsuario);
-      setUsuario(usuarioGuardado);
+    // const datosUsuario = localStorage.getItem("user");
+    
+    if (user) {
+      // const usuarioGuardado = JSON.parse(datosUsuario);
+      setUsuario(user);
     }
-  }, []);
+  }, [user]);
 
 
 

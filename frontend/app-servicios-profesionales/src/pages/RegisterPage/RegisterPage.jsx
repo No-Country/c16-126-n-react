@@ -3,6 +3,7 @@ import { NavLink, Navigate, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { inicioSesion, registroUsuarios } from "../../data/getData";
 import { AuthContext } from "../../auth/AuthContext";
+import { img } from "../../assets/register.png";
 
 export default function RegisterPage() {
   const {
@@ -12,17 +13,13 @@ export default function RegisterPage() {
     reset,
   } = useForm();
 
-
-
   const navigate = useNavigate();
 
-  const { login } = useContext(AuthContext)
+  const { login } = useContext(AuthContext);
   const onSubmit = async (formData, e) => {
-
     e.preventDefault();
 
     try {
-      
       await registroUsuarios(formData);
 
       login({ email: formData.email, password: formData.password });
@@ -30,7 +27,6 @@ export default function RegisterPage() {
       navigate("/perfil", {
         state: { success: true },
       });
-
     } catch (error) {
       console.error("Error during registration:", error.data);
     }
@@ -217,11 +213,7 @@ export default function RegisterPage() {
           </form>
         </div>
         <div>
-          <img
-            src="../src/assets/register.png"
-            alt="electricista"
-            className="w-[265px] h-[448px]"
-          />
+          <img src={img} alt="electricista" className="w-[265px] h-[448px]" />
         </div>
       </div>
     </div>

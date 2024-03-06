@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect, useContext } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../../auth/AuthContext";
+import { img } from "../../assets/register.png";
 
 export default function Login() {
   const userRef = useRef();
@@ -35,7 +36,6 @@ export default function Login() {
       replace: setSuccess(true),
     });
 
-    
     // setEmail("");
     // setPassword("");
     // setSuccess(true);
@@ -63,7 +63,9 @@ export default function Login() {
                 className="flex flex-col items-center p-2 m-3 gap-y-8"
                 onSubmit={handleSubmit}
               >
-                <h1 className="text-black font-bold text-[30px] ">Ingrese sus datos</h1>
+                <h1 className="text-black font-bold text-[30px] ">
+                  Ingrese sus datos
+                </h1>
 
                 <input
                   className="text-start text-[17px] px-3 w-[637px] h-[50px] text-[#000000BF] placeholder-black bg-[#F2F5F5] border-solid border-[3px] rounded-[20px] border-[#ffffff10] shadow-md shadow-[#00000040]"
@@ -120,7 +122,7 @@ export default function Login() {
             </div>
             <div>
               <img
-                src="../src/assets/register.png"
+                src={img}
                 alt="electricista"
                 className="w-[265px] h-[448px]"
               />

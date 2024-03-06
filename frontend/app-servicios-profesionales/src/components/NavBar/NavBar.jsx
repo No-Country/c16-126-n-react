@@ -106,7 +106,7 @@ const NavBar = () => {
             <div className="flex items-center justify-between ">
               <a href="#" className="-m-1.5 p-1.5">
                 <span className="sr-only">Servicios Hogar</span>
-                <p className="text-white text-2xl font-bold">ContactaAPP</p>
+                <p className="text-white text-2xl font-bold">All Service App</p>
               </a>
               <button
                 type="button"

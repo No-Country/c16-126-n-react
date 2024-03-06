@@ -44,7 +44,7 @@ export default function Login() {
   return (
     <>
       {success ? (
-        <section className="flex justify-center ">
+        <section className="flex justify-center">
           <p className="text-[#000000BF] text-[28px]">
             Iniciaste sesion con exito
             <NavLink
@@ -81,7 +81,7 @@ export default function Login() {
                   required
                 />
 
-                <div className="flex flex-col ">
+                <div className="flex flex-col">
                   <input
                     className="text-start text-[17px] px-3 w-[637px] h-[50px] text-[#000000BF] placeholder-black bg-[#F2F5F5] border-solid border-[3px] rounded-[20px] border-[#ffffff10] shadow-md shadow-[#00000040]"
                     type="password"

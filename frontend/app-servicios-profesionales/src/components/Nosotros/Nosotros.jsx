@@ -32,7 +32,8 @@ const Nosotros = () => {
       avatarUrl: "https://avatars.githubusercontent.com/u/128101914?v=4",
       nombre: "Gabriel Taboada",
       rol: "FrontEnd Developer",
-      linkedinUrl: "",
+      linkedinUrl:
+        "https://www.linkedin.com/in/gabriel-alberto-taboada-cardullo",
     },
   ];
 

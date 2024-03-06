@@ -1,4 +1,5 @@
-import React from 'react';
+import React from "react";
+import { NavLink } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -12,16 +13,16 @@ const Footer = () => {
             data-te-ripple-init
             data-te-ripple-color="light"
           >
-            Registrarse
+            <NavLink to="/register">Registrarse</NavLink>
           </button>
         </p>
       </div>
 
       <div className="w-full p-4 text-center bg-blue-500">
-        <p className='font-bold'>© 2024 Todos Los Derechos Reservados.</p>
+        <p className="font-bold">© 2024 Todos Los Derechos Reservados.</p>
       </div>
     </footer>
   );
-}
+};
 
 export default Footer;

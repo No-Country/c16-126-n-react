@@ -3,6 +3,7 @@ import { NavLink, Navigate, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { inicioSesion, registroUsuarios } from "../../data/getData";
 import { AuthContext } from "../../auth/AuthContext";
+import img from "../../assets/register.png";
 
 export default function RegisterPage() {
   const {
@@ -12,17 +13,13 @@ export default function RegisterPage() {
     reset,
   } = useForm();
 
-
-
   const navigate = useNavigate();
 
-  const { login } = useContext(AuthContext)
+  const { login } = useContext(AuthContext);
   const onSubmit = async (formData, e) => {
-
     e.preventDefault();
 
     try {
-      
       await registroUsuarios(formData);
 
       login({ email: formData.email, password: formData.password });
@@ -30,7 +27,6 @@ export default function RegisterPage() {
       navigate("/perfil", {
         state: { success: true },
       });
-
     } catch (error) {
       console.error("Error during registration:", error.data);
     }
@@ -48,7 +44,7 @@ export default function RegisterPage() {
               Crear cuenta
             </h1>
 
-            <div className="flex gap-[1.5rem]">
+            <div className="contents sm:flex gap-[1.5rem]">
               <div className="flex flex-col">
                 <input
                   className="ipt-reg-s"
@@ -155,7 +151,7 @@ export default function RegisterPage() {
               )}
             </div>
 
-            <div className="flex gap-[1.5rem]">
+            <div className="contents sm:flex gap-[1.5rem]">
               <div className="flex flex-col">
                 <input
                   className="ipt-reg-s"
@@ -218,9 +214,9 @@ export default function RegisterPage() {
         </div>
         <div>
           <img
-            src="../src/assets/register.png"
+            src={img}
             alt="electricista"
-            className="w-[265px] h-[448px]"
+            className="hidden sm:w-[265px] sm:h-[448px] sm:flex"
           />
         </div>
       </div>

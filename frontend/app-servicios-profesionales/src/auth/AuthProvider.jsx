@@ -51,7 +51,7 @@ const [authState, dispatch] = useReducer(authReducer, {} ,init);
     }
     
   return (
-    <AuthContext.Provider value={{...authState,login,logout}}>
+    <AuthContext.Provider value={{...authState,login,logout,dispatch}}>
       {children}
     </AuthContext.Provider>
   )

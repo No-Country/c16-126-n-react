@@ -20,7 +20,7 @@ const NavBar = () => {
       >
         <div className="flex lg:flex-1">
           <NavLink to="/" className="text-white text-2xl font-bold">
-            ContactaAPP
+            All Service App
           </NavLink>
         </div>
         <div className="lg:hidden">
@@ -88,7 +88,7 @@ const NavBar = () => {
             to={logged ? "/perfil" : "/login"}
             className="text-sm font-bold leading-6 text-white d-flex"
           >
-            {logged ? <p> Mi Cuenta</p> : <p> Acceder</p>}
+            {logged ? <p> Mi Cuenta</p> : <p>Acceder</p>}
           </NavLink>
 
           {logged && (
@@ -106,7 +106,7 @@ const NavBar = () => {
             <div className="flex items-center justify-between ">
               <a href="#" className="-m-1.5 p-1.5">
                 <span className="sr-only">Servicios Hogar</span>
-                <p className="text-white text-2xl font-bold">ContactaAPP</p>
+                <p className="text-white text-2xl font-bold">All Service App</p>
               </a>
               <button
                 type="button"
@@ -170,6 +170,14 @@ const NavBar = () => {
                   >
                     {logged ? <p>Mi Cuenta</p> : <p>Acceder</p>}
                   </NavLink>
+                  {logged && (
+                    <button
+                      onClick={logout}
+                      className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-white hover:bg-blue-800 w-[100%] text-start"
+                    >
+                      Cerrar Sesión
+                    </button>
+                  )}
                 </div>
               </div>
             </div>

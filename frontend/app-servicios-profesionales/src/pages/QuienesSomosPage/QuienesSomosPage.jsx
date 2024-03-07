@@ -8,30 +8,35 @@ export default function QuienesSomosPage() {
       nombre: "Laura Marcela Rozo Rodriguez",
       rol: "Tester QA - Diseño UI/UX ",
       linkedinUrl: "https://www.linkedin.com/in/laura-rozorodriguez/",
+      githugbUrl: "https://github.com/Laumarceline",
     },
     {
       avatarUrl: "https://avatars.githubusercontent.com/u/109558787?v=4",
       nombre: "Franco Martí­n Ojeda",
       rol: "BackEnd Developer",
-      linkedinUrl: "https://www.linkedin.com/in/sebastiangallegocanon/",
+      linkedinUrl: "https://www.linkedin.com/in/franco-ojeda-5470b399/",
+      githugbUrl: "https://github.com/FrancoOjeda",
     },
     {
       avatarUrl: "https://avatars.githubusercontent.com/u/101590889?v=4",
       nombre: "Sebastian Gallego",
       rol: "FrontEnd Developer",
-      linkedinUrl: "https://www.linkedin.com/in/franco-ojeda-5470b399",
+      linkedinUrl: "https://www.linkedin.com/in/sebastiangallegocanon",
+      githugbUrl: "https://github.com/SebastianGallego",
     },
     {
       avatarUrl: "https://avatars.githubusercontent.com/u/54607894?v=4",
       nombre: "Eduardo Hidalgo",
       rol: "FrontEnd Developer",
       linkedinUrl: "https://www.linkedin.com/in/eduardo-antonio-hidalgo/",
+      githugbUrl: "https://github.com/EduardoHidalgo10",
     },
     {
       avatarUrl: "https://avatars.githubusercontent.com/u/128101914?v=4",
       nombre: "Gabriel Taboada",
       rol: "FrontEnd Developer",
       linkedinUrl: "",
+      githugbUrl: "https://github.com/Gabriel-Taboada-C",
     },
   ];
 

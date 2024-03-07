@@ -11,16 +11,10 @@ const LandingPage = () => {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
             Busca un profesional <br /> o ofrece tus servicios
           </h1>
-          <p className="text-lg md:text-xl text-white font-bold mb-10 leading-relaxed">
+          <p className="text-lg md:text-xl text-white font-bold mb-6 leading-relaxed">
             Encuentra profesionales confiables para tus necesidades o da a
             conocer tus servicios al mundo.
           </p>
-          <a
-            href="#"
-            className="bg-blue-800 py-4 px-8 text-white font-bold uppercase text-sm md:text-base rounded hover:bg-blue-600 transition-colors duration-300 ease-in-out"
-          >
-            Busca un profesional
-          </a>
         </div>
       </div>
 

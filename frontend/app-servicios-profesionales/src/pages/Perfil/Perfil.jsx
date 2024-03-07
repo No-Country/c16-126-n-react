@@ -3,14 +3,15 @@ import CargarUsuario from "../../components/CargarDatosUsuario/CargarUsuario";
 import CargarPerfilProfesional from "../../components/CargarPerfilProfesional/CargarPerfilProfesional";
 import EditarPerfil from "../../components/EditarPerfil/EditarPerfil";
 import { AuthContext } from "../../auth/AuthContext";
+import axios from "axios";
+import BadgeProfesion from "../../components/BadgeProfesion/BadgeProfesion";
 
 const Perfil = () => {
   const [usuario, setUsuario] = useState({});
   const [step, setStep] = useState(1);
+  const [oficios, setOficios] = useState([]);
 
   const { user } = useContext(AuthContext)
-
-
 
   useEffect(() => {
     // const datosUsuario = localStorage.getItem("user");
@@ -22,8 +23,30 @@ const Perfil = () => {
   }, [user]);
 
 
-
-
+  useEffect(() => {
+    if (usuario) {
+      axios
+        .post(
+          "https://allservicesapi-production.up.railway.app/api/profesional",
+          {
+            email: usuario.email,
+          },
+          {
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+          }
+        )
+        .then((response) => {
+          setOficios(response.data.oficios);
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
+          
+        });
+    }
+  }, [usuario]);
 
   const handleDatosUsuario = () => {
     setStep(2);
@@ -39,6 +62,7 @@ const Perfil = () => {
 
   const handleDatosPerfil = () => {
     setStep(1);
+    window.location.reload();
   };
 
 
@@ -92,7 +116,24 @@ const Perfil = () => {
                   {usuario.provincia}
                 </p>
               </div>
+
+              {oficios.length > 0? <div>
+                <p className="text-md font-bold mr-4">Profesiones:</p>
+                <div className="grid grid-cols-2 md:grid md:grid-cols-2 gap-2 p-4 text-md font-bold border shadow-xl rounded-lg items-center">
+
+                  {oficios.map((oficio, index) => (
+                    <BadgeProfesion key={index} {...oficio} />
+                  ))}
+                </div>
+              </div> :
+
+                <div></div>
+              }
+
             </div>
+
+
+
 
             <div className="flex flex-col text-gray-400">
               <h4 className="text-2xl font-semibold my-8 text-start">

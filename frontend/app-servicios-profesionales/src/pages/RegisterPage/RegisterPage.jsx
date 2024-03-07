@@ -44,7 +44,7 @@ export default function RegisterPage() {
               Crear cuenta
             </h1>
 
-            <div className="flex gap-[1.5rem]">
+            <div className="contents sm:flex gap-[1.5rem]">
               <div className="flex flex-col">
                 <input
                   className="ipt-reg-s"
@@ -151,7 +151,7 @@ export default function RegisterPage() {
               )}
             </div>
 
-            <div className="flex gap-[1.5rem]">
+            <div className="contents sm:flex gap-[1.5rem]">
               <div className="flex flex-col">
                 <input
                   className="ipt-reg-s"
@@ -213,7 +213,11 @@ export default function RegisterPage() {
           </form>
         </div>
         <div>
-          <img src={img} alt="electricista" className="w-[265px] h-[448px]" />
+          <img
+            src={img}
+            alt="electricista"
+            className="hidden sm:w-[265px] sm:h-[448px] sm:flex"
+          />
         </div>
       </div>
     </div>

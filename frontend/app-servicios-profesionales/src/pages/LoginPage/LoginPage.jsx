@@ -57,18 +57,18 @@ export default function Login() {
         </section>
       ) : (
         <div className="flex justify-center">
-          <div className="w-[1240px] h-[824px] flex gap-20 justify-center items-center bg-[#DEE9EC]">
+          <div className="sm:w-[1240px] sm:h-[824px] w-full flex md:gap-20 justify-center items-center bg-[#DEE9EC]">
             <div>
               <form
                 className="flex flex-col items-center p-2 m-3 gap-y-8"
                 onSubmit={handleSubmit}
               >
-                <h1 className="text-black font-bold text-[30px] ">
+                <h1 className="text-black font-bold text-[20px] sm:text-[30px] ">
                   Ingrese sus datos
                 </h1>
 
                 <input
-                  className="text-start text-[17px] px-3 w-[637px] h-[50px] text-[#000000BF] placeholder-black bg-[#F2F5F5] border-solid border-[3px] rounded-[20px] border-[#ffffff10] shadow-md shadow-[#00000040]"
+                  className="text-start text-[17px] px-3 sm:w-[637px] sm:h-[50px] text-[#000000BF] placeholder-black bg-[#F2F5F5] border-solid border-[3px] rounded-[20px] border-[#ffffff10] shadow-md shadow-[#00000040]"
                   placeholder="Correo Electrónico"
                   name="email"
                   id="email"
@@ -83,7 +83,7 @@ export default function Login() {
 
                 <div className="flex flex-col">
                   <input
-                    className="text-start text-[17px] px-3 w-[637px] h-[50px] text-[#000000BF] placeholder-black bg-[#F2F5F5] border-solid border-[3px] rounded-[20px] border-[#ffffff10] shadow-md shadow-[#00000040]"
+                    className="text-start text-[17px] px-3 sm:w-[637px] sm:h-[50px] text-[#000000BF] placeholder-black bg-[#F2F5F5] border-solid border-[3px] rounded-[20px] border-[#ffffff10] shadow-md shadow-[#00000040]"
                     type="password"
                     placeholder="Contraseña"
                     name="password"
@@ -103,16 +103,16 @@ export default function Login() {
                   </a>
                 </div>
 
-                <button className="w-[440px] h-[60px] text-center text-[20px] font-bold text-white bg-[#354ED1] border-[3px] rounded-[20px] border-[#354ED1] shadow-md shadow-[#00000040]">
+                <button className="sm:w-[440px] sm:h-[60px] text-center text-[12px] sm:text-[20px] font-bold text-white bg-[#354ED1] border-[3px] rounded-[20px] border-[#354ED1] shadow-md shadow-[#00000040]">
                   Iniciar sesión
                 </button>
 
                 <div className="flex flex-col items-center justify-center">
-                  <p className="text-[#000000BF] text-[20px] font-bold">
+                  <p className="text-[#000000BF] text-[12px] sm:text-[20px] font-bold">
                     ¿No tienes una cuenta?
                     <NavLink
                       to="/register"
-                      className="text-[#454BE0E0] text-[20px] underline px-3"
+                      className="text-[#454BE0E0] text-[12px] sm:text-[20px] underline px-3"
                     >
                       Registrarse
                     </NavLink>
@@ -124,7 +124,7 @@ export default function Login() {
               <img
                 src={img}
                 alt="electricista"
-                className="w-[265px] h-[448px]"
+                className="hidden sm:w-[265px] sm:h-[448px] sm:flex"
               />
             </div>
           </div>

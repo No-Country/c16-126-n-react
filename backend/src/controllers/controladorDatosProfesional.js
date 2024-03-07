@@ -1,3 +1,4 @@
+
 const { pool } = require('../base/tablas/DB');
 
 const verificarRegistro = async (email) => {
@@ -16,6 +17,20 @@ const verificarProfesion = async (profesionId) => {
 
   return result[0].count > 0;
 };
+
+const verificarOficiosRegistrados = async (profesion, profesional) => {
+  try {
+    const [resultado] = await pool.query({
+      sql: 'SELECT * FROM profesional_profesiones WHERE profesion_id = ? AND profesional_id = ?',
+      values: [profesion, profesional]
+    });
+    return resultado;
+  } catch (error) {
+    console.error('Error al verificar oficios registrados:', error);
+    return null; // O puedes manejar el error de otra manera, según tu lógica de la aplicación
+  }
+}
+
 const obtenerOficiosDelProfesional = async (profesionalId) => {
   try {
     const query = `
@@ -110,6 +125,7 @@ const postProfesionUsuario = async (req, res) => {
   const mes = fechaActual.getMonth() + 1; // Sumar 1 al mes para obtener el mes correcto
   const año = fechaActual.getFullYear()
   const fecha_alta = `${año}-${mes}-${dia}`; // Orden correcto de año-mes-día
+  
   try {
     const user = req.user
     const email = user.reloadUserInfo.email
@@ -119,11 +135,16 @@ const postProfesionUsuario = async (req, res) => {
     if (!existeProfesion) {
       return res.status(404).json({ error: 'Profesion no encontrada' });
     }
-    const nuevaProfesion = await pool.query({
-      sql: 'INSERT INTO profesional_profesiones (profesional_id, profesion_id, fecha_alta) VALUES (?, ?, ?)',
-      values: [profesionalId.profesional_id, profesion_id, fecha_alta],
-    })
-    res.status(201).json({ mensaje: 'Profesión agregada correctamente' });
+    const profesionRegistrada = await verificarOficiosRegistrados(profesion_id, profesionalId.profesional_id )
+    if( profesionRegistrada.length > 0 ) {
+      return res.status(400).json({error: "Ya tienes registrada esta profesion"})
+    } else {
+      const nuevaProfesion = await pool.query({
+        sql: 'INSERT INTO profesional_profesiones (profesional_id, profesion_id, fecha_alta) VALUES (?, ?, ?)',
+        values: [profesionalId.profesional_id, profesion_id, fecha_alta],
+      })
+      res.status(201).json({ mensaje: 'Profesión agregada correctamente' });
+    }
   } catch (error) {
     console.error('Error al agregar profesión:', error);
     res.status(500).json({ error: 'Error al agregar profesión' });
@@ -136,5 +157,5 @@ module.exports = {
   postHorarioProfesional,
   postProfesionUsuario,
   obtenerOficiosDelProfesional,
-  verificarRegistro
+  verificarRegistro,
 }

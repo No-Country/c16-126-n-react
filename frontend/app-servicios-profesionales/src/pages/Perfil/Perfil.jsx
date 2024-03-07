@@ -8,13 +8,13 @@ const Perfil = () => {
   const [usuario, setUsuario] = useState({});
   const [step, setStep] = useState(1);
 
- const {user} = useContext(AuthContext)
+  const { user } = useContext(AuthContext)
 
-  
+
 
   useEffect(() => {
     // const datosUsuario = localStorage.getItem("user");
-    
+
     if (user) {
       // const usuarioGuardado = JSON.parse(datosUsuario);
       setUsuario(user);
@@ -41,25 +41,25 @@ const Perfil = () => {
     setStep(1);
   };
 
- 
+
   const renderStep = () => {
-    switch(step) {
-      case 1: 
-      return (
-        <>
-          <h3 className="text-3xl font-semibold my-4 text-center ">
+    switch (step) {
+      case 1:
+        return (
+          <div className="container mx-auto">
+            <h3 className="text-3xl font-semibold my-4 text-center ">
               {usuario.nombre} {usuario.apellido}
             </h3>
             <div className="flex gap-4 justify-center mt-8 mx-auto">
               <button
-                
+
                 className="text-lg bg-slate-200 text-slate-900  rounded-xl p-4 shadow-lg"
                 onClick={handleDatosUsuario}
               >
                 Cargar Datos de Usuario
               </button>
               <button
-                
+
                 className="text-lg bg-slate-200 text-slate-900  rounded-xl p-4 shadow-lg"
                 onClick={handleDatosProfesional}
               >
@@ -68,13 +68,13 @@ const Perfil = () => {
             </div>
 
             <div className="grid grid-cols-1 gap-y-5 max-w-full mt-14 text-xl  ">
-              <div className="grid grid-cols-2 justify-between   ">
+              <div className="flex  justify-between md:grid md:grid-cols-2">
                 <p className="text-gray-600 text-start">Email</p>
                 <p className="text-black font-semibold text-end">
                   {usuario.email}
                 </p>
               </div>
-              <div className="grid grid-cols-2  ">
+              <div className="grid grid-cols-2 ">
                 <p className="text-gray-600 text-start">Ciudad</p>
                 <p className="text-black font-semibold text-end">
                   {usuario.ciudad}
@@ -95,10 +95,10 @@ const Perfil = () => {
             </div>
 
             <div className="flex flex-col text-gray-400">
-              <h4 className="text-2xl font-semibold my-8 text-start ">
+              <h4 className="text-2xl font-semibold my-8 text-start">
                 FAVORITOS
               </h4>
-              <div className="flex gap-14 ">
+              <div className="flex flex-wrap gap-4 sm:gap-8 md:gap-14">
                 <div className="flex flex-col items-center gap-2 text-lg font-semibold">
                   <img
                     src={`https://randomuser.me/api/portraits/men/${Math.floor(Math.random() * 10) + 1}.jpg`}
@@ -109,13 +109,12 @@ const Perfil = () => {
                 </div>
                 <div className="flex flex-col items-center gap-2 text-lg font-semibold">
                   <img
-                  src={`https://randomuser.me/api/portraits/women/${Math.floor(Math.random() * 10) + 1}.jpg`}
+                    src={`https://randomuser.me/api/portraits/women/${Math.floor(Math.random() * 10) + 1}.jpg`}
                     alt="user"
                     className="h-20 w-20 rounded-full shadow-lg bg-gray-300 border"
                   />
                   <p>Marcela</p>
                 </div>
-
                 <div className="flex flex-col items-center gap-2 text-lg font-semibold">
                   <img
                     src={`https://randomuser.me/api/portraits/women/${Math.floor(Math.random() * 100) + 1}.jpg`}
@@ -134,26 +133,26 @@ const Perfil = () => {
                 </div>
               </div>
             </div>
-        </>
-      );
-      case 2: 
-      return(
-        <div className="grid grid-cols-1">
-          <CargarUsuario/>
+          </div>
+        );
+      case 2:
+        return (
+          <div className="grid grid-cols-1">
+            <CargarUsuario />
 
-        </div>
+          </div>
 
-      );
+        );
 
-      case 3: 
-      return (
-        <CargarPerfilProfesional/>
-      )
+      case 3:
+        return (
+          <CargarPerfilProfesional />
+        )
 
-      case 4: 
-      return (
-        <EditarPerfil usuario={usuario} setUsuario={setUsuario}/>
-      )
+      case 4:
+        return (
+          <EditarPerfil usuario={usuario} setUsuario={setUsuario} />
+        )
 
       default:
         return null;
@@ -164,6 +163,7 @@ const Perfil = () => {
 
   return (
     <div className=" flex flex-col   ">
+
       <header className="bg-blue-600 flex  ">
         <div className="flex items-center flex-grow mx-auto max-w-[1280px] justify-between">
           <p className="text-white text-2xl mx-auto py-6 ">PERFIL</p>
@@ -171,13 +171,13 @@ const Perfil = () => {
       </header>
       <div className="flex flex-col md:flex-row mx-auto md:max-w-[1280px] ">
         <div className="flex flex-col  p-4 text-center items-center">
-   
+
           <img
             src={`https://randomuser.me/api/portraits/men/${usuario.usuario_id}.jpg`}
             alt="imagen del usuario"
             className="w-[220px] h-[220px] rounded-full m-10 "
           />
-           <button onClick={handleDatosPerfil} className="h-12 w-[200px] p-5 flex justify-center items-center bg-blue-700 text-white text-2xl rounded-xl shadow-md mb-5">
+          <button onClick={handleDatosPerfil} className="h-12 w-[200px] p-5 flex justify-center items-center bg-blue-700 text-white text-2xl rounded-xl shadow-md mb-5">
             Volver al Perfil
           </button>
 
@@ -208,8 +208,8 @@ const Perfil = () => {
         <div className="flex flex-col ml-8 p-4 flex-grow items-center h-full">
           <div className="flex flex-col max-w-6xl text-center  ">
 
-          {renderStep()}
-          
+            {renderStep()}
+
           </div>
         </div>
       </div>

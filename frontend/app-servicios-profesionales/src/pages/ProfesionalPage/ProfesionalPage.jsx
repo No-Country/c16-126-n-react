@@ -114,10 +114,10 @@ const ProfesionalPage = () => {
         </div>
 
         <div className=" flex flex-col p-4 flex-grow items-center mx-auto container ">
-          <div className="flex flex-col  w-2/3  ">
+          <div className="flex flex-col  w-3/3  ">
             <div className="flex flex-col  items-center mx-center gap-4  ">
-              <div className="flex flex-col md:flex-row gap-2 p-4 text-md font-bold border shadow-xl rounded-lg items-center">
                 <p className="text-md font-bold mr-4">Profesiones:</p>
+              <div className="grid grid-cols-2  gap-2 p-4 text-md font-bold border shadow-xl rounded-lg items-center">
 
                 {oficios.map((oficio, index) => (
                   <BadgeProfesion key={index} {...oficio} />

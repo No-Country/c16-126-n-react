@@ -1,10 +1,10 @@
 const swaggerJSDoc = require('swagger-jsdoc')
+const swaggerUi = require('swagger-ui-express');
 const express = require('express')
 const cors = require('cors')
+const hbs = require('express-handlebars')
 const path = require('path')
 require('dotenv').config()
-const swaggerUi = require('swagger-ui-express');
-const hbs = require('express-handlebars')
 // const { autorizarUsuario } = require('./src/autorizacion/autorizarUsuario.js')
 
 // const { createClient } = require("@libsql/client")
@@ -20,6 +20,7 @@ const PORT = process.env.PORT || 4321
 app.engine('hbs', hbs.engine({ extname: '.hbs' }))
 app.set('view engine', 'hbs')
 app.set('views', path.join(__dirname, 'src', 'views'))
+app.use(express.static(path.join(__dirname, 'src', 'public')))
 // Server-config
 app.disable('x-powered-by')
 app.use(express.json())

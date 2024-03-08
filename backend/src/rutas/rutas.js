@@ -3,12 +3,12 @@ const router = express.Router()
 
 
 const { cerrarSesionCliente } = require('../controllers/cerrarSesion')
-const { postRegistroUsuario } = require('../controllers/controladorUsuarios')
+const { postRegistroUsuario, updateUsuario } = require('../controllers/controladorUsuarios')
 const { getListaProfesionales } = require('../controllers/controladoreSolicitarProfesionales')
 const { postInicioCliente, postInicioProfesional } = require('../controllers/controladorInicio')
 const { autorizarUsuario } = require('../autorizacion/autorizarUsuario')
 const { perfil } = require('../controllers/controladorDatosPerfil')
-const { getDatosCliente, postDatosCliente } = require('../controllers/controladorDatosCliente')
+const { getDatosCliente, postDireccionCliente, postSobreMi } = require('../controllers/controladorDatosCliente')
 const { getDatosProfesional, postHorarioProfesional, postProfesionUsuario } = require('../controllers/controladorDatosProfesional')
 const { cargarProfesiones } = require('../controllers/controladorCargarProfesiones')
 const { getProfesiones } = require('../controllers/controladorProfesiones')
@@ -68,6 +68,75 @@ router
   */
 
   .post('/registroUsuarios', postRegistroUsuario)
+  /**
+ * @swagger
+ * /api/actualizarUsuario:
+ *   post:
+ *     tags: [Usuarios]
+ *     summary: Actualizar información de usuario.
+ *     description: Permite al usuario actualizar su información en el sistema.
+ *     security:
+ *       - bearerAuth: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               ciudad:
+ *                 type: string
+ *                 description: Nueva ciudad de residencia del usuario.
+ *               provincia:
+ *                 type: string
+ *                 description: Nueva provincia de residencia del usuario.
+ *               codigo_postal:
+ *                 type: number
+ *                 description: Nuevo código postal de la ciudad de residencia del usuario.
+ *     responses:
+ *       '200':
+ *         description: Información de usuario actualizada correctamente.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 mensaje:
+ *                   type: string
+ *                   description: Mensaje de éxito.
+ *       '401':
+ *         description: Error de autenticación o no autorizado.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   description: Mensaje de error detallado.
+ *       '404':
+ *         description: No se encontró un usuario para actualizar.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   description: Mensaje de error detallado.
+ *       '500':
+ *         description: Error interno del servidor.
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 error:
+ *                   type: string
+ *                   description: Mensaje de error detallado.
+ */
+
+  .post('/actualizarUsuario', autorizarUsuario, updateUsuario)
   /**
   * @swagger
   * /api/inicioCliente:
@@ -263,7 +332,48 @@ router
 *                   description: Mensaje de error detallado
 */
 
-  .post('/datosCliente', autorizarUsuario, postDatosCliente)
+  .post('/datosCliente', autorizarUsuario, postDireccionCliente)
+  /**
+* @swagger
+* /api/sobreMi:
+*   post:
+*     tags: [Usuarios]
+*     summary: Actualizar o registrar descripción del cliente
+*     description: Permite actualizar o registrar la descripción del cliente autenticado. La longitud máxima de la descripción es de 240 caracteres.
+*     requestBody:
+*       required: true
+*       content:
+*         application/json:
+*           schema:
+*             type: object
+*             properties:
+*               descripcion:
+*                 type: string
+*                 description: Descripción del cliente.
+*     responses:
+*       '201':
+*         description: Descripción del cliente actualizada o registrada correctamente
+*         content:
+*           application/json:
+*             schema:
+*               type: object
+*               properties:
+*                 mensaje:
+*                   type: string
+*                   description: Mensaje de éxito
+*       '500':
+*         description: Error al actualizar o registrar la descripción del cliente
+*         content:
+*           application/json:
+*             schema:
+*               type: object
+*               properties:
+*                 error:
+*                   type: string
+*                   description: Mensaje de error detallado
+*/
+
+  .post('/sobreMi', autorizarUsuario, postSobreMi)
   /**
 * @swagger
 * /api/cerrarSesion:
@@ -279,7 +389,6 @@ router
 */
 
   .get('/cerrarSesion', cerrarSesionCliente)
-
   /**
   * @swagger
   * /api/solicitarProfesionales:
@@ -295,8 +404,8 @@ router
   *             type: object
   *             properties:
   *               profesion:
-  *                 type: string
-  *                 description: Nombre de la profesión por la cual filtrar los profesionales.
+  *                 type: integer
+  *                 description: Id de la profesión por la cual filtrar los profesionales.
   *     responses:
   *       '200':
   *         description: Profesionales encontrados satisfactoriamente
@@ -617,7 +726,7 @@ router
  *                   type: string
  *                   description: Mensaje de error detallado
  */
-  .get('/profesional', getProfesional)
+  .post('/profesional', getProfesional)
 
   .post('/cargarProfesiones', cargarProfesiones)
 module.exports = router

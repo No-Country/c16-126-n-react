@@ -37,7 +37,7 @@ export default function RegisterPage() {
       <div className="register ">
         <div>
           <form
-            className="flex flex-col max-sm:items-center p-2 m-3 gap-y-8"
+            className="flex flex-col max-sm:items-center p-2 m-3 gap-y-4"
             onSubmit={handleSubmit(onSubmit)}
           >
             <h1 className="titulo1">Crear cuenta</h1>
@@ -58,6 +58,10 @@ export default function RegisterPage() {
                     maxLength: {
                       value: 20,
                       message: "El nombre no puede tener más de 20 caracteres",
+                    },
+                    pattern: {
+                      value: /^[A-Za-z]+$/,
+                      message: "Solo se permiten letras en el nombre",
                     },
                   })}
                 />
@@ -83,6 +87,10 @@ export default function RegisterPage() {
                       value: 20,
                       message:
                         "El apellido no puede tener más de 20 caracteres",
+                    },
+                    pattern: {
+                      value: /^[A-Za-z]+$/,
+                      message: "Solo se permiten letras en el apellido",
                     },
                   })}
                 />
@@ -127,6 +135,12 @@ export default function RegisterPage() {
                     message:
                       "La contraseña debe tener un mínimo de 6 caracteres",
                   },
+                  /* REQUISITO DE CONTRASEÑA
+                  pattern: {
+                    value: /^(?=.*[A-Z])(?=.*\d).+$/,
+                    message:
+                      'La contraseña debe contener al menos una mayúscula y un número',
+                  }, */
                 })}
               />
               {errors.password && (

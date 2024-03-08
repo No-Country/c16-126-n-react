@@ -2,18 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+.titulo1 {
+  @apply text-black font-bold text-center text-3xl md:mb-5 sm:text-5xl;
+}
+
 .register {
   @apply sm:w-[1240px] sm:h-[824px] w-full flex sm:gap-20 justify-center items-center bg-[#DEE9EC];
 }
 
 .ipt-reg-s {
-  @apply text-start text-[17px] px-3 sm:w-[306px] sm:h-[50px] text-[#000000BF] placeholder-black bg-[#F2F5F5] border-solid border-[3px] rounded-[20px] border-[#ffffff10]  shadow-md shadow-[#00000040];
+  @apply text-start text-xl px-5 py-2 md:my-3 sm:w-[100%] sm:h-[50px] text-[#000000BF] placeholder-black bg-[#F2F5F5] border-solid border-[3px] rounded-[20px] border-[#ffffff10]  shadow-md shadow-[#00000040];
 }
 
 .ipt-reg-l {
-  @apply text-start text-[17px] px-3 sm:w-[637px] sm:h-[50px] text-[#000000BF] placeholder-black bg-[#F2F5F5] border-solid border-[3px] rounded-[20px] border-[#ffffff10] shadow-md shadow-[#00000040];
+  @apply text-start text-xl px-5 py-2 md:my-3 sm:w-[100%] sm:h-[50px] text-[#000000BF] placeholder-black bg-[#F2F5F5] border-solid border-[3px] rounded-[20px] border-[#ffffff10] shadow-md shadow-[#00000040];
 }
 
 .btn-reg {
-  @apply sm:w-[440px] sm:h-[60px] w-32 text-center text-sm sm:text-[20px] text-white bg-[#354ED1] border-[3px] rounded-[20px] border-[#354ED1] shadow-md shadow-[#00000040];
+  @apply sm:w-[440px] sm:h-[60px] w-32 text-center text-sm sm:text-[20px] font-bold text-white bg-[#354ED1] border-[3px] rounded-[20px] border-[#354ED1] shadow-md shadow-[#00000040];
+}
+
+.btn-blue {
+  @apply sm:w-[80%] sm:h-[60px] px-3 py-2 w-32 self-center text-center text-base sm:text-[20px] font-bold text-white bg-[#354ED1] border-[3px] rounded-[20px] border-[#354ED1] shadow-md shadow-[#00000040];
 }

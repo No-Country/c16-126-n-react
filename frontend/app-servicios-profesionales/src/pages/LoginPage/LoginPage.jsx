@@ -58,74 +58,65 @@ export default function Login() {
       ) : (
         <div className="flex justify-center">
           <div className="sm:w-[1240px] sm:h-[824px] w-full flex md:gap-20 justify-center items-center bg-[#DEE9EC]">
-            <div>
-              <form
-                className="flex flex-col items-center p-2 m-3 gap-y-8"
-                onSubmit={handleSubmit}
-              >
-                <h1 className="text-black font-bold text-[20px] sm:text-[30px] ">
-                  Ingrese sus datos
-                </h1>
+            <form
+              className="flex flex-col items-center p-2 m-3 gap-y-8"
+              onSubmit={handleSubmit}
+            >
+              <h1 className="titulo1">Ingrese sus datos</h1>
 
+              <input
+                className="ipt-reg-l"
+                placeholder="Correo Electrónico"
+                name="email"
+                id="email"
+                ref={userRef}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                }}
+                value={email}
+                autoComplete="off"
+                required
+              />
+
+              <div className="flex flex-col items-center sm:w-[100%] sm:items-end">
                 <input
-                  className="text-start text-[17px] px-3 sm:w-[637px] sm:h-[50px] text-[#000000BF] placeholder-black bg-[#F2F5F5] border-solid border-[3px] rounded-[20px] border-[#ffffff10] shadow-md shadow-[#00000040]"
-                  placeholder="Correo Electrónico"
-                  name="email"
-                  id="email"
+                  className="ipt-reg-l"
+                  type="password"
+                  placeholder="Contraseña"
+                  name="password"
+                  id="password"
                   ref={userRef}
                   onChange={(e) => {
-                    setEmail(e.target.value);
+                    setPassword(e.target.value);
                   }}
-                  value={email}
-                  autoComplete="off"
+                  value={password}
                   required
                 />
+                <a
+                  href="#"
+                  className="flex justify-end text-[#454BE0E0] text-x sm:text-[19px] underline mt-3"
+                >
+                  ¿Olvidaste tu contraseña?
+                </a>
+              </div>
 
-                <div className="flex flex-col">
-                  <input
-                    className="text-start text-[17px] px-3 sm:w-[637px] sm:h-[50px] text-[#000000BF] placeholder-black bg-[#F2F5F5] border-solid border-[3px] rounded-[20px] border-[#ffffff10] shadow-md shadow-[#00000040]"
-                    type="password"
-                    placeholder="Contraseña"
-                    name="password"
-                    id="password"
-                    ref={userRef}
-                    onChange={(e) => {
-                      setPassword(e.target.value);
-                    }}
-                    value={password}
-                    required
-                  />
-                  <a
-                    href="#"
-                    className="flex justify-end text-[#454BE0E0] text-[19px] underline mt-3"
+              <button className="btn-blue">Iniciar sesión</button>
+
+              <div className="flex flex-col items-center justify-center">
+                <p className="text-[#000000BF] text-[15px] sm:text-[20px] font-bold">
+                  ¿No tienes una cuenta?
+                  <NavLink
+                    to="/register"
+                    className="text-[#454BE0E0] text-[15px] sm:text-[20px] underline px-3"
                   >
-                    ¿Olvidaste tu contraseña?
-                  </a>
-                </div>
+                    Registrarse
+                  </NavLink>
+                </p>
+              </div>
+            </form>
 
-                <button className="sm:w-[440px] sm:h-[60px] text-center text-[12px] sm:text-[20px] font-bold text-white bg-[#354ED1] border-[3px] rounded-[20px] border-[#354ED1] shadow-md shadow-[#00000040]">
-                  Iniciar sesión
-                </button>
-
-                <div className="flex flex-col items-center justify-center">
-                  <p className="text-[#000000BF] text-[12px] sm:text-[20px] font-bold">
-                    ¿No tienes una cuenta?
-                    <NavLink
-                      to="/register"
-                      className="text-[#454BE0E0] text-[12px] sm:text-[20px] underline px-3"
-                    >
-                      Registrarse
-                    </NavLink>
-                  </p>
-                </div>
-              </form>
-            </div>
-            <div>
-              <img
-                src={img}
-                alt="electricista"
-                className="hidden sm:w-[265px] sm:h-[448px] sm:flex"
-              />
+            <div className="max-w-[350px]">
+              <img src={img} alt="electricista" className="hidden md:flex" />
             </div>
           </div>
         </div>

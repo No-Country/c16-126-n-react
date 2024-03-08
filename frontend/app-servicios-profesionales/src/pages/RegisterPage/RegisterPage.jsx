@@ -37,12 +37,10 @@ export default function RegisterPage() {
       <div className="register ">
         <div>
           <form
-            className="flex flex-col items-center p-2 m-3 gap-y-8"
+            className="flex flex-col max-sm:items-center p-2 m-3 gap-y-8"
             onSubmit={handleSubmit(onSubmit)}
           >
-            <h1 className="text-black font-bold text-[30px] border-[#00000040]">
-              Crear cuenta
-            </h1>
+            <h1 className="titulo1">Crear cuenta</h1>
 
             <div className="contents sm:flex gap-[1.5rem]">
               <div className="flex flex-col">
@@ -197,27 +195,23 @@ export default function RegisterPage() {
               </div>
             </div>
 
-            <button className="btn-reg">Registrarse</button>
+            <button className="btn-blue">Registrarse</button>
 
             <div className="flex flex-col items-center justify-center">
-              <p className="text-[#000000BF] font-bold text-[20px]">
+              <p className="text-[#000000BF] text-[15px] sm:text-[20px] font-bold">
                 ¿Ya tienes una cuenta?
               </p>
               <NavLink
                 to="/login"
-                className="text-[#454BE0E0] text-[20px] underline"
+                className="text-[#454BE0E0] text-[15px] sm:text-[20px] underline px-3"
               >
                 Inicia sesión
               </NavLink>
             </div>
           </form>
         </div>
-        <div>
-          <img
-            src={img}
-            alt="electricista"
-            className="hidden sm:w-[265px] sm:h-[448px] sm:flex"
-          />
+        <div className="max-w-[350px]">
+          <img src={img} alt="electricista" className="hidden md:flex" />
         </div>
       </div>
     </div>
